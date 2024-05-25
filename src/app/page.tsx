@@ -52,9 +52,9 @@ export default function Component() {
                             </p>
                             <Link
                                 className="inline-flex items-center justify-center rounded-md bg-[#F0C244] px-6 py-3 text-white font-medium shadow-sm hover:bg-[#EC7210] focus:outline-none focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2"
-                                href="#"
+                                href="#contact"
                             >
-                                Get Started
+                                Contact Us
                             </Link>
                         </div>
                         <div className="hidden md:block">
