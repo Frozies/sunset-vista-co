@@ -1,0 +1,24 @@
+{
+  "name": "Sunset Vista Co | SW Florida Software Consulting",
+  "short_name": "Sunset Vista Co",
+  "description": "Sunset Vista Co is a full‑service software consulting firm serving Lee County (Fort Myers, Cape Coral) and Collier County (Naples). Specializing in full‑stack web development, blockchain solutions, cloud consulting, and custom software tailored to your business needs.",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "theme_color": "#F0C244",
+  "background_color": "#FFF5E7",
+  "display": "standalone"
+}
