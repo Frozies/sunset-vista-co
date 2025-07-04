@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         siteName: 'Sunset Vista Co',
         images: [
             {
-                url: 'https://sunsetvista.co/og-image.jpg',
+                url: 'https://sunsetvista.co/og-image.png',
                 width: 1200,
                 height: 630,
                 alt: 'Sunset Vista Co – SW Florida digital solutions'
