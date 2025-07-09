@@ -9,7 +9,7 @@ const AboutMe = () => (
         <div className="absolute left-0 top-8 bottom-8 w-2 bg-gradient-to-b from-[#F0C244] to-[#EC7210] rounded-full hidden md:block" />
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#073763] mb-4 drop-shadow-lg">Meet Davin Young</h2>
         <p className="text-lg text-gray-700 mb-4">
-          <span className="font-semibold text-[#F0C244]">Founder, Inventor, Developer, Problem Solver.</span> I’m Davin, the person behind Sunset Vista Co. I help businesses and entrepreneurs turn ideas into beautiful, high-performing digital products—websites, ecommerce, SaaS, and more.
+          <span className="font-semibold text-[#F0C244]">Founder, Inventor, Developer, Problem Solver.</span> I’m Davin, the person behind Sunset Vista Co. I help businesses and entrepreneurs turn ideas into beautiful, high-performing digital products, websites, ecommerce, SaaS, and more.
         </p>
         <p className="text-lg text-gray-700 mb-6">
           My approach is hands-on, collaborative, and focused on results. Whether you’re a local shop or a global brand, I’ll help you grow with clean design, scalable tech, and a personal touch. Let’s build something great together!
