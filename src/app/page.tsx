@@ -5,6 +5,9 @@ import {Projects} from "@/components/projects";
 import {Solutions} from "@/components/solutions";
 import {Footer} from "@/components/footer";
 import {DynamicContact} from "@/components/dynamic-contact";
+import LeadMagnet from "@/components/lead-magnet";
+import FAQAndProcess from "@/components/faq";
+import AboutMe from "@/components/about-me";
 
 
 export const metadata: Metadata = {
@@ -59,8 +62,11 @@ export default function Component() {
         <Header/>
         <div className="flex flex-col">
             <Hero/>
-            <Solutions/>
             <Projects/>
+            <Solutions/>
+            <LeadMagnet/>
+            <AboutMe/>
+            <FAQAndProcess/>
             <DynamicContact/>
             <Footer/>
         </div>
