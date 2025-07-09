@@ -18,6 +18,9 @@ export const Header = () => {
           <Link className="px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition" href="#projects">
             Projects
           </Link>
+          <Link className="px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition" href="/pricing">
+            Pricing
+          </Link>
           <Link className="px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition" href="#contact">
             Contact
           </Link>
