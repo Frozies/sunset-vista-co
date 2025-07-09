@@ -17,7 +17,7 @@ export const Footer = () => {
                         <Link href="https://www.linkedin.com/in/davinyoung/" className="hover:text-[#F0C244] transition" aria-label="LinkedIn" target="_blank" rel="noopener">
                             <FaLinkedin className="w-5 h-5" />
                         </Link>
-                        <Link href="https://github.com/davinyoung" className="hover:text-[#F0C244] transition" aria-label="GitHub" target="_blank" rel="noopener">
+                        <Link href="https://github.com/frozies" className="hover:text-[#F0C244] transition" aria-label="GitHub" target="_blank" rel="noopener">
                             <FaGithub className="w-5 h-5" />
                         </Link>
                     </div>

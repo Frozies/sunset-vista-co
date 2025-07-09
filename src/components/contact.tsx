@@ -4,17 +4,18 @@ import {useForm} from "react-hook-form";
 import { FaRegHandshake } from "react-icons/fa6";
 
 export type FormData = {
-    name: string; email: string; message: string;
+    name: string; email: string; message: string; phone?: string;
 };
 
 const Contact = () => {
     const {register, handleSubmit} = useForm<FormData>();
 
     async function onSubmit(data: FormData) {
+        const fullMessage = data.message + (data.phone ? `\nPhone: ${data.phone}` : "");
         await fetch('/api/email', {
             method: 'POST', headers: {
                 'Content-Type': 'application/json',
-            }, body: JSON.stringify(data),
+            }, body: JSON.stringify({ ...data, message: fullMessage }),
         }).then((res) => res.json())
             .then((response) => {
                 alert(response.message);
@@ -36,10 +37,10 @@ const Contact = () => {
                             Ready to start your next project or have questions? Fill out the form and we’ll get back to you fast.
                         </p>
                     </div>
-                    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6 w-full">
-                        <div className="grid md:grid-cols-2 gap-4">
+                    <form onSubmit={handleSubmit(onSubmit)} className="w-full grid gap-6">
+                        <div className="grid md:grid-cols-3 gap-4">
                             <div className="grid gap-2">
-                                <label htmlFor="name" className="mb-2 block text-base font-semibold text-[#222]">
+                                <label htmlFor="name" className="block text-base font-semibold text-[#222] mb-1">
                                     Name
                                 </label>
                                 <input
@@ -51,7 +52,7 @@ const Contact = () => {
                                 />
                             </div>
                             <div className="grid gap-2">
-                                <label htmlFor="email" className="mb-2 block text-base font-semibold text-[#222]">
+                                <label htmlFor="email" className="block text-base font-semibold text-[#222] mb-1">
                                     Email
                                 </label>
                                 <input
@@ -60,6 +61,18 @@ const Contact = () => {
                                     placeholder="Enter your email"
                                     className="w-full rounded-lg border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-[#F0C244] focus:shadow-md"
                                     {...register('email', {required: true})}
+                                />
+                            </div>
+                            <div className="grid gap-2">
+                                <label htmlFor="phone" className="block text-base font-semibold text-[#222] mb-1">
+                                    Phone (optional)
+                                </label>
+                                <input
+                                    id="phone"
+                                    type="tel"
+                                    placeholder="Enter your phone number"
+                                    className="w-full rounded-lg border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-[#F0C244] focus:shadow-md"
+                                    {...register('phone')}
                                 />
                             </div>
                         </div>
@@ -76,7 +89,7 @@ const Contact = () => {
                             ></textarea>
                         </div>
                         <button
-                            className="hover:shadow-lg rounded-full bg-[#F0C244] py-4 px-10 text-lg font-bold text-white outline-none transition hover:bg-[#EC7210] focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2 mt-2"
+                            className="hover:shadow-lg rounded-full bg-[#F0C244] py-4 px-10 text-lg font-bold text-white outline-none transition hover:bg-[#EC7210] focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2"
                             type="submit">
                             Send Message
                         </button>

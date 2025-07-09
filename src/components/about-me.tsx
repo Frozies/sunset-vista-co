@@ -3,19 +3,13 @@ import Link from "next/link";
 
 const AboutMe = () => (
   <section className="relative py-28 md:py-40 bg-gradient-to-br from-[#f8fafc] via-[#fffbe6] to-[#ffe0b2]" id="about-me">
-    {/* Subtle background pattern/accent */}
-    <div className="absolute inset-0 pointer-events-none z-0">
-      <svg className="absolute top-0 left-0 w-96 h-32 opacity-10" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="200" cy="0" rx="200" ry="40" fill="#F0C244" />
-      </svg>
-    </div>
     <div className="container mx-auto px-4 md:px-8 max-w-4xl flex flex-col md:flex-row items-center gap-0 md:gap-12 relative z-10">
       {/* Card with vertical accent bar */}
       <div className="relative flex-1 bg-white/95 rounded-3xl shadow-2xl border border-[#F0C244]/30 p-10 md:pl-16 flex flex-col justify-center min-h-[340px]">
         <div className="absolute left-0 top-8 bottom-8 w-2 bg-gradient-to-b from-[#F0C244] to-[#EC7210] rounded-full hidden md:block" />
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#073763] mb-4 drop-shadow-lg">Meet Davin Young</h2>
         <p className="text-lg text-gray-700 mb-4">
-          <span className="font-semibold text-[#F0C244]">Founder, Developer, Problem Solver.</span> I’m Davin, the person behind Sunset Vista Co. I help businesses and entrepreneurs turn ideas into beautiful, high-performing digital products—websites, ecommerce, SaaS, and more.
+          <span className="font-semibold text-[#F0C244]">Founder, Inventor, Developer, Problem Solver.</span> I’m Davin, the person behind Sunset Vista Co. I help businesses and entrepreneurs turn ideas into beautiful, high-performing digital products—websites, ecommerce, SaaS, and more.
         </p>
         <p className="text-lg text-gray-700 mb-6">
           My approach is hands-on, collaborative, and focused on results. Whether you’re a local shop or a global brand, I’ll help you grow with clean design, scalable tech, and a personal touch. Let’s build something great together!
