@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaNfcDirectional, FaChartBar, FaLock, FaLeaf, FaCloud } from "react-icons/fa6";
+import Image from "next/image";
 
 const items = [
     {
@@ -93,13 +94,13 @@ export function Projects() {
                     {items.map((item, index) => (
                         <div key={index} className="group bg-white/90 rounded-2xl shadow-xl border border-[#F0C244]/20 p-6 flex flex-col h-full transition-transform hover:-translate-y-2 hover:shadow-2xl">
                             <div className="overflow-hidden rounded-xl mb-4">
-                                <img
+                                <Image
                                     alt={item.title}
                                     className="rounded-xl w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 shadow"
-                                    height="200"
+                                    height={200}
+                                    width={400}
                                     src={item.image}
                                     style={{ aspectRatio: "400/200" }}
-                                    width="400"
                                 />
                             </div>
                             <div className="flex flex-wrap gap-2 mb-2">

@@ -5,6 +5,7 @@ import { CloudIcon } from "@/components/icons/cloud-icon";
 import { CodeIcon } from "@/components/icons/code-icon";
 import { FaNfcDirectional, FaChartBar } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Hero = () => {
     return (
@@ -40,13 +41,13 @@ export const Hero = () => {
                     </div>
                     <div className="relative hidden md:flex justify-center items-center">
                         <div className="absolute -top-8 -left-8 w-72 h-72 bg-[#F0C244]/30 rounded-full blur-3xl z-0 animate-pulse" />
-                        <img
+                        <Image
                             alt="Modern Website Design"
                             className="rounded-2xl shadow-2xl border-4 border-white/80 relative z-10"
-                            height="420"
+                            height={420}
+                            width={600}
                             src="/hero.jpg"
                             style={{ aspectRatio: "600/420", objectFit: "cover" }}
-                            width="600"
                         />
                     </div>
                 </div>
