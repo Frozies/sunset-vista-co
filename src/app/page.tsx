@@ -6,6 +6,7 @@ import {Solutions} from "@/components/solutions";
 import {Footer} from "@/components/footer";
 import {DynamicContact} from "@/components/dynamic-contact";
 import LeadMagnet from "@/components/lead-magnet";
+import WebsiteAuditLeadMagnet from "@/components/website-audit-lead-magnet";
 import FAQAndProcess from "@/components/faq";
 import AboutMe from "@/components/about-me";
 
@@ -64,6 +65,7 @@ export default function Component() {
             <Hero/>
             <Projects/>
             <Solutions/>
+            <WebsiteAuditLeadMagnet/>
             <LeadMagnet/>
             <AboutMe/>
             <FAQAndProcess/>

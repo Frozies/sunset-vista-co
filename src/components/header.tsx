@@ -91,6 +91,7 @@ export const Header = () => {
             {createNavLink("#services", "Services", "px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition")}
             {createNavLink("#about-me", "About", "px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition")}
             {createNavLink("/pricing", "Pricing", "px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition")}
+            {createNavLink("/website-audit", "Free Audit", "px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition")}
             {createNavLink("#contact", "Contact", "px-4 py-2 rounded-full font-semibold text-white hover:bg-[#F0C244]/20 transition")}
           </nav>
           
@@ -153,6 +154,7 @@ export const Header = () => {
               {createNavLink("#services", "Services", "px-4 py-3 rounded-lg font-semibold text-white hover:bg-[#F0C244]/20 transition mb-2")}
               {createNavLink("#about-me", "About", "px-4 py-3 rounded-lg font-semibold text-white hover:bg-[#F0C244]/20 transition mb-2")}
               {createNavLink("/pricing", "Pricing", "px-4 py-3 rounded-lg font-semibold text-white hover:bg-[#F0C244]/20 transition mb-2")}
+              {createNavLink("/website-audit", "Free Audit", "px-4 py-3 rounded-lg font-semibold text-white hover:bg-[#F0C244]/20 transition mb-2")}
               {createNavLink("#contact", "Contact", "px-4 py-3 rounded-lg font-semibold text-white hover:bg-[#F0C244]/20 transition mb-2")}
             </nav>
 
