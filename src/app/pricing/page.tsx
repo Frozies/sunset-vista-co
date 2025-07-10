@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer";
 import { FaCheck, FaRocket, FaCrown, FaStar, FaShieldAlt, FaChartLine, FaPalette, FaCogs, FaHeadset } from "react-icons/fa";
 import Link from "next/link";
 import { ConsultationScheduler } from "@/components/consultation-scheduler";
+import { trackPricingInteraction } from "@/lib/analytics";
 
 export const metadata: Metadata = {
     title: 'Pricing | Sunset Vista Co | Professional Service Packages',
@@ -95,6 +96,7 @@ export default function PricingPage() {
                                     <Link
                                         href="#contact"
                                         className="w-full bg-gradient-to-r from-[#EC7210] to-[#F0C244] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F0C244] hover:to-[#EC7210] transition-all duration-300 text-center block"
+                                        onClick={() => trackPricingInteraction("Professional Starter", "get_started")}
                                     >
                                         Get Started
                                     </Link>
@@ -143,6 +145,7 @@ export default function PricingPage() {
                                     <Link
                                         href="#contact"
                                         className="w-full bg-gradient-to-r from-[#F0C244] to-[#F7931A] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F7931A] hover:to-[#F0C244] transition-all duration-300 text-center block"
+                                        onClick={() => trackPricingInteraction("Ecommerce Business Launch", "get_started")}
                                     >
                                         Get Started
                                     </Link>
@@ -183,6 +186,7 @@ export default function PricingPage() {
                                     <Link
                                         href="#contact"
                                         className="w-full bg-gradient-to-r from-[#F7931A] to-[#EC7210] text-white font-bold py-3 px-6 rounded-lg hover:from-[#EC7210] hover:to-[#F7931A] transition-all duration-300 text-center block"
+                                        onClick={() => trackPricingInteraction("Custom Web Application", "get_started")}
                                     >
                                         Get Started
                                     </Link>

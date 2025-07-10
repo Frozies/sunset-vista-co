@@ -1,5 +1,6 @@
 'use client';
 import Link from "next/link";
+import { trackButtonClick } from "@/lib/analytics";
 
 const LeadMagnet = () => {
   return (
@@ -30,6 +31,7 @@ const LeadMagnet = () => {
         <Link 
           href="#contact" 
           className="rounded-full bg-[#F0C244] py-4 px-10 text-lg font-bold text-white outline-none transition hover:bg-[#EC7210] focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+          onClick={() => trackButtonClick("Get Your Free Consultation", "lead_magnet")}
         >
           Get Your Free Consultation
         </Link>

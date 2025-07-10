@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaComment, FaPaperPlane } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
+import { trackContactSubmission } from '@/lib/analytics';
 
 interface FormData {
     name: string;

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { trackAuditSubmission } from "@/lib/analytics";
 
 interface AuditForm {
     name: string;
@@ -63,6 +64,9 @@ export const WebsiteAuditForm = () => {
             setIsSubmitting(false);
             return;
         }
+
+        // Track audit submission
+        trackAuditSubmission(validatedUrl);
 
         try {
             // Call the real audit API

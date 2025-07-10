@@ -6,6 +6,7 @@ import { CodeIcon } from "@/components/icons/code-icon";
 import { FaNfcDirectional, FaChartBar } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
+import { trackButtonClick } from "@/lib/analytics";
 
 export const Hero = () => {
     return (
@@ -35,6 +36,7 @@ export const Hero = () => {
                         <Link
                             className="inline-flex items-center justify-center rounded-full bg-[#F0C244] px-8 py-4 text-xl text-white font-bold shadow-lg hover:bg-[#EC7210] transition focus:outline-none focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2 mt-6"
                             href="#contact"
+                            onClick={() => trackButtonClick("Get a Free Consultation", "hero_section")}
                         >
                             Get a Free Consultation
                         </Link>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { trackButtonClick, trackNavigation } from "@/lib/analytics";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,13 +35,18 @@ export const Header = () => {
 
   // Helper function to create navigation links
   const createNavLink = (href: string, label: string, className: string) => {
+    const handleClick = () => {
+      trackNavigation(label);
+      closeMobileMenu();
+    };
+
     if (isPricingPage && href.startsWith("#")) {
       // If on pricing page and link is a section, go to main page first
       return (
         <Link 
           className={className} 
           href={`/${href}`}
-          onClick={closeMobileMenu}
+          onClick={handleClick}
         >
           {label}
         </Link>
@@ -51,7 +57,7 @@ export const Header = () => {
         <Link 
           className={className} 
           href={href}
-          onClick={closeMobileMenu}
+          onClick={handleClick}
         >
           {label}
         </Link>
@@ -96,7 +102,11 @@ export const Header = () => {
           </nav>
           
           {/* Desktop CTA Button */}
-          <Link href={isPricingPage ? "/#contact" : "#contact"} className="hidden md:inline-flex items-center rounded-full bg-[#F0C244] px-6 py-2 text-[#073763] font-bold shadow hover:bg-[#EC7210] hover:text-white transition ml-4">
+          <Link 
+            href={isPricingPage ? "/#contact" : "#contact"} 
+            className="hidden md:inline-flex items-center rounded-full bg-[#F0C244] px-6 py-2 text-[#073763] font-bold shadow hover:bg-[#EC7210] hover:text-white transition ml-4"
+            onClick={() => trackButtonClick("Get a Quote", "header_desktop")}
+          >
             Get a Quote
           </Link>
           
@@ -163,7 +173,10 @@ export const Header = () => {
               <Link 
                 href={isPricingPage ? "/#contact" : "#contact"}
                 className="w-full inline-flex items-center justify-center rounded-full bg-[#F0C244] px-6 py-3 text-[#073763] font-bold shadow hover:bg-[#EC7210] hover:text-white transition"
-                onClick={closeMobileMenu}
+                onClick={() => {
+                  trackButtonClick("Get a Quote", "header_mobile");
+                  closeMobileMenu();
+                }}
               >
                 Get a Quote
               </Link>

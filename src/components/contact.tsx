@@ -2,6 +2,7 @@
 
 import {useForm} from "react-hook-form";
 import { FaRegHandshake } from "react-icons/fa6";
+import { trackContactSubmission } from "@/lib/analytics";
 
 export type FormData = {
     name: string; email: string; message: string; phone?: string;
@@ -12,6 +13,10 @@ const Contact = () => {
 
     async function onSubmit(data: FormData) {
         const fullMessage = data.message + (data.phone ? `\nPhone: ${data.phone}` : "");
+        
+        // Track form submission
+        trackContactSubmission();
+        
         await fetch('/api/email', {
             method: 'POST', headers: {
                 'Content-Type': 'application/json',

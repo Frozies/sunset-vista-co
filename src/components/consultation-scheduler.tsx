@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { trackConsultationRequest } from "@/lib/analytics";
 
 interface ConsultationForm {
     name: string;
@@ -67,6 +68,9 @@ export const ConsultationScheduler = () => {
         setIsSubmitting(true);
         setSubmitStatus("idle");
         setErrorMessage("");
+
+        // Track consultation request
+        trackConsultationRequest(formData.service || "general");
 
         try {
             const response = await fetch("/api/email", {

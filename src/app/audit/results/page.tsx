@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { FaCheckCircle, FaExclamationTriangle, FaArrowRight, FaPhone, FaEnvelope, FaCalendar, FaStar, FaChartLine, FaUsers, FaRocket, FaGlobe, FaSearch } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import AuditContactForm from '@/components/audit-contact-form';
+import { trackButtonClick } from '@/lib/analytics';
 
 interface AuditResults {
     lighthouse: {
@@ -247,14 +248,20 @@ export default function AuditResultsPage() {
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button
-                                onClick={() => setShowScheduler(true)}
+                                onClick={() => {
+                                    trackButtonClick("Get in Touch", "audit_results");
+                                    setShowScheduler(true);
+                                }}
                                 className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg flex items-center gap-2"
                             >
                                 <FaEnvelope className="w-5 h-5" />
                                 Get in Touch
                             </Button>
                             <Button
-                                onClick={() => window.location.href = 'mailto:davin@sunsetvista.co?subject=Website Audit Follow-up'}
+                                onClick={() => {
+                                    trackButtonClick("Email Us", "audit_results");
+                                    window.location.href = 'mailto:davin@sunsetvista.co?subject=Website Audit Follow-up';
+                                }}
                                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-4 px-8 rounded-lg text-lg flex items-center gap-2"
                             >
                                 <FaEnvelope className="w-5 h-5" />
