@@ -135,14 +135,23 @@ async function runLighthouseAudit(url: string): Promise<AuditResults> {
         console.log('✅ [LIGHTHOUSE] Chrome launched successfully on port:', chrome.port);
         console.log('🔍 [LIGHTHOUSE] Running Lighthouse audit...');
 
-        // Run Lighthouse with simplified configuration
+        // Run Lighthouse with Hobby plan optimized configuration
         const runnerResult = await lighthouse(url, {
             port: chrome.port,
             output: 'json',
             onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
             logLevel: 'error',
             disableStorageReset: true,
-            formFactor: 'desktop'
+            formFactor: 'desktop',
+            maxWaitForLoad: 15000, // 15 seconds max wait
+            throttling: {
+                rttMs: 40,
+                throughputKbps: 10240,
+                cpuSlowdownMultiplier: 1,
+                requestLatencyMs: 0,
+                downloadThroughputKbps: 0,
+                uploadThroughputKbps: 0
+            }
         });
 
         console.log('✅ [LIGHTHOUSE] Lighthouse audit completed');
