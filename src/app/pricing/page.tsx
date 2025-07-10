@@ -5,7 +5,6 @@ import { FaCheck, FaRocket, FaCrown, FaStar, FaShieldAlt, FaChartLine, FaPalette
 import Link from "next/link";
 import { ConsultationScheduler } from "@/components/consultation-scheduler";
 import { PricingCard } from "@/components/pricing-card";
-import { trackPricingInteraction } from "@/lib/analytics";
 
 export const metadata: Metadata = {
     title: 'Pricing | Sunset Vista Co | Professional Service Packages',
@@ -78,7 +77,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#EC7210] to-[#F0C244]"
                                 icon={<FaStar className="w-8 h-8 text-[#EC7210]" />}
-                                onButtonClick={() => trackPricingInteraction("Professional Starter", "get_started")}
                             />
 
                             {/* Ecommerce Business Launch */}
@@ -96,7 +94,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#F0C244] to-[#F7931A]"
                                 icon={<FaRocket className="w-8 h-8 text-[#F0C244]" />}
-                                onButtonClick={() => trackPricingInteraction("Ecommerce Business Launch", "get_started")}
                             />
 
                             {/* Custom Web Application */}
@@ -114,7 +111,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#F7931A] to-[#EC7210]"
                                 icon={<FaCrown className="w-8 h-8 text-[#F7931A]" />}
-                                onButtonClick={() => trackPricingInteraction("Custom Web Application", "get_started")}
                             />
                         </div>
                     </div>
@@ -195,7 +191,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#EC7210] to-[#F0C244]"
                                 icon={<FaChartLine className="w-8 h-8 text-[#EC7210]" />}
-                                onButtonClick={() => trackPricingInteraction("SEO & Content Strategy", "get_started")}
                             />
 
                             {/* Branding & Visual Identity */}
@@ -211,7 +206,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#F0C244] to-[#F7931A]"
                                 icon={<FaPalette className="w-8 h-8 text-[#F0C244]" />}
-                                onButtonClick={() => trackPricingInteraction("Branding & Visual Identity", "get_started")}
                             />
 
                             {/* Performance & Security */}
@@ -227,7 +221,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#F7931A] to-[#EC7210]"
                                 icon={<FaShieldAlt className="w-8 h-8 text-[#F7931A]" />}
-                                onButtonClick={() => trackPricingInteraction("Performance & Security", "get_started")}
                             />
 
                             {/* Monthly Support & Maintenance */}
@@ -243,7 +236,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#EC7210] to-[#F0C244]"
                                 icon={<FaHeadset className="w-8 h-8 text-[#EC7210]" />}
-                                onButtonClick={() => trackPricingInteraction("Monthly Support & Maintenance", "get_started")}
                             />
 
                             {/* Analytics & Reporting Dashboard */}
@@ -258,7 +250,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#F0C244] to-[#F7931A]"
                                 icon={<FaChartLine className="w-8 h-8 text-[#F0C244]" />}
-                                onButtonClick={() => trackPricingInteraction("Analytics & Reporting Dashboard", "get_started")}
                             />
 
                             {/* Conversion Optimization */}
@@ -274,7 +265,6 @@ export default function PricingPage() {
                                 buttonLink="#contact"
                                 buttonColor="from-[#F7931A] to-[#EC7210]"
                                 icon={<FaCogs className="w-8 h-8 text-[#F7931A]" />}
-                                onButtonClick={() => trackPricingInteraction("Conversion Optimization", "get_started")}
                             />
                         </div>
                     </div>

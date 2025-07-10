@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
+import { trackPricingInteraction } from "@/lib/analytics";
 
 interface PricingCardProps {
   title: string;
@@ -11,7 +12,6 @@ interface PricingCardProps {
   buttonLink: string;
   buttonColor: string; // e.g. 'from-[#EC7210] to-[#F0C244]'
   icon?: React.ReactNode;
-  onButtonClick?: () => void;
 }
 
 export const PricingCard: React.FC<PricingCardProps> = ({
@@ -22,8 +22,11 @@ export const PricingCard: React.FC<PricingCardProps> = ({
   buttonLink,
   buttonColor,
   icon,
-  onButtonClick,
 }) => {
+  const handleButtonClick = () => {
+    trackPricingInteraction(title, "get_started");
+  };
+
   return (
     <div className={`relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300`}>
       <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${buttonColor}`}></div>
@@ -46,7 +49,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({
         <Link
           href={buttonLink}
           className={`w-full bg-gradient-to-r ${buttonColor} text-white font-bold py-3 px-6 rounded-lg hover:from-[#F0C244] hover:to-[#EC7210] transition-all duration-300 text-center block`}
-          onClick={onButtonClick}
+          onClick={handleButtonClick}
         >
           {buttonText}
         </Link>
