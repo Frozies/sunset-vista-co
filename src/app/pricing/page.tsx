@@ -93,7 +93,7 @@ export default function PricingPage() {
                                         </li>
                                     </ul>
                                     <Link
-                                        href="#contact?service=Professional%20Starter%20Website%20($3,000)"
+                                        href="#contact"
                                         className="w-full bg-gradient-to-r from-[#EC7210] to-[#F0C244] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F0C244] hover:to-[#EC7210] transition-all duration-300 text-center block"
                                     >
                                         Get Started
@@ -104,14 +104,19 @@ export default function PricingPage() {
                             {/* Ecommerce Business Launch */}
                             <div className="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 transform scale-105">
                                 <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#F0C244] to-[#F7931A]"></div>
-                                <div className="absolute top-4 right-4 bg-[#F0C244] text-white px-3 py-1 rounded-full text-sm font-bold">
+                                <div className="absolute top-4 right-4 bg-[#F0C244] text-white px-3 py-1 rounded-full text-sm font-bold z-10 md:block hidden">
                                     MOST POPULAR
                                 </div>
                                 <div className="p-8">
                                     <div className="text-center mb-8">
-                                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Ecommerce Business Launch</h3>
-                                        <div className="text-4xl font-bold text-[#F0C244] mb-2">$8,000</div>
-                                        <p className="text-gray-600">Ideal for businesses ready to sell products or services online</p>
+                                                                                <div className="relative">
+                                            <div className="md:hidden absolute -top-2 -right-2 bg-[#F0C244] text-white px-2 py-1 rounded-full text-xs font-bold">
+                                                MOST POPULAR
+                                            </div>
+                                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Ecommerce Business Launch</h3>
+                                            <div className="text-4xl font-bold text-[#F0C244] mb-2">$8,000</div>
+                                            <p className="text-gray-600">Ideal for businesses ready to sell products or services online</p>
+                                        </div>
                                     </div>
                                     <ul className="space-y-4 mb-8">
                                         <li className="flex items-start gap-3">
@@ -136,7 +141,7 @@ export default function PricingPage() {
                                         </li>
                                     </ul>
                                     <Link
-                                        href="#contact?service=Ecommerce%20Business%20Launch%20($8,000)"
+                                        href="#contact"
                                         className="w-full bg-gradient-to-r from-[#F0C244] to-[#F7931A] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F7931A] hover:to-[#F0C244] transition-all duration-300 text-center block"
                                     >
                                         Get Started
@@ -176,7 +181,7 @@ export default function PricingPage() {
                                         </li>
                                     </ul>
                                     <Link
-                                        href="#contact?service=Custom%20Web%20Application%20($12,000+)"
+                                        href="#contact"
                                         className="w-full bg-gradient-to-r from-[#F7931A] to-[#EC7210] text-white font-bold py-3 px-6 rounded-lg hover:from-[#EC7210] hover:to-[#F7931A] transition-all duration-300 text-center block"
                                     >
                                         Get Started
@@ -199,7 +204,7 @@ export default function PricingPage() {
                                 <h3 className="text-lg font-semibold text-gray-700 mb-2">Small Business Starter</h3>
                                 <p className="text-sm text-gray-500 mb-4">1-page website for businesses just getting started</p>
                                 <Link
-                                    href="#contact?service=Small%20Business%20Starter%20($1,750%20-%20was%20$2,000)"
+                                    href="#contact"
                                     className="inline-flex items-center bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm font-medium"
                                 >
                                     Learn More
@@ -271,7 +276,7 @@ export default function PricingPage() {
                                 </ul>
                                 <div className="text-2xl font-bold text-[#EC7210] mb-4">$1,500</div>
                                 <Link
-                                    href="#contact?service=SEO%20%26%20Content%20Strategy%20($1,500)"
+                                    href="#contact"
                                     className="w-full bg-gradient-to-r from-[#EC7210] to-[#F0C244] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F0C244] hover:to-[#EC7210] transition-all duration-300 text-center block"
                                 >
                                     Get Started
@@ -300,7 +305,7 @@ export default function PricingPage() {
                                 </ul>
                                 <div className="text-2xl font-bold text-[#F0C244] mb-4">$2,500</div>
                                 <Link
-                                    href="#contact?service=Branding%20%26%20Visual%20Identity%20($2,500)"
+                                    href="#contact"
                                     className="w-full bg-gradient-to-r from-[#F0C244] to-[#F7931A] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F7931A] hover:to-[#F0C244] transition-all duration-300 text-center block"
                                 >
                                     Get Started
@@ -329,7 +334,7 @@ export default function PricingPage() {
                                 </ul>
                                 <div className="text-2xl font-bold text-[#F7931A] mb-4">$1,200</div>
                                 <Link
-                                    href="#contact?service=Performance%20%26%20Security%20($1,200)"
+                                    href="#contact"
                                     className="w-full bg-gradient-to-r from-[#F7931A] to-[#EC7210] text-white font-bold py-3 px-6 rounded-lg hover:from-[#EC7210] hover:to-[#F7931A] transition-all duration-300 text-center block"
                                 >
                                     Get Started
@@ -358,7 +363,7 @@ export default function PricingPage() {
                                 </ul>
                                 <div className="text-2xl font-bold text-[#EC7210] mb-4">Starting at $300/month</div>
                                 <Link
-                                    href="#contact?service=Monthly%20Support%20%26%20Maintenance"
+                                    href="#contact"
                                     className="w-full bg-gradient-to-r from-[#EC7210] to-[#F0C244] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F0C244] hover:to-[#EC7210] transition-all duration-300 text-center block"
                                 >
                                     Get Started
@@ -383,7 +388,7 @@ export default function PricingPage() {
                                 </ul>
                                 <div className="text-2xl font-bold text-[#F0C244] mb-4">$1,000</div>
                                 <Link
-                                    href="#contact?service=Analytics%20%26%20Reporting%20Dashboard%20($1,000)"
+                                    href="#contact"
                                     className="w-full bg-gradient-to-r from-[#F0C244] to-[#F7931A] text-white font-bold py-3 px-6 rounded-lg hover:from-[#F7931A] hover:to-[#F0C244] transition-all duration-300 text-center block"
                                 >
                                     Get Started
@@ -412,7 +417,7 @@ export default function PricingPage() {
                                 </ul>
                                 <div className="text-2xl font-bold text-[#F7931A] mb-4">$1,500</div>
                                 <Link
-                                    href="#contact?service=Conversion%20Optimization%20($1,500)"
+                                    href="#contact"
                                     className="w-full bg-gradient-to-r from-[#F7931A] to-[#EC7210] text-white font-bold py-3 px-6 rounded-lg hover:from-[#EC7210] hover:to-[#F7931A] transition-all duration-300 text-center block"
                                 >
                                     Get Started
