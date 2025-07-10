@@ -22,12 +22,7 @@ const nextConfig = {
   // External packages for server-side rendering
   serverExternalPackages: ['lighthouse', 'chrome-launcher'],
   
-  // Vercel-specific configurations
-  experimental: {
-    serverComponentsExternalPackages: ['lighthouse', 'chrome-launcher']
-  },
-  
-  // Increase function timeout for Lighthouse audits
+  // Headers for audit endpoint
   async headers() {
     return [
       {

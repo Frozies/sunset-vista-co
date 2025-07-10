@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
             businessType,
             goals,
             results: auditResults
-        });
+        }, request);
 
         const totalTime = Date.now() - startTime;
         console.log('✅ [AUDIT API] Audit request completed successfully in', totalTime, 'ms');
@@ -319,7 +319,7 @@ async function sendAuditNotification(data: {
     businessType?: string;
     goals?: string;
     results: AuditResults;
-}) {
+}, request: NextRequest) {
     const notificationStartTime = Date.now();
     console.log('📧 [NOTIFICATION] Starting audit notification email...');
     
@@ -361,7 +361,10 @@ This is a new website audit request from the audit page. The user has been redir
     console.log('📝 [NOTIFICATION] Email body generated, length:', emailBody.length, 'characters');
 
     try {
-        const emailUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/email`;
+        // Use the request URL to determine the correct API endpoint
+        const requestUrl = new URL(request.url);
+        const baseUrl = `${requestUrl.protocol}//${requestUrl.host}`;
+        const emailUrl = `${baseUrl}/api/email`;
         console.log('🌐 [NOTIFICATION] Sending notification to API endpoint:', emailUrl);
         
         const response = await fetch(emailUrl, {
