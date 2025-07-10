@@ -35,34 +35,34 @@ const Contact = () => {
                         <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 drop-shadow-lg">Let’s Connect</h2>
                         <p className="text-lg md:text-xl text-gray-700 text-center max-w-xl font-medium">
                             Ready to start your next project or have questions? Fill out the form and we’ll get back to you fast.
-                        </p>
+                </p>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full grid gap-6">
                         <div className="grid md:grid-cols-3 gap-4">
-                            <div className="grid gap-2">
+                        <div className="grid gap-2">
                                 <label htmlFor="name" className="block text-base font-semibold text-[#222] mb-1">
-                                    Name
-                                </label>
-                                <input
-                                    id="name"
-                                    type="text"
-                                    placeholder="Enter your name"
+                                Name
+                            </label>
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="Enter your name"
                                     className="w-full rounded-lg border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-[#F0C244] focus:shadow-md"
-                                    {...register('name', {required: true})}
-                                />
-                            </div>
-                            <div className="grid gap-2">
+                                {...register('name', {required: true})}
+                            />
+                        </div>
+                        <div className="grid gap-2">
                                 <label htmlFor="email" className="block text-base font-semibold text-[#222] mb-1">
-                                    Email
-                                </label>
-                                <input
-                                    id="email"
+                                Email
+                            </label>
+                            <input
+                                id="email"
                                     type="email"
-                                    placeholder="Enter your email"
+                                placeholder="Enter your email"
                                     className="w-full rounded-lg border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-[#F0C244] focus:shadow-md"
-                                    {...register('email', {required: true})}
-                                />
-                            </div>
+                                {...register('email', {required: true})}
+                            />
+                        </div>
                             <div className="grid gap-2">
                                 <label htmlFor="phone" className="block text-base font-semibold text-[#222] mb-1">
                                     Phone (optional)
@@ -75,27 +75,27 @@ const Contact = () => {
                                     {...register('phone')}
                                 />
                             </div>
-                        </div>
-                        <div className="grid gap-2">
+                    </div>
+                    <div className="grid gap-2">
                             <label htmlFor="message" className="mb-2 block text-base font-semibold text-[#222]">
-                                Message
-                            </label>
-                            <textarea
-                                id="message"
-                                rows={4}
-                                placeholder="Tell us about your project"
+                            Message
+                        </label>
+                        <textarea
+                            id="message"
+                            rows={4}
+                            placeholder="Tell us about your project"
                                 className="w-full resize-none rounded-lg border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-[#F0C244] focus:shadow-md"
-                                {...register('message', {required: true})}
-                            ></textarea>
-                        </div>
-                        <button
+                            {...register('message', {required: true})}
+                        ></textarea>
+                    </div>
+                    <button
                             className="hover:shadow-lg rounded-full bg-[#F0C244] py-4 px-10 text-lg font-bold text-white outline-none transition hover:bg-[#EC7210] focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2"
-                            type="submit">
+                        type="submit">
                             Send Message
-                        </button>
-                    </form>
-                </div>
+                    </button>
+                </form>
             </div>
+        </div>
         </section>
     );
 }
