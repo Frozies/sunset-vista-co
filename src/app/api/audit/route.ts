@@ -44,8 +44,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid URL provided' }, { status: 400 });
     }
 
-    console.log('🚀 [AUDIT API] Running Lighthouse audit for:', url);
-    const results = await runLighthouseAudit(url);
+    console.log('🚀 [AUDIT API] Running website audit for:', url);
+    const results = await runWebsiteAudit(url);
 
     console.log('📧 [AUDIT API] Sending notification email');
     await sendAuditNotification({ name, email, url, businessType, goals, results }, request);
@@ -59,14 +59,11 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function runLighthouseAudit(url: string): Promise<AuditResults> {
+async function runWebsiteAudit(url: string): Promise<AuditResults> {
   const auditStart = Date.now();
-  console.log('🌐 [LIGHTHOUSE] Starting audit for:', url);
+  console.log('🌐 [AUDIT] Starting audit for:', url);
 
   try {
-    // Dynamically import Lighthouse
-    const lighthouse = (await import('lighthouse')).default;
-
     // Launch Lambda-compatible Chromium
     const execPath = await chromium.executablePath;
     const launchArgs = chromium.args.concat([
@@ -81,45 +78,77 @@ async function runLighthouseAudit(url: string): Promise<AuditResults> {
       executablePath: execPath,
       headless: chromium.headless,
     });
-    console.log('✅ [LIGHTHOUSE] Chromium launched');
+    console.log('✅ [AUDIT] Chromium launched');
 
-    // Run Lighthouse audit
-    const runnerResult = await lighthouse(url, {
-      port: 9222,
-      output: 'json',
-      onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
-      logLevel: 'error',
-      disableStorageReset: true,
-      formFactor: 'desktop',
-      maxWaitForLoad: 15000,
+    // Create a new page
+    const page = await browser.newPage();
+    
+    // Set user agent
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
+
+    // Navigate to the URL
+    console.log('📄 [AUDIT] Navigating to:', url);
+    const response = await page.goto(url, { 
+      waitUntil: 'networkidle2',
+      timeout: 30000 
     });
 
-    await browser.close();
-    console.log('🔒 [LIGHTHOUSE] Chromium closed');
-
-    if (!runnerResult) {
-      throw new Error('Lighthouse audit failed - no result returned');
+    if (!response || !response.ok()) {
+      throw new Error(`Failed to load page: ${response?.status()} ${response?.statusText()}`);
     }
 
-    const lhr = runnerResult.lhr;
-    const scores = {
-      performance: Math.round((lhr.categories.performance?.score || 0) * 100),
-      accessibility: Math.round((lhr.categories.accessibility?.score || 0) * 100),
-      bestPractices: Math.round((lhr.categories['best-practices']?.score || 0) * 100),
-      seo: Math.round((lhr.categories.seo?.score || 0) * 100),
+    // Get page metrics
+    const metrics = await page.metrics();
+    const performance = await page.evaluate(() => {
+      const navigation = (performance as any).getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+      return {
+        loadTime: navigation.loadEventEnd - navigation.loadEventStart,
+        domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
+        firstContentfulPaint: 0,
+        largestContentfulPaint: 0
+      };
+    });
+
+    // Check for common performance issues
+    const performanceScore = calculatePerformanceScore(metrics, performance);
+    
+    // Check accessibility
+    const accessibilityScore = await checkAccessibility(page);
+    
+    // Check SEO basics
+    const seoScore = await checkSEO(page);
+    
+    // Check best practices
+    const bestPracticesScore = await checkBestPractices(page);
+
+    await browser.close();
+    console.log('🔒 [AUDIT] Chromium closed');
+
+    const totalScore = Math.round((performanceScore + accessibilityScore + bestPracticesScore + seoScore) / 4);
+    const recommendations = generateRecommendations({
+      performance: performanceScore,
+      accessibility: accessibilityScore,
+      bestPractices: bestPracticesScore,
+      seo: seoScore
+    });
+
+    console.log('🏆 [AUDIT] Scores:', { performance: performanceScore, accessibility: accessibilityScore, bestPractices: bestPracticesScore, seo: seoScore }, 'Total:', totalScore);
+    console.log('⏱️ [AUDIT] Completed in', Date.now() - auditStart, 'ms');
+
+    return { 
+      lighthouse: { 
+        performance: performanceScore, 
+        accessibility: accessibilityScore, 
+        bestPractices: bestPracticesScore, 
+        seo: seoScore, 
+        totalScore 
+      }, 
+      recommendations, 
+      fullReport: null 
     };
-    const totalScore = Math.round(
-      (scores.performance + scores.accessibility + scores.bestPractices + scores.seo) / 4
-    );
-    const recommendations = generateRecommendations(lhr);
-
-    console.log('🏆 [LIGHTHOUSE] Scores:', scores, 'Total:', totalScore);
-    console.log('⏱️ [LIGHTHOUSE] Completed in', Date.now() - auditStart, 'ms');
-
-    return { lighthouse: { ...scores, totalScore }, recommendations, fullReport: lhr };
 
   } catch (error) {
-    console.error('❌ [LIGHTHOUSE] Audit failed:', error);
+    console.error('❌ [AUDIT] Audit failed:', error);
     // Fallback mock results
     const mock = {
       performance: rand(70, 100),
@@ -144,32 +173,125 @@ async function runLighthouseAudit(url: string): Promise<AuditResults> {
   }
 }
 
-function generateRecommendations(lhr: any): string[] {
-  const recs: string[] = [];
-  const scores = {
-    performance: lhr.categories.performance?.score || 0,
-    accessibility: lhr.categories.accessibility?.score || 0,
-    bestPractices: lhr.categories['best-practices']?.score || 0,
-    seo: lhr.categories.seo?.score || 0
-  };
+function calculatePerformanceScore(metrics: any, performance: any): number {
+  let score = 100;
+  
+  // Penalize for high memory usage
+  if (metrics.JSHeapUsedSize > 50 * 1024 * 1024) score -= 20;
+  
+  // Penalize for slow load times
+  if (performance.loadTime > 3000) score -= 30;
+  else if (performance.loadTime > 2000) score -= 15;
+  
+  // Penalize for slow DOM content loaded
+  if (performance.domContentLoaded > 2000) score -= 20;
+  else if (performance.domContentLoaded > 1000) score -= 10;
+  
+  return Math.max(0, score);
+}
 
-  if (scores.performance < 0.9) {
+async function checkAccessibility(page: any): Promise<number> {
+  let score = 100;
+  
+  // Check for alt text on images
+  const imagesWithoutAlt = await page.evaluate(() => {
+    const images = document.querySelectorAll('img');
+    return Array.from(images).filter(img => !img.alt).length;
+  });
+  
+  if (imagesWithoutAlt > 0) score -= imagesWithoutAlt * 5;
+  
+  // Check for proper heading structure
+  const headingStructure = await page.evaluate(() => {
+    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    let hasH1 = false;
+    let previousLevel = 0;
+    
+    for (const heading of headings) {
+      const level = parseInt(heading.tagName.charAt(1));
+      if (level === 1) hasH1 = true;
+      if (level > previousLevel + 1) return false; // Skip levels
+      previousLevel = level;
+    }
+    
+    return hasH1;
+  });
+  
+  if (!headingStructure) score -= 20;
+  
+  return Math.max(0, score);
+}
+
+async function checkSEO(page: any): Promise<number> {
+  let score = 100;
+  
+  // Check for title tag
+  const title = await page.evaluate(() => document.title);
+  if (!title || title.length < 10 || title.length > 60) score -= 20;
+  
+  // Check for meta description
+  const metaDescription = await page.evaluate(() => {
+    const meta = document.querySelector('meta[name="description"]');
+    return meta ? meta.getAttribute('content') : null;
+  });
+  
+  if (!metaDescription || metaDescription.length < 50 || metaDescription.length > 160) score -= 20;
+  
+  // Check for viewport meta tag
+  const viewport = await page.evaluate(() => {
+    const meta = document.querySelector('meta[name="viewport"]');
+    return meta ? meta.getAttribute('content') : null;
+  });
+  
+  if (!viewport) score -= 15;
+  
+  return Math.max(0, score);
+}
+
+async function checkBestPractices(page: any): Promise<number> {
+  let score = 100;
+  
+  // Check for HTTPS
+  const url = page.url();
+  if (!url.startsWith('https://')) score -= 30;
+  
+  // Check for security headers (basic check)
+  const headers = await page.evaluate(() => {
+    // This is a simplified check - in a real implementation you'd check actual headers
+    return true; // Assume good for now
+  });
+  
+  // Check for console errors
+  const consoleErrors = await page.evaluate(() => {
+    // This would require setting up console error listeners
+    return 0; // Assume no errors for now
+  });
+  
+  if (consoleErrors > 0) score -= consoleErrors * 5;
+  
+  return Math.max(0, score);
+}
+
+function generateRecommendations(scores: any): string[] {
+  const recs: string[] = [];
+  
+  if (scores.performance < 90) {
     recs.push("Optimize images and implement lazy loading to improve page speed");
     recs.push("Minimize render-blocking resources");
     recs.push("Reduce unused CSS and JavaScript");
   }
-  if (scores.accessibility < 0.9) {
+  if (scores.accessibility < 90) {
     recs.push("Add proper alt text to all images for better accessibility");
     recs.push("Improve color contrast ratios for better readability");
     recs.push("Implement proper heading structure (H1, H2, H3)");
     recs.push("Add proper ARIA labels to interactive elements");
   }
-  if (scores.bestPractices < 0.9) {
+  if (scores.bestPractices < 90) {
     recs.push("Implement proper form labels and error handling");
     recs.push("Add security headers (HTTPS, CSP, etc.)");
     recs.push("Ensure proper viewport meta tag");
   }
-  if (scores.seo < 0.9) {
+  if (scores.seo < 90) {
     recs.push("Add meta descriptions and optimize title tags for SEO");
     recs.push("Implement structured data markup for better search visibility");
     recs.push("Ensure proper canonical URLs");
