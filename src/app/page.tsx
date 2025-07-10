@@ -8,7 +8,6 @@ import {DynamicContact} from "@/components/dynamic-contact";
 import LeadMagnet from "@/components/lead-magnet";
 import FAQAndProcess from "@/components/faq";
 import AboutMe from "@/components/about-me";
-import {ConsultationScheduler} from "@/components/consultation-scheduler";
 
 
 export const metadata: Metadata = {
@@ -68,7 +67,6 @@ export default function Component() {
             <LeadMagnet/>
             <AboutMe/>
             <FAQAndProcess/>
-            <ConsultationScheduler/>
             <DynamicContact/>
             <Footer/>
         </div>

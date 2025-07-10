@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaCalendarAlt, FaClock, FaPhone, FaEnvelope, FaUser, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,6 +35,28 @@ export const ConsultationScheduler = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
+
+    // Check for service selection from URL hash on component mount
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const hash = window.location.hash;
+            if (hash.includes('service=')) {
+                const serviceParam = new URLSearchParams(hash.substring(1)).get('service');
+                if (serviceParam) {
+                    const decodedService = decodeURIComponent(serviceParam);
+                    setFormData(prev => ({ ...prev, service: decodedService }));
+                    
+                    // Scroll to the form after a short delay to ensure it's rendered
+                    setTimeout(() => {
+                        const formElement = document.getElementById('contact');
+                        if (formElement) {
+                            formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
+                }
+            }
+        }
+    }, []);
 
     const handleInputChange = (field: keyof ConsultationForm, value: string) => {
         setFormData(prev => ({ ...prev, [field]: value }));
@@ -107,7 +129,7 @@ This is a consultation request from the pricing page.`
     };
 
     return (
-        <section className="relative py-24 bg-gradient-to-br from-[#fffbe6] via-[#ffe0b2] to-[#ffb347] overflow-hidden">
+        <section className="relative py-24 bg-gradient-to-br from-[#fffbe6] via-[#ffe0b2] to-[#ffb347] overflow-hidden" id="contact">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#fffbe6]/80 via-[#ffe0b2]/60 to-transparent z-0 pointer-events-none" />
             <div className="absolute bottom-[-60px] right-[-80px] w-[340px] h-[220px] bg-[#F0C244]/40 rounded-full blur-3xl z-0" />
             <div className="container mx-auto px-4 md:px-8 relative z-10">
