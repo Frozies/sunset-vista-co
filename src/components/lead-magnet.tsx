@@ -6,7 +6,7 @@ const LeadMagnet = () => {
     <section className="py-16 bg-gradient-to-br from-[#e0f7fa] via-[#b2ebf2] to-[#4dd0e1] flex justify-center" id="free-consultation">
       <div className="max-w-xl w-full bg-white/90 rounded-2xl shadow-2xl border border-[#F0C244]/20 p-8 md:p-12 flex flex-col items-center text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a1a] mb-4 text-center drop-shadow-lg">Ready to Transform Your Business?</h2>
-        <p className="text-lg text-gray-700 mb-6">Get expert advice, a custom plan, and a no-pressure quote—completely free. Let's discuss how we can help you achieve your goals.</p>
+        <p className="text-lg text-gray-700 mb-6">Get expert advice, a custom plan, and a no-pressure quote—completely free. Let&apos;s discuss how we can help you achieve your goals.</p>
         <div className="space-y-3 mb-8">
           <div className="flex items-center gap-3 text-gray-700">
             <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
