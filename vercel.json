@@ -3,10 +3,7 @@
     "app/api/audit/route.ts": {
       "memory": 1024,
       "maxDuration": 30,
-      "includeFiles": [
-        "node_modules/lighthouse/report/**/*",
-        "node_modules/lighthouse/lighthouse-core/**/*"
-      ]
+      "includeFiles": "node_modules/lighthouse/**/*"
     }
   },
   "build": {
