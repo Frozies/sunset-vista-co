@@ -10,9 +10,8 @@ const __dirname = dirname(__filename);
 const nextConfig = {
   // Bundle everything your server code touches
   output: 'standalone',
+  outputFileTracingRoot: __dirname,
   experimental: {
-    outputFileTracing: true,
-    outputFileTracingRoot: __dirname,
   },
 
   webpack: (config, { isServer }) => {

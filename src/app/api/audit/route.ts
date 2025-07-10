@@ -97,6 +97,10 @@ async function runLighthouseAudit(url: string): Promise<AuditResults> {
     await browser.close();
     console.log('🔒 [LIGHTHOUSE] Chromium closed');
 
+    if (!runnerResult) {
+      throw new Error('Lighthouse audit failed - no result returned');
+    }
+
     const lhr = runnerResult.lhr;
     const scores = {
       performance: Math.round((lhr.categories.performance?.score || 0) * 100),

@@ -1,3 +1,5 @@
+"use client";
+
 import { ShoppingCartIcon } from "@/components/icons/shopping-cart-icon";
 import { CreditCardIcon } from "@/components/icons/credit-card-icon";
 import { BitcoinIcon } from "@/components/icons/bitcoin-icon";
