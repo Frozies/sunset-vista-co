@@ -13,11 +13,6 @@ interface AuditResults {
         seo: number;
         totalScore: number;
     };
-    pa11y: {
-        violations: number;
-        passes: number;
-        totalIssues: number;
-    };
     recommendations: string[];
 }
 
@@ -52,7 +47,7 @@ export default function AuditResultsPage() {
     }
 
     const { results, userData } = auditData;
-    const { lighthouse, pa11y, recommendations } = results;
+    const { lighthouse, recommendations } = results;
 
     const getScoreColor = (score: number) => {
         if (score >= 90) return 'text-green-600';
@@ -159,22 +154,22 @@ export default function AuditResultsPage() {
                             <div className="flex items-center gap-3">
                                 <FaUsers className="text-blue-600" />
                                 <div>
-                                    <p className="font-semibold text-gray-900">Accessibility Issues</p>
-                                    <p className="text-gray-600">{pa11y.violations} violations found</p>
+                                    <p className="font-semibold text-gray-900">Performance Score</p>
+                                    <p className="text-gray-600">{lighthouse.performance}/100</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
                                 <FaCheckCircle className="text-green-600" />
                                 <div>
-                                    <p className="font-semibold text-gray-900">Accessibility Passes</p>
-                                    <p className="text-gray-600">{pa11y.passes} standards met</p>
+                                    <p className="font-semibold text-gray-900">Accessibility Score</p>
+                                    <p className="text-gray-600">{lighthouse.accessibility}/100</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
                                 <FaExclamationTriangle className="text-yellow-600" />
                                 <div>
-                                    <p className="font-semibold text-gray-900">Total Issues</p>
-                                    <p className="text-gray-600">{pa11y.totalIssues} areas for improvement</p>
+                                    <p className="font-semibold text-gray-900">SEO Score</p>
+                                    <p className="text-gray-600">{lighthouse.seo}/100</p>
                                 </div>
                             </div>
                         </div>

@@ -6,14 +6,13 @@ import { WebsiteAuditForm } from "@/components/website-audit-form";
 
 export const metadata: Metadata = {
     title: 'Free Website Audit | Sunset Vista Co | Performance & Accessibility Analysis',
-    description: 'Get a free comprehensive website audit using Lighthouse and Pa11y. Analyze performance, accessibility, SEO, and get actionable recommendations to improve your website.',
+    description: 'Get a free comprehensive website audit using Lighthouse. Analyze performance, accessibility, SEO, and get actionable recommendations to improve your website.',
     keywords: [
         'website audit',
         'performance analysis',
         'accessibility testing',
         'SEO audit',
         'Lighthouse audit',
-        'Pa11y testing',
         'website optimization',
         'web development services'
     ],

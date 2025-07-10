@@ -17,7 +17,6 @@ interface AuditForm {
 
 interface AuditResults {
     lighthouse: any;
-    pa11y: any;
     recommendations: string[];
 }
 
@@ -277,19 +276,19 @@ export const WebsiteAuditForm = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-blue-800 mb-2">Accessibility Issues</h4>
+                                    <h4 className="font-semibold text-blue-800 mb-2">Additional Metrics</h4>
                                     <div className="space-y-2">
                                         <div className="flex justify-between">
-                                            <span className="text-sm text-gray-600">Violations:</span>
-                                            <span className="font-medium text-red-600">{auditResults.pa11y.violations}</span>
+                                            <span className="text-sm text-gray-600">Best Practices:</span>
+                                            <span className="font-medium">{auditResults.lighthouse.bestPractices}/100</span>
                                         </div>
                                         <div className="flex justify-between">
-                                            <span className="text-sm text-gray-600">Passes:</span>
-                                            <span className="font-medium text-green-600">{auditResults.pa11y.passes}</span>
+                                            <span className="text-sm text-gray-600">SEO Score:</span>
+                                            <span className="font-medium">{auditResults.lighthouse.seo}/100</span>
                                         </div>
                                         <div className="flex justify-between">
-                                            <span className="text-sm text-gray-600">Total Issues:</span>
-                                            <span className="font-medium">{auditResults.pa11y.totalIssues}</span>
+                                            <span className="text-sm text-gray-600">Total Score:</span>
+                                            <span className="font-medium">{auditResults.lighthouse.totalScore}/100</span>
                                         </div>
                                     </div>
                                 </div>

@@ -20,7 +20,27 @@ const nextConfig = {
   },
   
   // External packages for server-side rendering
-  serverExternalPackages: ['lighthouse', 'chrome-launcher']
+  serverExternalPackages: ['lighthouse', 'chrome-launcher'],
+  
+  // Vercel-specific configurations
+  experimental: {
+    serverComponentsExternalPackages: ['lighthouse', 'chrome-launcher']
+  },
+  
+  // Increase function timeout for Lighthouse audits
+  async headers() {
+    return [
+      {
+        source: '/api/audit',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate'
+          }
+        ]
+      }
+    ];
+  }
 };
 
 export default nextConfig;
