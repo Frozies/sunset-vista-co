@@ -12,14 +12,17 @@ import AboutMe from "@/components/about-me";
 
 
 export const metadata: Metadata = {
-    title: 'Sunset Vista Co | Software Consulting in SW Florida',
-    description: 'Sunset Vista Co is a full‑service software consulting firm serving Lee County (Fort Myers, Cape Coral) and Collier County (Naples). Specializing in full‑stack web development, blockchain solutions, cloud consulting, and custom software tailored to your business needs.',
+    title: 'Sunset Vista Co | Lead-Generating Websites for Small Businesses',
+    description: 'We help small businesses gain more leads by creating compelling websites that convert visitors into customers. Serving SW Florida with high-converting web design and ecommerce solutions.',
     keywords: [
-        'software consulting',
-        'web development',
-        'blockchain solutions',
-        'cloud consulting',
+        'lead generation websites',
+        'small business websites',
+        'converting websites',
+        'web design for leads',
         'ecommerce solutions',
+        'business growth websites',
+        'high-converting web design',
+        'SW Florida web development',
         'Lee County FL',
         'Fort Myers',
         'Cape Coral',
@@ -35,8 +38,8 @@ export const metadata: Metadata = {
         follow: true,
     },
     openGraph: {
-        title: 'Sunset Vista Co | SW Florida Software Consulting',
-        description: 'Serving Lee County (Fort Myers, Cape Coral) and Collier County (Naples) with custom software, blockchain, and cloud solutions.',
+        title: 'Sunset Vista Co | Lead-Generating Websites for Small Businesses',
+        description: 'Transform your online presence into a lead-generating machine. We create websites that convert visitors into customers and drive real business growth.',
         url: 'https://sunsetvista.co',
         siteName: 'Sunset Vista Co',
         images: [
@@ -44,7 +47,7 @@ export const metadata: Metadata = {
                 url: 'https://sunsetvista.co/og-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'Sunset Vista Co – SW Florida digital solutions'
+                alt: 'Sunset Vista Co – Lead-generating websites for small businesses'
             }
         ],
         locale: 'en_US',
