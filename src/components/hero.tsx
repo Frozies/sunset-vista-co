@@ -20,11 +20,11 @@ export const Hero = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-8">
                         <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#2d2d2d] drop-shadow-lg">
-                            Websites & Ecommerce That Sell
+                            We help small businesses gain more leads by creating compelling websites
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-700 font-medium max-w-xl">
-                            Custom websites and ecommerce solutions that drive revenue. <span className="text-[#EC7210] font-semibold">Sunset Vista Co</span> builds beautiful, high-converting digital experiences for businesses that want to grow. <br className="hidden md:inline" />
-                            <span className="text-base text-gray-500 font-normal block mt-2">Also offering blockchain, NFC, and cloud innovation for the future-focused.</span>
+                            Transform your online presence into a lead-generating machine. <span className="text-[#EC7210] font-semibold">Sunset Vista Co</span> creates websites that convert visitors into customers and drive real business growth. <br className="hidden md:inline" />
+                            <span className="text-base text-gray-500 font-normal block mt-2">From compelling design to powerful ecommerce solutions, we build digital experiences that actually work.</span>
                         </p>
                         <div className="flex flex-wrap gap-4 items-center mt-4">
                             <span className="inline-flex items-center gap-2 bg-white/80 px-3 py-2 rounded-lg shadow text-[#EC7210] font-semibold text-base"><ShoppingCartIcon className="w-5 h-5" /> Ecommerce</span>
