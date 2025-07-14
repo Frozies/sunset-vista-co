@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import chromium from 'chrome-aws-lambda';
 
 interface AuditRequest {
   url: string;
@@ -64,65 +63,35 @@ async function runWebsiteAudit(url: string): Promise<AuditResults> {
   console.log('🌐 [AUDIT] Starting audit for:', url);
 
   try {
-    // Launch Lambda-compatible Chromium
-    const execPath = await chromium.executablePath;
-    const launchArgs = chromium.args.concat([
-      '--disable-dev-shm-usage',
-      '--single-process',
-      '--no-zygote',
-      '--remote-debugging-port=9222'
-    ]);
-    const browser = await chromium.puppeteer.launch({
-      args: launchArgs,
-      defaultViewport: chromium.defaultViewport,
-      executablePath: execPath,
-      headless: chromium.headless,
+    // Fetch the page content
+    const startTime = Date.now();
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      }
     });
-    console.log('✅ [AUDIT] Chromium launched');
-
-    // Create a new page
-    const page = await browser.newPage();
+    const loadTime = Date.now() - startTime;
     
-    // Set user agent
-    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
-
-    // Navigate to the URL
-    console.log('📄 [AUDIT] Navigating to:', url);
-    const response = await page.goto(url, { 
-      waitUntil: 'networkidle2',
-      timeout: 30000 
-    });
-
-    if (!response || !response.ok()) {
-      throw new Error(`Failed to load page: ${response?.status()} ${response?.statusText()}`);
+    if (!response.ok()) {
+      throw new Error(`Failed to load page: ${response.status} ${response.statusText}`);
     }
 
-    // Get page metrics
-    const metrics = await page.metrics();
-    const performance = await page.evaluate(() => {
-      const navigation = (performance as any).getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-      return {
-        loadTime: navigation.loadEventEnd - navigation.loadEventStart,
-        domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
-        firstContentfulPaint: 0,
-        largestContentfulPaint: 0
-      };
-    });
+    const html = await response.text();
+    const headers = response.headers;
 
-    // Check for common performance issues
-    const performanceScore = calculatePerformanceScore(metrics, performance);
-    
-    // Check accessibility
-    const accessibilityScore = await checkAccessibility(page);
-    
-    // Check SEO basics
-    const seoScore = await checkSEO(page);
-    
-    // Check best practices
-    const bestPracticesScore = await checkBestPractices(page);
+    console.log('✅ [AUDIT] Page loaded in', loadTime, 'ms');
 
-    await browser.close();
-    console.log('🔒 [AUDIT] Chromium closed');
+    // Analyze performance
+    const performanceScore = calculatePerformanceScore(loadTime, html);
+    
+    // Analyze accessibility
+    const accessibilityScore = checkAccessibility(html);
+    
+    // Analyze SEO
+    const seoScore = checkSEO(html, headers);
+    
+    // Analyze best practices
+    const bestPracticesScore = checkBestPractices(url, headers);
 
     const totalScore = Math.round((performanceScore + accessibilityScore + bestPracticesScore + seoScore) / 4);
     const recommendations = generateRecommendations({
@@ -173,101 +142,117 @@ async function runWebsiteAudit(url: string): Promise<AuditResults> {
   }
 }
 
-function calculatePerformanceScore(metrics: any, performance: any): number {
+function calculatePerformanceScore(loadTime: number, html: string): number {
   let score = 100;
   
-  // Penalize for high memory usage
-  if (metrics.JSHeapUsedSize > 50 * 1024 * 1024) score -= 20;
-  
   // Penalize for slow load times
-  if (performance.loadTime > 3000) score -= 30;
-  else if (performance.loadTime > 2000) score -= 15;
+  if (loadTime > 3000) score -= 30;
+  else if (loadTime > 2000) score -= 15;
+  else if (loadTime > 1000) score -= 5;
   
-  // Penalize for slow DOM content loaded
-  if (performance.domContentLoaded > 2000) score -= 20;
-  else if (performance.domContentLoaded > 1000) score -= 10;
+  // Check for large HTML size (indicating potential performance issues)
+  const htmlSize = html.length;
+  if (htmlSize > 500000) score -= 20; // Very large page
+  else if (htmlSize > 200000) score -= 10; // Large page
+  
+  // Check for image optimization opportunities
+  const imgTags = (html.match(/<img[^>]*>/gi) || []).length;
+  if (imgTags > 20) score -= 10; // Many images might need optimization
   
   return Math.max(0, score);
 }
 
-async function checkAccessibility(page: any): Promise<number> {
+function checkAccessibility(html: string): number {
   let score = 100;
   
   // Check for alt text on images
-  const imagesWithoutAlt = await page.evaluate(() => {
-    const images = document.querySelectorAll('img');
-    return Array.from(images).filter(img => !img.alt).length;
-  });
+  const imgTags = html.match(/<img[^>]*>/gi) || [];
+  const imgTagsWithoutAlt = imgTags.filter(img => !img.includes('alt='));
   
-  if (imagesWithoutAlt > 0) score -= imagesWithoutAlt * 5;
+  if (imgTagsWithoutAlt.length > 0) {
+    score -= Math.min(30, imgTagsWithoutAlt.length * 5);
+  }
   
   // Check for proper heading structure
-  const headingStructure = await page.evaluate(() => {
-    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    let hasH1 = false;
-    let previousLevel = 0;
-    
-    for (const heading of headings) {
-      const level = parseInt(heading.tagName.charAt(1));
-      if (level === 1) hasH1 = true;
-      if (level > previousLevel + 1) return false; // Skip levels
-      previousLevel = level;
-    }
-    
-    return hasH1;
-  });
+  const headings = html.match(/<h[1-6][^>]*>/gi) || [];
+  const h1Count = headings.filter(h => h.includes('<h1')).length;
+  const h2Count = headings.filter(h => h.includes('<h2')).length;
   
-  if (!headingStructure) score -= 20;
+  if (h1Count === 0) score -= 20; // No H1 tag
+  if (h1Count > 1) score -= 10; // Multiple H1 tags
+  
+  // Check for ARIA labels
+  const ariaLabels = html.match(/aria-label=/gi) || [];
+  const ariaLabelledby = html.match(/aria-labelledby=/gi) || [];
+  const ariaDescribedby = html.match(/aria-describedby=/gi) || [];
+  
+  const totalAria = ariaLabels.length + ariaLabelledby.length + ariaDescribedby.length;
+  if (totalAria < 3) score -= 10; // Could use more ARIA labels
   
   return Math.max(0, score);
 }
 
-async function checkSEO(page: any): Promise<number> {
+function checkSEO(html: string, headers: Headers): number {
   let score = 100;
   
   // Check for title tag
-  const title = await page.evaluate(() => document.title);
-  if (!title || title.length < 10 || title.length > 60) score -= 20;
+  const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
+  if (!titleMatch) {
+    score -= 25;
+  } else {
+    const title = titleMatch[1].trim();
+    if (title.length < 10 || title.length > 60) score -= 15;
+  }
   
   // Check for meta description
-  const metaDescription = await page.evaluate(() => {
-    const meta = document.querySelector('meta[name="description"]');
-    return meta ? meta.getAttribute('content') : null;
-  });
-  
-  if (!metaDescription || metaDescription.length < 50 || metaDescription.length > 160) score -= 20;
+  const metaDescMatch = html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i);
+  if (!metaDescMatch) {
+    score -= 20;
+  } else {
+    const desc = metaDescMatch[1].trim();
+    if (desc.length < 50 || desc.length > 160) score -= 10;
+  }
   
   // Check for viewport meta tag
-  const viewport = await page.evaluate(() => {
-    const meta = document.querySelector('meta[name="viewport"]');
-    return meta ? meta.getAttribute('content') : null;
-  });
+  const viewportMatch = html.match(/<meta[^>]*name=["']viewport["']/i);
+  if (!viewportMatch) score -= 15;
   
-  if (!viewport) score -= 15;
+  // Check for canonical URL
+  const canonicalMatch = html.match(/<link[^>]*rel=["']canonical["']/i);
+  if (!canonicalMatch) score -= 10;
+  
+  // Check for Open Graph tags
+  const ogTags = html.match(/<meta[^>]*property=["']og:/gi) || [];
+  if (ogTags.length < 3) score -= 10;
   
   return Math.max(0, score);
 }
 
-async function checkBestPractices(page: any): Promise<number> {
+function checkBestPractices(url: string, headers: Headers): number {
   let score = 100;
   
   // Check for HTTPS
-  const url = page.url();
   if (!url.startsWith('https://')) score -= 30;
   
-  // Check for security headers (basic check)
-  const headers = await page.evaluate(() => {
-    // This is a simplified check - in a real implementation you'd check actual headers
-    return true; // Assume good for now
-  });
+  // Check for security headers
+  const securityHeaders = [
+    'x-content-type-options',
+    'x-frame-options',
+    'x-xss-protection',
+    'referrer-policy',
+    'content-security-policy'
+  ];
   
-  // Check for console errors
-  const consoleErrors = await page.evaluate(() => {
-    // This would require setting up console error listeners
-    return 0; // Assume no errors for now
-  });
+  const missingHeaders = securityHeaders.filter(header => !headers.get(header));
+  score -= missingHeaders.length * 5;
   
-  if (consoleErrors > 0) score -= consoleErrors * 5;
+      // Check for compression
+    const contentEncoding = headers.get('content-encoding');
+    if (!contentEncoding || !contentEncoding?.includes('gzip')) score -= 10;
+  
+      // Check for cache headers
+    const cacheControl = headers.get('cache-control');
+    if (!cacheControl || !cacheControl?.includes('max-age')) score -= 10;
   
   return Math.max(0, score);
 }
