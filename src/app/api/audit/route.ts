@@ -72,7 +72,7 @@ async function runWebsiteAudit(url: string): Promise<AuditResults> {
     });
     const loadTime = Date.now() - startTime;
     
-    if (!response.ok()) {
+    if (!response.ok) {
       throw new Error(`Failed to load page: ${response.status} ${response.statusText}`);
     }
 
