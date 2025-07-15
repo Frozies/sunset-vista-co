@@ -23,6 +23,10 @@ export const metadata: Metadata = {
         url: 'https://sunsetvista.co/pricing',
         siteName: 'Sunset Vista Co',
         type: 'website'
+    },
+    robots: {
+        index: false,
+        follow: false
     }
 }
 
