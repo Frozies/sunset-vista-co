@@ -41,32 +41,32 @@ export function HeroSection() {
                         </Button>
                     </div>
 
-                    {/* Trust indicators */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                        <Card className="p-6 text-center">
-                            <div className="flex items-center justify-center mb-3">
-                                <Star className="h-6 w-6 text-primary mr-2" />
-                                <span className="font-semibold">5-Star Rated</span>
-                            </div>
-                            <p className="text-sm text-muted-foreground">Trusted by 100+ SWFL businesses</p>
-                        </Card>
+                    {/*/!* Trust indicators *!/*/}
+                    {/*<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">*/}
+                    {/*    <Card className="p-6 text-center">*/}
+                    {/*        <div className="flex items-center justify-center mb-3">*/}
+                    {/*            <Star className="h-6 w-6 text-primary mr-2" />*/}
+                    {/*            <span className="font-semibold">5-Star Rated</span>*/}
+                    {/*        </div>*/}
+                    {/*        <p className="text-sm text-muted-foreground">Trusted by 100+ SWFL businesses</p>*/}
+                    {/*    </Card>*/}
 
-                        <Card className="p-6 text-center">
-                            <div className="flex items-center justify-center mb-3">
-                                <TrendingUp className="h-6 w-6 text-primary mr-2" />
-                                <span className="font-semibold">Proven Results</span>
-                            </div>
-                            <p className="text-sm text-muted-foreground">Average 150% increase in leads</p>
-                        </Card>
+                    {/*    <Card className="p-6 text-center">*/}
+                    {/*        <div className="flex items-center justify-center mb-3">*/}
+                    {/*            <TrendingUp className="h-6 w-6 text-primary mr-2" />*/}
+                    {/*            <span className="font-semibold">Proven Results</span>*/}
+                    {/*        </div>*/}
+                    {/*        <p className="text-sm text-muted-foreground">Average 150% increase in leads</p>*/}
+                    {/*    </Card>*/}
 
-                        <Card className="p-6 text-center">
-                            <div className="flex items-center justify-center mb-3">
-                                <MapPin className="h-6 w-6 text-primary mr-2" />
-                                <span className="font-semibold">In-Person Support</span>
-                            </div>
-                            <p className="text-sm text-muted-foreground">Face-to-face meetings & local expertise</p>
-                        </Card>
-                    </div>
+                    {/*    <Card className="p-6 text-center">*/}
+                    {/*        <div className="flex items-center justify-center mb-3">*/}
+                    {/*            <MapPin className="h-6 w-6 text-primary mr-2" />*/}
+                    {/*            <span className="font-semibold">In-Person Support</span>*/}
+                    {/*        </div>*/}
+                    {/*        <p className="text-sm text-muted-foreground">Face-to-face meetings & local expertise</p>*/}
+                    {/*    </Card>*/}
+                    {/*</div>*/}
                 </div>
             </div>
 

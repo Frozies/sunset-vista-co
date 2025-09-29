@@ -17,11 +17,6 @@ const benefits = [
         title: "No Tech Jargon",
         description: "We explain everything in plain English so you understand exactly what we're doing.",
     },
-    {
-        icon: Award,
-        title: "Proven Track Record",
-        description: "Over 100 successful projects with measurable results and happy clients.",
-    },
 ]
 
 export function WhyChooseUs() {
@@ -35,7 +30,7 @@ export function WhyChooseUs() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {benefits.map((benefit, index) => (
                         <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
                             <CardContent className="pt-6">

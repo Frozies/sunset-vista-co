@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd39a2a1-4cc1-4757-945d-13db40b77e16" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/v2/cta-section.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/v2/hero-section.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/v2/navigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/v2/services-overview.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/v2/why-choose-us.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    <list default="true" id="bd39a2a1-4cc1-4757-945d-13db40b77e16" name="Changes" comment="homepage">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/v2/hero-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/v2/hero-section.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/v2/why-choose-us.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/v2/why-choose-us.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,11 +100,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759118300792</updated>
-      <workItem from="1759118300794" duration="1867000" />
+      <workItem from="1759118300794" duration="1993000" />
     </task>
+    <task id="LOCAL-00001" summary="homepage">
+      <option name="closed" value="true" />
+      <created>1759120190702</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1759120190702</updated>
+    </task>
+    <task id="LOCAL-00002" summary="homepage">
+      <option name="closed" value="true" />
+      <created>1759120240427</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759120240427</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="homepage" />
   </component>
 </project>
