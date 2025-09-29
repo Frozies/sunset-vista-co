@@ -41,7 +41,7 @@ export function ServicesOverview() {
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything You Need to Succeed Online</h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-                        We speak plain English, not tech jargon. Here's how we help SWFL businesses grow.
+                        We speak plain English, not tech jargon. Here&#39;s how we help SWFL businesses grow.
                     </p>
                 </div>
 
