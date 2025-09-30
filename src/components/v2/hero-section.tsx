@@ -37,7 +37,7 @@ export function HeroSection() {
                             </Link>
                         </Button>
                         <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6 bg-transparent">
-                            <Link href="/contact">Get Free SEO Audit</Link>
+                            <Link href="/website-audit">Get Free SEO Audit</Link>
                         </Button>
                     </div>
 
