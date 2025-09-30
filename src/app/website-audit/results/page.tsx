@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import WebsiteAuditResultsClient from "@/components/v2/audit-results";
+import {Navigation} from "@/components/v2/navigation";
 
 export const metadata: Metadata = {
     title: "Your Website Audit Results | Sunset Vista Co",
@@ -12,5 +13,10 @@ export const metadata: Metadata = {
 }
 
 export default function WebsiteAuditResultsPage() {
-    return <WebsiteAuditResultsClient />
+    return (
+        <>
+            <Navigation />
+            <WebsiteAuditResultsClient />
+        </>
+    )
 }

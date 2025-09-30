@@ -1,9 +1,24 @@
 "use client"
 
-import { Search, Gauge, TrendingUp, Eye, Shield, Smartphone, Zap, CheckCircle, Clock, FileText } from "lucide-react"
+import type React from "react"
+
+import {
+    Search,
+    Gauge,
+    TrendingUp,
+    Eye,
+    Shield,
+    Smartphone,
+    Zap,
+    CheckCircle,
+    Clock,
+    FileText,
+    AlertCircle,
+} from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
 import {Navigation} from "@/components/v2/navigation";
-import {useRouter} from "next/navigation";
-import {useState} from "react";
+
 type AuditResults = {
     lighthouse: {
         performance: number
@@ -15,17 +30,56 @@ type AuditResults = {
     recommendations: string[]
     fullReport?: unknown
 }
+
 const STORAGE_KEY = "sv_audit_results_v1"
 const STORAGE_URL_KEY = "sv_audit_url_v1"
+
+const LOADING_MESSAGES = [
+    { text: "Initializing website audit...", icon: Search },
+    { text: "Analyzing page performance...", icon: Zap },
+    { text: "Checking SEO optimization...", icon: TrendingUp },
+    { text: "Testing mobile responsiveness...", icon: Smartphone },
+    { text: "Evaluating accessibility...", icon: Eye },
+    { text: "Scanning security measures...", icon: Shield },
+    { text: "Reviewing technical SEO...", icon: Gauge },
+    { text: "Compiling comprehensive report...", icon: FileText },
+    { text: "Finalizing recommendations...", icon: CheckCircle },
+]
+
 export default function WebsiteAuditClientPage() {
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [loadingMessageIndex, setLoadingMessageIndex] = useState(0)
+    const [progress, setProgress] = useState(0)
+
+    useEffect(() => {
+        if (!loading) return
+
+        const messageInterval = setInterval(() => {
+            setLoadingMessageIndex((prev) => (prev + 1) % LOADING_MESSAGES.length)
+        }, 5000)
+
+        // Simulate progress bar
+        const progressInterval = setInterval(() => {
+            setProgress((prev) => {
+                if (prev >= 95) return prev
+                return prev + Math.random() * 3
+            })
+        }, 1000)
+
+        return () => {
+            clearInterval(messageInterval)
+            clearInterval(progressInterval)
+        }
+    }, [loading])
 
     async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         setError(null)
         setLoading(true)
+        setLoadingMessageIndex(0)
+        setProgress(0)
 
         const formData = new FormData(e.currentTarget)
         let url = (formData.get("url") as string).trim()
@@ -45,20 +99,101 @@ export default function WebsiteAuditClientPage() {
             const data = (await res.json()) as { success?: boolean; results?: AuditResults; error?: string }
             if (!data.success || !data.results) throw new Error(data.error || "Unexpected response")
 
+            // Complete progress
+            setProgress(100)
+
             // Persist for the results page and redirect
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data.results))
             sessionStorage.setItem(STORAGE_URL_KEY, url)
-            router.push("/website-audit/results")
+
+            // Small delay to show 100% completion
+            setTimeout(() => {
+                router.push("/website-audit/results")
+            }, 500)
         } catch (err: any) {
             setError(err?.message || "Something went wrong")
+            setProgress(0)
         } finally {
             setLoading(false)
         }
     }
+
+    const CurrentIcon = LOADING_MESSAGES[loadingMessageIndex].icon
+
     return (
         <>
             <Navigation />
             <div className="flex flex-col">
+                {loading && (
+                    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                        <div className="bg-white rounded-3xl p-8 md:p-12 max-w-2xl w-full shadow-2xl">
+                            <div className="text-center">
+                                {/* Animated icon */}
+                                <div className="w-24 h-24 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+                                    <CurrentIcon className="w-12 h-12 text-orange-600 animate-bounce" />
+                                </div>
+
+                                {/* Loading message */}
+                                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Analyzing Your Website</h3>
+                                <p className="text-lg text-gray-600 mb-8 min-h-[28px]">{LOADING_MESSAGES[loadingMessageIndex].text}</p>
+
+                                {/* Progress bar */}
+                                <div className="w-full bg-gray-200 rounded-full h-3 mb-4 overflow-hidden">
+                                    <div
+                                        className="bg-gradient-to-r from-orange-600 to-orange-500 h-full rounded-full transition-all duration-1000 ease-out"
+                                        style={{ width: `${progress}%` }}
+                                    />
+                                </div>
+                                <p className="text-sm text-gray-500 mb-6">{Math.round(progress)}% Complete</p>
+
+                                {/* Info text */}
+                                <div className="bg-orange-50 border border-orange-100 rounded-xl p-4">
+                                    <p className="text-sm text-gray-600">
+                                        <strong className="text-orange-600">This may take 30-60 seconds.</strong> We&apos;re running a
+                                        comprehensive analysis of your website&apos;s performance, SEO, and accessibility.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {error && (
+                    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                        <div className="bg-white rounded-3xl p-8 md:p-12 max-w-2xl w-full shadow-2xl">
+                            <div className="text-center">
+                                {/* Error icon */}
+                                <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <AlertCircle className="w-12 h-12 text-red-600" />
+                                </div>
+
+                                {/* Error message */}
+                                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Audit Failed</h3>
+                                <p className="text-lg text-gray-600 mb-8">{error}</p>
+
+                                {/* Action buttons */}
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <button
+                                        onClick={() => setError(null)}
+                                        className="bg-gradient-to-r from-orange-600 to-orange-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl hover:from-orange-700 hover:to-orange-600 transition-all"
+                                    >
+                                        Try Again
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setError(null)
+                                            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
+                                        }}
+                                        className="bg-white text-orange-600 border-2 border-orange-600 px-8 py-4 rounded-xl font-bold hover:bg-orange-50 transition-all"
+                                    >
+                                        Contact Support
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
                 <section className="relative bg-gradient-to-br from-orange-50 via-white to-yellow-50 min-h-[90vh] flex items-center justify-center overflow-hidden">
                     {/* Subtle background decoration */}
                     <div className="absolute top-20 right-10 w-[300px] h-[300px] bg-orange-400/10 rounded-full blur-3xl" />
@@ -83,10 +218,7 @@ export default function WebsiteAuditClientPage() {
 
                             {/* Simple URL Input Form */}
                             <div className="max-w-2xl mx-auto">
-                                <form
-                                    onSubmit={onSubmit}
-                                    className="flex flex-col sm:flex-row gap-4"
-                                >
+                                <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-4">
                                     <div className="flex-1 relative">
                                         <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                                             <Search className="w-5 h-5" />
@@ -358,7 +490,7 @@ export default function WebsiteAuditClientPage() {
                                     Start Your Free Audit
                                 </button>
                                 <p className="text-sm text-orange-100 mt-6">
-                                    No credit card required • Results in 30 seconds • In-person consultation available
+                                    No credit card required • Results in 24-48 hours • In-person consultation available
                                 </p>
                             </div>
                         </div>
