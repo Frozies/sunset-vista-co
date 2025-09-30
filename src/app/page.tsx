@@ -5,6 +5,7 @@ import {ServicesOverview} from "@/components/v2/services-overview";
 import {WhyChooseUs} from "@/components/v2/why-choose-us";
 import {CTASection} from "@/components/v2/cta-section";
 import Script from "next/script";
+import {Footer} from "@/components/v2/footer";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://sunsetvista.co"),
@@ -64,6 +65,7 @@ export default function Component() {
             <ServicesOverview/>
             <WhyChooseUs/>
             <CTASection/>
+            <Footer/>
 
             <Script
                 id="svco-home-jsonld"

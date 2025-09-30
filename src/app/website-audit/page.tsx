@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import WebsiteAuditClientPage from "@/components/v2/audit-page";
+import {Footer} from "@/components/v2/footer";
+import {Navigation} from "@/components/v2/navigation";
 
 export const metadata: Metadata = {
     title: "Free Website Audit | Sunset Vista Co | Performance & Accessibility Analysis",
@@ -28,5 +30,12 @@ export const metadata: Metadata = {
 }
 
 export default function WebsiteAuditPage() {
-    return <WebsiteAuditClientPage />
+    return (
+
+        <>
+            <Navigation />
+            <WebsiteAuditClientPage />
+            <Footer/>
+        </>
+    )
 }
