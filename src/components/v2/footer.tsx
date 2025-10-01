@@ -3,6 +3,33 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin } from "lucide-react"
 
+const footerConfig = {
+    services: {
+        title: "Services",
+        links: [
+            { label: "All Services", href: "/services" },
+            { label: "SEO Services", href: "/services.seo" },
+            { label: "Web Design", href: "/services/web-design" },
+            { label: "E-Commerce", href: "/services/ecommerce" },
+            { label: "Digital Marketing", href: "/services/digital-marketing" },
+            { label: "Free Website Audit", href: "/website-audit" },
+        ],
+    },
+    company: {
+        title: "Company",
+        links: [
+            { label: "Learn", href: "/education" },
+            { label: "Contact Us", href: "/contact" },
+            { label: "About Us", href: "/about" },
+        ],
+    },
+    legal: [
+        { label: "Privacy Policy", href: "/privacy" },
+        { label: "Terms of Service", href: "/terms" },
+        { label: "Sitemap", href: "/sitemap.xml" },
+    ],
+}
+
 export function Footer() {
     return (
         <footer className="bg-gradient-to-b from-background to-muted border-t border-border">
@@ -30,97 +57,36 @@ export function Footer() {
                             </div>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                 <Mail className="h-4 w-4 text-primary" />
-                                <a href="mailto:info@sunsetvista.co" className="hover:text-primary transition-colors">
+                                <a href="mailto:hello@sunsetvista.co" className="hover:text-primary transition-colors">
                                     info@sunsetvista.co
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    {/* Services */}
                     <div>
-                        <h3 className="font-semibold text-lg mb-4">Services</h3>
+                        <h3 className="font-semibold text-lg mb-4">{footerConfig.services.title}</h3>
                         <ul className="space-y-2">
-                            <li>
-                                <Link href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    All Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/services#seo"
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                >
-                                    SEO Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/services#web-design"
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                >
-                                    Web Design
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/services#ecommerce"
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                >
-                                    E-Commerce
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/services#digital-marketing"
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                >
-                                    Digital Marketing
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/website-audit"
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                >
-                                    Free Website Audit
-                                </Link>
-                            </li>
+                            {footerConfig.services.links.map((link) => (
+                                <li key={link.href}>
+                                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Company */}
                     <div>
-                        <h3 className="font-semibold text-lg mb-4">Company</h3>
+                        <h3 className="font-semibold text-lg mb-4">{footerConfig.company.title}</h3>
                         <ul className="space-y-2">
-                            <li>
-                                <Link href="/education" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Learn
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/case-studies"
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                >
-                                    Case Studies
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Blog
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    Contact Us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                    About Us
-                                </Link>
-                            </li>
+                            {footerConfig.company.links.map((link) => (
+                                <li key={link.href}>
+                                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -146,15 +112,15 @@ export function Footer() {
                             © {new Date().getFullYear()} Sunset Vista Co. All rights reserved.
                         </p>
                         <div className="flex gap-6">
-                            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                Privacy Policy
-                            </Link>
-                            <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                Terms of Service
-                            </Link>
-                            <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                                Sitemap
-                            </Link>
+                            {footerConfig.legal.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </div>

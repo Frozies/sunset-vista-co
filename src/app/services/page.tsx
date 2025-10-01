@@ -31,7 +31,6 @@ const services = [
             "SEO-optimized structure",
             "Modern, clean aesthetics",
             "Content management systems",
-            "E-commerce integration ready",
         ],
         href: "/services/web-design",
         price: "Starting at $2,500",

@@ -19,8 +19,6 @@ const navigationConfig = [
         ],
     },
     { label: "Learn", href: "/education" },
-    { label: "Results", href: "/case-studies" },
-    { label: "Blog", href: "/blog" },
     { label: "Free Audit", href: "/website-audit" },
     { label: "Contact", href: "/contact" },
 ]
