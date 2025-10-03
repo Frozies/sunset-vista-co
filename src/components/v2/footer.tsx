@@ -8,7 +8,7 @@ const footerConfig = {
         title: "Services",
         links: [
             { label: "All Services", href: "/services" },
-            { label: "SEO Services", href: "/services.seo" },
+            { label: "SEO Services", href: "/services/seo" },
             { label: "Web Design", href: "/services/web-design" },
             { label: "E-Commerce", href: "/services/ecommerce" },
             { label: "Digital Marketing", href: "/services/digital-marketing" },
@@ -20,7 +20,7 @@ const footerConfig = {
         links: [
             { label: "Learn", href: "/education" },
             { label: "Contact Us", href: "/contact" },
-            { label: "About Us", href: "/about" },
+            // { label: "About Us", href: "/about" },
         ],
     },
     legal: [
@@ -57,7 +57,7 @@ export function Footer() {
                             </div>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                 <Mail className="h-4 w-4 text-primary" />
-                                <a href="mailto:hello@sunsetvista.co" className="hover:text-primary transition-colors">
+                                <a href="mailto:info@sunsetvista.co" className="hover:text-primary transition-colors">
                                     info@sunsetvista.co
                                 </a>
                             </div>
