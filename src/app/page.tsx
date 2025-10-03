@@ -6,62 +6,83 @@ import {WhyChooseUs} from "@/components/v2/why-choose-us";
 import {CTASection} from "@/components/v2/cta-section";
 import Script from "next/script";
 import {Footer} from "@/components/v2/footer";
-
+import {LocalHeroSection} from "@/components/v2/local-hero-section";
 export const metadata: Metadata = {
     metadataBase: new URL("https://sunsetvista.co"),
-    title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Growth",
-    description: "SWFL’s local partner for SEO, web design, and e-commerce. We help small and medium businesses in Cape Coral, Fort Myers, and Naples turn websites into lead-generating, sales-driving machines. Local SEO, AI SEO (GEO), Shopify/WooCommerce, PPC, analytics, and in-person support.",
-    keywords: [// Core positioning
-        "SWFL SEO", "SWFL web design", "SWFL e-commerce", "Cape Coral SEO", "Fort Myers SEO", "Naples FL SEO", "Local SEO Southwest Florida", // Services
-        "web design for small business", "high-converting web design", "website development SWFL", "Shopify developer Cape Coral", "WooCommerce setup Naples", "payment gateway setup", "ecommerce training", "PPC management SWFL", "Google Ads management", "Facebook Ads for small business", "email marketing SWFL", // AI / GEO
-        "AI SEO", "Generative Engine Optimization", "GEO agency", "LLM optimization", "optimize for ChatGPT and Gemini", // Problems / outcomes
-        "get more leads online", "lead-generating websites", "website conversion optimization", "analytics and reporting", "Google Analytics setup", "Google Search Console setup", // Geo signals
-        "Lee County FL", "Collier County FL", "Cape Coral", "Fort Myers", "Naples"],
+    title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
+    description:
+        "Your Southwest Florida partner for SEO, web design, and e-commerce growth. Serving Cape Coral, Fort Myers & Naples with local SEO, AI GEO optimization, Shopify/WooCommerce development, PPC campaigns, analytics setup, and expert in-person support.",
+    keywords: [
+        // Core services + location
+        "SWFL SEO", "SWFL web design", "SWFL e-commerce", "Cape Coral SEO", "Fort Myers SEO", "Naples FL SEO", "Local SEO Southwest Florida",
+
+        // Website & development services
+        "web design for small business", "high-converting web design", "website development SWFL", "Shopify developer Cape Coral", "WooCommerce setup Naples", "ecommerce development SWFL", "payment gateway setup", "ecommerce training",
+
+        // Advertising & marketing
+        "PPC management SWFL", "Google Ads management", "Facebook Ads for small business", "email marketing SWFL", "digital marketing agency SWFL",
+
+        // AI & Generative SEO
+        "AI SEO", "Generative Engine Optimization", "GEO agency", "LLM optimization", "optimize for ChatGPT", "optimize for Gemini",
+
+        // Outcomes & analytics
+        "get more leads online", "lead-generating websites", "website conversion optimization", "analytics and reporting", "Google Analytics setup", "Google Search Console setup",
+
+        // Geo signals
+        "Southwest Florida", "Lee County FL", "Collier County FL", "Cape Coral", "Fort Myers", "Naples"
+    ],
     applicationName: "Sunset Vista Co",
-    authors: [{name: "Sunset Vista Co", url: "https://sunsetvista.co"}],
+    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
     creator: "Davin Young",
     publisher: "Sunset Vista Co LLC",
     robots: {
-        index: true, follow: true,
+        index: true,
+        follow: true,
     },
     alternates: {
-        canonical: "https://sunsetvista.co"
+        canonical: "https://sunsetvista.co",
     },
     openGraph: {
-        title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Growth",
-        description: "We help small and medium businesses in Cape Coral, Fort Myers, and Naples turn their websites into lead-generating, sales-driving machines. Local SEO, AI SEO (GEO), Shopify/WooCommerce, PPC, analytics, and in-person support.",
+        title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
+        description:
+            "We help small and medium businesses in Cape Coral, Fort Myers, and Naples grow online with local SEO, AI GEO optimization, Shopify/WooCommerce, PPC, analytics, and in-person support.",
         url: "https://sunsetvista.co",
         siteName: "Sunset Vista Co",
-        images: [{
-            url: "https://sunsetvista.co/og-image.png",
-            width: 1200,
-            height: 630,
-            alt: "Sunset Vista Co — SWFL’s Local Partner for SEO, Web Design & E-Commerce Growth"
-        }],
+        images: [
+            {
+                url: "https://sunsetvista.co/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Sunset Vista Co - SWFL SEO, Web Design & E-Commerce Experts",
+            },
+        ],
         locale: "en_US",
-        type: "website"
+        type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Growth",
-        description: "Local partner for SEO, web design, e-commerce, and PPC in Cape Coral, Fort Myers & Naples. Turn your site into a lead-generating, sales-driving machine.",
+        title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
+        description:
+            "Cape Coral, Fort Myers & Naples businesses - get expert local SEO, web design, e-commerce, PPC & analytics support from Sunset Vista Co.",
         images: ["https://sunsetvista.co/og-image.png"],
-        creator: "@sunsetvistaco"
+        creator: "@sunsetvistaco",
     },
     icons: {
         icon: "/favicon.ico",
         shortcut: "/icon1.png",
         apple: "/apple-icon.png",
-        other: [{rel: "manifest", url: "/manifest.json"}]
+        other: [{ rel: "manifest", url: "/manifest.json" }],
     },
-    category: "business"
-}
+    category: "business",
+};
+
 
 export default function Component() {
     return (<>
         <main className="min-h-screen">
             <Navigation/>
             <HeroSection/>
+            <LocalHeroSection/>
             <ServicesOverview/>
             <WhyChooseUs/>
             <CTASection/>
@@ -71,8 +92,9 @@ export default function Component() {
                 id="svco-home-jsonld"
                 type="application/ld+json"
                 strategy="beforeInteractive"
-                dangerouslySetInnerHTML={{ __html: `
-                {
+                dangerouslySetInnerHTML={{
+                    __html: `
+{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -97,14 +119,14 @@ export default function Component() {
       "@id": "https://sunsetvista.co/#webpage",
       "url": "https://sunsetvista.co",
       "isPartOf": { "@id": "https://sunsetvista.co/#website" },
-      "name": "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Growth",
+      "name": "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
       "about": [
         { "@id": "https://sunsetvista.co/#service-seo" },
         { "@id": "https://sunsetvista.co/#service-web" },
         { "@id": "https://sunsetvista.co/#service-ecom" },
         { "@id": "https://sunsetvista.co/#service-marketing" }
       ],
-      "description": "SWFL’s local partner for SEO, web design, and e-commerce. We help small and medium businesses in Cape Coral, Fort Myers, and Naples turn websites into lead-generating, sales-driving machines. Local SEO, AI SEO (GEO), Shopify/WooCommerce, PPC, analytics, and in-person support.",
+      "description": "Your Southwest Florida partner for SEO, web design, and e-commerce growth. Serving Cape Coral, Fort Myers & Naples with local SEO, GEO SEO, Shopify/WooCommerce, PPC campaigns, analytics setup, and expert in-person support.",
       "inLanguage": "en-US",
       "primaryImageOfPage": {
         "@type": "ImageObject",
@@ -136,7 +158,7 @@ export default function Component() {
         "@type": "Person",
         "name": "Davin Young"
       },
-      "sameAs": [],
+      "sameAs": [], 
       "brand": "Sunset Vista Co",
       "slogan": "Turn your website into a lead-generating, sales-driving machine.",
       "knowsAbout": [
@@ -147,8 +169,8 @@ export default function Component() {
         "WooCommerce setup Naples", "payment gateway setup",
         "ecommerce training", "PPC management SWFL", "Google Ads management",
         "Facebook Ads for small business", "email marketing SWFL",
-        "AI SEO", "Generative Engine Optimization", "GEO agency",
-        "LLM optimization", "optimize for ChatGPT and Gemini",
+        "AI SEO", "Generative Engine Optimization", "GEO SEO agency",
+        "LLM optimization", "optimize for ChatGPT", "optimize for Gemini",
         "website conversion optimization", "analytics and reporting",
         "Google Analytics setup", "Google Search Console setup"
       ],
@@ -201,42 +223,42 @@ export default function Component() {
       "@type": "Service",
       "@id": "https://sunsetvista.co/#service-seo",
       "name": "SEO Services",
-      "serviceType": "Local SEO, AI SEO (GEO), PPC Management, Analytics & Reporting",
+      "serviceType": "Local SEO, AI SEO, GEO SEO, PPC Campaigns, Analytics",
       "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
       "url": "https://sunsetvista.co/services/seo",
-      "description": "Get found on Google with local SEO, AI SEO optimization, and PPC campaigns aligned to measurable outcomes.",
+      "description": "Dominate local search with expert Local SEO, AI-driven GEO optimization, and targeted PPC campaigns. Full analytics & reporting included.",
       "termsOfService": "https://sunsetvista.co/terms"
     },
     {
       "@type": "Service",
       "@id": "https://sunsetvista.co/#service-web",
       "name": "Web Design & Development",
-      "serviceType": "Mobile-First Design, Performance Optimization, SEO-Ready Builds",
+      "serviceType": "Mobile-First Design, Speed Optimization, SEO-Ready Sites",
       "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
       "url": "https://sunsetvista.co/services/web-design",
-      "description": "Fast, modern, mobile-friendly websites engineered to convert visitors into customers."
+      "description": "Fast, modern, SEO-ready websites designed to convert. Mobile-optimized, speed-tuned, and built for business growth."
     },
     {
       "@type": "Service",
       "@id": "https://sunsetvista.co/#service-ecom",
       "name": "E-Commerce Solutions",
-      "serviceType": "Shopify Setup, WooCommerce, Payment Gateways, Staff Training",
+      "serviceType": "Shopify Development, WooCommerce Setup, Payment Gateways, Staff Training",
       "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
       "url": "https://sunsetvista.co/services/ecommerce",
-      "description": "Complete online store setup with Shopify or WooCommerce, including secure payments and staff enablement."
+      "description": "Full-service Shopify & WooCommerce development. Secure checkout, seamless payment integration, and training for your team."
     },
     {
       "@type": "Service",
       "@id": "https://sunsetvista.co/#service-marketing",
       "name": "Digital Marketing",
-      "serviceType": "Social Media, Email Marketing, Google Ads, Facebook Ads",
+      "serviceType": "Social Media, Email Campaigns, Google & Facebook Ads",
       "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
       "url": "https://sunsetvista.co/services/digital-marketing",
-      "description": "Performance-focused campaigns across social, email, and paid media to drive real business results."
+      "description": "Multi-channel digital campaigns designed to convert. Google Ads, Facebook Ads, email marketing and more - results-driven execution."
     },
     {
       "@type": "ItemList",
@@ -252,7 +274,8 @@ export default function Component() {
     }
   ]
 }
-                ` }}
+`
+                }}
             />
         </main>
     </>)

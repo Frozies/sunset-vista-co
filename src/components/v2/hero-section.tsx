@@ -1,31 +1,25 @@
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import {Button} from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowRight, MapPin, Star, TrendingUp } from "lucide-react"
-import Script from "next/script";
+import {ArrowRight, MapPin} from "lucide-react"
 
 export function HeroSection() {
-    return (
-        <section className="relative py-20 lg:py-32 overflow-hidden">
+    return (<section className="relative py-12 overflow-hidden">
             {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-background to-primary/10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-background to-primary/10"/>
 
             <div className="container mx-auto px-4 relative">
                 <div className="max-w-4xl mx-auto text-center">
-                    <div className="flex items-center justify-center gap-2 mb-6">
-                        <MapPin className="h-5 w-5 text-primary" />
-                        <span className="text-sm font-medium text-muted-foreground">Serving Cape Coral, Fort Myers & Naples</span>
-                    </div>
-
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6">
-                        SWFL’s Local Partner for <span className="text-primary">SEO, Web Design & E-Commerce</span> Growth
+                        Expert <span className="text-primary">SEO, Web Design & E‑Commerce</span> Services in SW Florida
                     </h1>
 
                     <p className="text-xl md:text-2xl text-muted-foreground text-balance mb-8 max-w-3xl mx-auto">
-                        We help small and medium businesses in Cape Coral, Fort Myers, and Naples turn their websites into
-                        <span className="text-foreground font-medium"> lead-generating, sales-driving machines.</span>{" "}
-                        From search optimization and digital marketing to full e-commerce setup and training,
-                        <span className="text-primary font-semibold"> you’ll get expert, in-person support whenever you need it.</span>
+                        We help small and medium businesses in Cape Coral, Fort Myers, and Naples transform their
+                        websites into
+                        <span
+                            className="text-foreground font-medium"> lead-generating, sales-driving machines.</span>{" "}
+                        From local SEO and digital marketing to full e-commerce setup, training, and optimization,
+                        <span className="text-primary font-semibold"> you’ll always have expert, in-person support when you need it.</span>
                     </p>
 
 
@@ -33,7 +27,7 @@ export function HeroSection() {
                         <Button size="lg" asChild className="text-lg px-8 py-6">
                             <Link href="/contact">
                                 Schedule a Free Consultation
-                                <ArrowRight className="ml-2 h-5 w-5" />
+                                <ArrowRight className="ml-2 h-5 w-5"/>
                             </Link>
                         </Button>
                         <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6 bg-transparent">
@@ -71,7 +65,5 @@ export function HeroSection() {
             </div>
 
 
-
-        </section>
-    )
+        </section>)
 }

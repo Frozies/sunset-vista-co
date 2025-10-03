@@ -4,7 +4,66 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { BookOpen, Search, Globe, Megaphone, ArrowRight, GraduationCap } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
-
+import {Metadata} from "next";
+export const metadata: Metadata = {
+    metadataBase: new URL("https://sunsetvista.co"),
+    title:
+        "Education — Learn SEO, Web Design & Digital Marketing | Sunset Vista (SWFL)",
+    description:
+        "Plain-English guides that explain what SEO, web design, and digital marketing can do for your Southwest Florida business—plus an easy glossary.",
+    keywords: [
+        "digital marketing education",
+        "SEO basics",
+        "web design guide",
+        "Southwest Florida",
+        "Cape Coral",
+        "Fort Myers",
+        "Naples",
+        "small business marketing",
+        "Sunset Vista education",
+    ],
+    alternates: { canonical: "/education" },
+    openGraph: {
+        type: "website",
+        url: "https://sunsetvista.co/education",
+        siteName: "Sunset Vista",
+        locale: "en_US",
+        title:
+            "Education — Learn SEO, Web Design & Digital Marketing | Sunset Vista",
+        description:
+            "Understand SEO, web design, and digital marketing with simple, local-first guides from Sunset Vista.",
+        images: [
+            {
+                url: "https://sunsetvista.co/og/education.png",
+                width: 1200,
+                height: 630,
+                alt: "Sunset Vista Education — SEO, Web Design, Digital Marketing",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title:
+            "Education — Learn SEO, Web Design & Digital Marketing | Sunset Vista",
+        description:
+            "Plain-English guides to help your SWFL business grow online.",
+        images: ["https://sunsetvista.co/og/education.png"],
+        creator: "@sunsetvista_co",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+        },
+    },
+    category: "education",
+    authors: [{ name: "Sunset Vista" }],
+}
 const educationalPages = [
     {
         icon: Search,

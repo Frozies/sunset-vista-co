@@ -172,10 +172,10 @@ export default function ContactForm() {
                                     <div>
                                         <h3 className="font-semibold text-sm sm:text-base text-foreground mb-1">Phone</h3>
                                         <a
-                                            href="tel:+12395550123"
+                                            href="tel:+9415291858"
                                             className="text-sm sm:text-base text-muted-foreground hover:text-[#F0C244] transition break-all"
                                         >
-                                            (239) 555-0123
+                                            (941) 529-1858
                                         </a>
                                         <p className="text-xs sm:text-sm text-muted-foreground mt-1">Mon-Fri, 9am-5pm EST</p>
                                     </div>
@@ -185,10 +185,10 @@ export default function ContactForm() {
                                     <div>
                                         <h3 className="font-semibold text-sm sm:text-base text-foreground mb-1">Email</h3>
                                         <a
-                                            href="mailto:hello@sunsetvista.co"
+                                            href="mailto:info@sunsetvista.co"
                                             className="text-sm sm:text-base text-muted-foreground hover:text-[#F0C244] transition break-all"
                                         >
-                                            hello@sunsetvista.co
+                                            info@sunsetvista.co
                                         </a>
                                         <p className="text-xs sm:text-sm text-muted-foreground mt-1">We&apos;ll respond within 24 hours</p>
                                     </div>
