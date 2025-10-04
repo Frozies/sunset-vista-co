@@ -14,6 +14,7 @@ const navigationConfig = [
         dropdown: [
             { label: "Web Design", href: "/services/web-design" },
             { label: "SEO", href: "/services/seo" },
+            { label: "Get Ranked on Google", href: "/services/seo/google-ranking" },
             { label: "E-commerce", href: "/services/ecommerce" },
             { label: "Digital Marketing", href: "/services/digital-marketing" },
         ],
