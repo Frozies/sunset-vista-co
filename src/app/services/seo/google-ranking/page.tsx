@@ -1,4 +1,6 @@
-import GetRankedClientPage from "./client-page" // Fixed import path to match actual filename
+import GetRankedClientPage from "./client-page"
+import {Navigation} from "@/components/v2/navigation";
+import {Footer} from "@/components/v2/footer"; // Fixed import path to match actual filename
 
 export const metadata = {
     title: "Get Ranked on Google | Local SEO Services in Southwest Florida",
@@ -17,5 +19,11 @@ export const metadata = {
 }
 
 export default function GetRankedPage() {
-    return <GetRankedClientPage />
+    return (
+        <div>
+            <Navigation />
+            <GetRankedClientPage />
+            <Footer/>
+        </div>
+    )
 }
