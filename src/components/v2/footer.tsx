@@ -9,6 +9,7 @@ const footerConfig = {
         links: [
             { label: "All Services", href: "/services" },
             { label: "SEO Services", href: "/services/seo" },
+            { label: "Get Ranked on Google", href: "/services/seo/google-ranking" },
             { label: "Web Design", href: "/services/web-design" },
             { label: "E-Commerce", href: "/services/ecommerce" },
             { label: "Digital Marketing", href: "/services/digital-marketing" },
@@ -20,6 +21,7 @@ const footerConfig = {
         links: [
             { label: "Learn", href: "/education" },
             { label: "Contact Us", href: "/contact" },
+            // { label: "About Us", href: "/about" },
         ],
     },
     legal: [
