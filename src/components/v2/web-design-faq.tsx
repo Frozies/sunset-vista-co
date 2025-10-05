@@ -61,13 +61,7 @@ const faqData: FaqData = {
         },
         {
             q: 'Will my website rank on Google for local searches (e.g., "web designers near me")?',
-            a: [
-                "SEO-friendly structure",
-                "Proper meta titles & descriptions",
-                "Fast mobile performance",
-                "Local schema markup for businesses",
-                "Supports rankings for queries like “web designers near me” and “best web design company in Cape Coral.”",
-            ],
+            a: "We set up everything needed to rank locally—technical SEO, fast performance, on-page optimization, and local schema—and we guide your Google Business Profile and content plan. Rankings depend on competition and ongoing SEO (content, citations, reviews, links), so while no one can guarantee #1 results, our process is designed to earn and improve local visibility over time."
         },
         {
             q: "What if I already have a website — can you fix my website SEO and speed?",
