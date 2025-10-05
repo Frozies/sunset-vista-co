@@ -25,8 +25,24 @@ export type FaqData = {
         href: string;
     };
     items: FaqItem[];
+    // Optional schema overrides to avoid "Unnamed item" and improve richness
+    schemaMeta?: {
+        url?: string; // canonical URL, e.g. "https://sunsetvista.co/digital-marketing"
+        id?: string; // full @id, e.g. "https://sunsetvista.co/digital-marketing#faq"
+        name?: string; // FAQ name shown in validators
+        inLanguage?: string; // e.g. "en"
+        publisher?: {
+            name: string; // Organization name
+            url?: string; // Organization URL
+            logo?: { url: string; width?: number; height?: number };
+        };
+    };
 };
 
+function sanitizeAnswerText(input: string): string {
+    // Remove any HTML tags, collapse whitespace, and trim for clean JSON-LD
+    return input.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+}
 
 function buildFaqSchema(data: FaqData) {
     const mainEntity = data.items.map((item) => ({
@@ -34,25 +50,68 @@ function buildFaqSchema(data: FaqData) {
         name: item.q,
         acceptedAnswer: {
             "@type": "Answer",
-            text:
-                Array.isArray(item.a)
-                    ? item.a.join(" • ")
-                    : item.a,
+            text: Array.isArray(item.a)
+                ? item.a.map((part) => sanitizeAnswerText(part)).join(" • ")
+                : sanitizeAnswerText(item.a),
         },
     }));
 
-    return {
+    // Derive sensible defaults on the client if not provided
+    const derivedUrl =
+        data.schemaMeta?.url ||
+        (typeof window !== "undefined"
+            ? window.location.origin + window.location.pathname
+            : undefined);
+
+    const id =
+        data.schemaMeta?.id ||
+        (derivedUrl ? `${derivedUrl.replace(/#.*$/, "")}#faq` : undefined);
+
+    const name =
+        data.schemaMeta?.name ||
+        (data.heading ? `${data.heading} — Sunset Vista Co` : "FAQ — Sunset Vista Co");
+
+    const inLanguage = data.schemaMeta?.inLanguage || "en";
+
+    const publisher =
+        data.schemaMeta?.publisher?.name
+            ? {
+                "@type": "Organization",
+                name: data.schemaMeta.publisher.name,
+                ...(data.schemaMeta.publisher.url ? { url: data.schemaMeta.publisher.url } : {}),
+                ...(data.schemaMeta.publisher.logo
+                    ? {
+                        logo: {
+                            "@type": "ImageObject",
+                            url: data.schemaMeta.publisher.logo.url,
+                            ...(data.schemaMeta.publisher.logo.width
+                                ? { width: data.schemaMeta.publisher.logo.width }
+                                : {}),
+                            ...(data.schemaMeta.publisher.logo.height
+                                ? { height: data.schemaMeta.publisher.logo.height }
+                                : {}),
+                        },
+                    }
+                    : {}),
+            }
+            : undefined;
+
+    const schema: Record<string, any> = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity,
+        name, // prevents "Unnamed item" in validators
+        inLanguage,
     };
+
+    if (derivedUrl) schema.url = derivedUrl;
+    if (id) schema["@id"] = id;
+    if (publisher) schema.publisher = publisher;
+
+    return schema;
 }
 
-export default function FaqSection({
-                                       data,
-                                   }: {
-    data: FaqData;
-}) {
+export default function FaqSection({ data }: { data: FaqData }) {
     const schema = buildFaqSchema(data);
 
     return (
@@ -68,12 +127,8 @@ export default function FaqSection({
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            {data.heading}
-                        </h2>
-                        <p className="text-xl text-muted-foreground">
-                            {data.subtitle}
-                        </p>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{data.heading}</h2>
+                        <p className="text-xl text-muted-foreground">{data.subtitle}</p>
                     </div>
 
                     <Accordion type="single" collapsible className="space-y-4">
