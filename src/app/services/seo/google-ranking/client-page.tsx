@@ -14,10 +14,6 @@ export default function GetRankedClientPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-yellow-50 to-background -z-10" />
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                            <MapPin className="h-4 w-4" />
-                            Serving Cape Coral, Fort Myers & Naples
-                        </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
                             Get Ranked on Google. <span className="text-orange-600">Get Found by Local Customers.</span>
                         </h1>
