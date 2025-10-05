@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import {Navigation} from "@/components/v2/navigation";
+import {Footer} from "@/components/v2/footer";
 
 export const metadata: Metadata = {
     title: "Terms and Conditions | Sunset Vista Co.",
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
     return (
         <main className="min-h-screen bg-background">
+            <Navigation/>
             <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
                 {/* Header */}
                 <div className="mb-8">
@@ -779,6 +782,7 @@ export default function TermsPage() {
                     </section>
                 </div>
             </div>
+            <Footer/>
         </main>
     )
 }

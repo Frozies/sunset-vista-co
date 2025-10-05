@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import {Navigation} from "@/components/v2/navigation";
+import {Footer} from "@/components/v2/footer";
 
 export const metadata: Metadata = {
     title: "Privacy Policy | Sunset Vista Co",
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
     return (
         <main className="min-h-screen bg-background">
+            <Navigation/>
             <div className="container mx-auto px-4 py-16 max-w-4xl">
                 <div className="prose prose-slate dark:prose-invert max-w-none">
                     <h1 className="text-4xl font-bold mb-2">PRIVACY POLICY</h1>
