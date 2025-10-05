@@ -48,7 +48,7 @@ function buildFaqSchema(data: FaqData) {
     };
 }
 
-export default function WebDesignFaq({
+export default function FaqSection({
                                        data,
                                    }: {
     data: FaqData;

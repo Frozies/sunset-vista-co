@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Search, MapPin, Clock, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
+import FaqSection, {FaqData} from "@/components/v2/faq-section";
 
 const seoServices = [
     {
@@ -174,7 +175,107 @@ export default function SEOServicesPage() {
                     </Card>
                 </div>
             </section>
+            <FaqSection data={faqData}/>
             <Footer/>
         </main>
     )
 }
+const faqData: FaqData = {
+    heading: "Frequently Asked Questions - SEO Services",
+    subtitle:
+        "Answers about our local SEO, AI SEO & GEO, technical optimization, content strategy, and monthly maintenance for Cape Coral, Fort Myers, and Naples.",
+    cta: {
+        text: "Contact Us Today",
+        href: "/contact",
+    },
+    items: [
+        {
+            q: "How long until I see SEO results?",
+            a: [
+                "Weeks 1 to 4: We complete a full SEO audit, keyword research, and technical setup while fixing foundational issues.",
+                "Weeks 5 to 8: You’ll start to see early movement from faster site performance and better indexing for long-tail and local searches.",
+                "Months 3 to 4: Noticeable progress as rankings improve for core services and your Google Business Profile gains traction.",
+                "Months 5 to 6: Consistent traffic growth and higher-quality leads as optimized content, backlinks, and citations build authority.",
+                "After 6 months: Ongoing growth as domain authority strengthens. Timelines depend on your industry and competition.",
+                "Some lower-competition keywords can rank faster, while broader or more competitive searches may take longer to see strong results."
+            ],
+        },
+        {
+            q: "What’s included in Local SEO for Cape Coral, Fort Myers, and Naples?",
+            a: [
+                "Google Business Profile (GBP) optimization and posting",
+                "Local citations (name, address, phone) and data consistency",
+                "Review strategy and response frameworks",
+                "Location/service-page build-out targeting local keywords"
+            ],
+        },
+        {
+            q: "What is AI SEO & GEO and how does it help?",
+            a: [
+                "AI-powered content briefs and on-page optimization",
+                "Generative Engine Optimization (GEO) for AI-overviews/answers",
+                "Featured snippet and entity optimization with schema",
+                "Voice-search and conversational query alignment"
+            ],
+        },
+        {
+            q: "What technical SEO work do you handle?",
+            a: [
+                "Core Web Vitals and site speed improvements",
+                "Mobile-first indexing readiness and crawlability",
+                "XML sitemaps, robots.txt, canonicalization, redirects",
+                "Structured data (schema) for services, local business, FAQs"
+            ],
+        },
+        {
+            q: "Do you create content or just recommend it?",
+            a: "We do both. We map keywords to pages, write or optimize landing pages and blogs, and align content to search intent so it ranks and converts.",
+        },
+        {
+            q: "Do you build backlinks?",
+            a: "Yes, ethically and quality-first. We prioritize local citations, partnerships, digital PR, and linkable assets. No spammy or paid link schemes.",
+        },
+        {
+            q: "Will you manage my Google Business Profile (GBP)?",
+            a: "Yes. We optimize your GBP categories, services, descriptions, photos, Q&A, and post regularly. We also guide review generation to improve map-pack visibility.",
+        },
+        {
+            q: "How do you report progress and ROI?",
+            a: [
+                "Monthly report with keyword movements, traffic, leads/conversions",
+                "Looker Studio dashboard tied to GA4 and Search Console",
+                "Call tracking and form attribution (optional)",
+                "Action list for the next sprint"
+            ],
+        },
+        {
+            q: "Can you fix penalties or recover from traffic drops?",
+            a: "We diagnose technical issues, content quality, and link risks. Then we implement a recovery plan focusing on EEAT signals, content refinement, and safe link remediation.",
+        },
+        {
+            q: "Do you work with e-commerce and lead-gen sites?",
+            a: "Yes. We tailor strategy for both, product/category SEO and faceted navigation for e-commerce; service pages, funnels, and local intent for lead-gen.",
+        },
+        {
+            q: "What are your SEO prices and terms?",
+            a: "Monthly plans start at $1,200/month. No long-term contracts. We scope deliverables based on your market, goals, and timeline.",
+        },
+        {
+            q: "Do you only work with Southwest Florida businesses?",
+            a: "Our focus is SWFL (Cape Coral, Fort Myers, Naples), but we work with businesses across Florida and the U.S. that want a local-first, results-driven approach.",
+        },
+        {
+            q: "What do you need from me to get started?",
+            a: [
+                "Access to your site/host or CMS",
+                "GA4 and Google Search Console access",
+                "Google Business Profile manager access",
+                "Brand guidelines, services list, and priority locations"
+            ],
+        },
+        {
+            q: "Can you guarantee #1 rankings?",
+            a: "No one can guarantee rankings. We focus on best practices, technical excellence, content quality, local signals, and ethical links, to earn durable results over time.",
+        }
+    ],
+};

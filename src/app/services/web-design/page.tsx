@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Globe, Smartphone, Zap, Search, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
-import WebDesignFaq, {FaqData} from "@/components/v2/web-design-faq";
+import FaqSection, {FaqData} from "@/components/v2/faq-section";
 
 const designFeatures = [
     {
@@ -219,7 +219,7 @@ export default function WebDesignPage() {
 
             </section>
 
-            <WebDesignFaq data={faqData}/>
+            <FaqSection data={faqData}/>
             <Footer />
         </main>
     )
@@ -229,7 +229,7 @@ export default function WebDesignPage() {
 
 const faqData: FaqData = {
     heading:
-        "Frequently Asked Questions — Web Design & SEO",
+        "Frequently Asked Questions - Web Design & SEO",
     subtitle:
         "Answers about our affordable small-business websites, local SEO, and maintenance plans.",
     cta: {
@@ -261,10 +261,10 @@ const faqData: FaqData = {
         },
         {
             q: 'Will my website rank on Google for local searches (e.g., "web designers near me")?',
-            a: "We set up everything needed to rank locally—technical SEO, fast performance, on-page optimization, and local schema—and we guide your Google Business Profile and content plan. Rankings depend on competition and ongoing SEO (content, citations, reviews, links), so while no one can guarantee #1 results, our process is designed to earn and improve local visibility over time."
+            a: "We set up everything needed to rank locally, technical SEO, fast performance, on-page optimization, and local schema, and we guide your Google Business Profile and content plan. Rankings depend on competition and ongoing SEO (content, citations, reviews, links), so while no one can guarantee #1 results, our process is designed to earn and improve local visibility over time."
         },
         {
-            q: "What if I already have a website — can you fix my website SEO and speed?",
+            q: "What if I already have a website ,  can you fix my website SEO and speed?",
             a: "We specialize in website redesigns and SEO repairs. Whether your site is outdated or underperforming, we’ll improve speed, Core Web Vitals, and on-page SEO to help you rank better on Google.",
         },
         {
@@ -284,7 +284,7 @@ const faqData: FaqData = {
             a: "While most clients are local to Cape Coral, Fort Myers, and Naples, we also build websites for businesses across Florida and the U.S.",
         },
         {
-            q: "How do I get started — free website quote or consultation?",
+            q: "How do I get started ,  free website quote or consultation?",
             a: "Schedule a consultation or request a free website quote. We’ll review your goals, check your website’s SEO performance, and outline the best plan to build or boost results.",
         },
     ],
