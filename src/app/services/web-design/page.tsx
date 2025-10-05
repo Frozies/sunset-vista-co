@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Globe, Smartphone, Zap, Search, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
-import WebDesignFaq from "@/components/v2/web-design-faq";
+import WebDesignFaq, {FaqData} from "@/components/v2/web-design-faq";
 
 const designFeatures = [
     {
@@ -219,8 +219,73 @@ export default function WebDesignPage() {
 
             </section>
 
-            <WebDesignFaq/>
+            <WebDesignFaq data={faqData}/>
             <Footer />
         </main>
     )
 }
+
+
+
+const faqData: FaqData = {
+    heading:
+        "Frequently Asked Questions — Web Design & SEO",
+    subtitle:
+        "Answers about our affordable small-business websites, local SEO, and maintenance plans.",
+    cta: {
+        text: "Contact Us Today",
+        href: "/contact",
+    },
+    items: [
+        {
+            q: "How long does it take to build my website in Cape Coral / Fort Myers / Naples?",
+            a: "Most small business websites take 3–6 weeks from start to finish. We build fast, mobile-friendly sites optimized for local SEO so your business in Cape Coral, Fort Myers, or Naples can start ranking and generating leads quickly.",
+        },
+        {
+            q: "What’s included in the $2,500 small-business website package?",
+            a: [
+                "A custom, mobile-first design",
+                "Up to 10 pages of content",
+                "SEO optimization (keywords, structure, speed)",
+                "Contact and lead forms",
+                "Google Analytics setup",
+                "Google Search Console setup",
+                "Facebook Pixels",
+                "30 days of free support after launch",
+                "Built to boost website traffic and conversions for Southwest Florida businesses",
+            ],
+        },
+        {
+            q: "Can you provide content and images, or do I need to?",
+            a: "We can do both. You can provide your own copy, or we can write SEO-friendly content tailored to your industry and customers. We also handle images, branding, and on-page SEO so your site appears on Google faster.",
+        },
+        {
+            q: 'Will my website rank on Google for local searches (e.g., "web designers near me")?',
+            a: "We set up everything needed to rank locally—technical SEO, fast performance, on-page optimization, and local schema—and we guide your Google Business Profile and content plan. Rankings depend on competition and ongoing SEO (content, citations, reviews, links), so while no one can guarantee #1 results, our process is designed to earn and improve local visibility over time."
+        },
+        {
+            q: "What if I already have a website — can you fix my website SEO and speed?",
+            a: "We specialize in website redesigns and SEO repairs. Whether your site is outdated or underperforming, we’ll improve speed, Core Web Vitals, and on-page SEO to help you rank better on Google.",
+        },
+        {
+            q: "Do you offer monthly website maintenance and SEO tracking?",
+            a: "Yes. We offer monthly maintenance plans that cover updates, backups, uptime/security checks, and SEO tracking. Many clients use these plans to continuously improve performance and traffic growth.",
+        },
+        {
+            q: "Can I edit my website myself after it’s live (WordPress, Shopify, or React CMS)?",
+            a: "Absolutely. We use easy-to-manage platforms so you can edit pages, photos, and blog posts without coding.",
+        },
+        {
+            q: "What makes your web design different from cheap website builders?",
+            a: "Unlike template-only options, our sites are built to convert: fast load times, mobile usability, clear calls-to-action, and SEO best practices that help you rank and earn trust.",
+        },
+        {
+            q: "Do you only work with Southwest Florida businesses?",
+            a: "While most clients are local to Cape Coral, Fort Myers, and Naples, we also build websites for businesses across Florida and the U.S.",
+        },
+        {
+            q: "How do I get started — free website quote or consultation?",
+            a: "Schedule a consultation or request a free website quote. We’ll review your goals, check your website’s SEO performance, and outline the best plan to build or boost results.",
+        },
+    ],
+};
