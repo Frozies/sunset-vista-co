@@ -49,6 +49,8 @@ const faqData: FaqData = {
                 "SEO optimization (keywords, structure, speed)",
                 "Contact and lead forms",
                 "Google Analytics setup",
+                "Google Search Console setup",
+                "Facebook Pixels",
                 "30 days of free support after launch",
                 "Built to boost website traffic and conversions for Southwest Florida businesses",
             ],
