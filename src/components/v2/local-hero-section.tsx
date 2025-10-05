@@ -60,7 +60,7 @@ export function LocalHeroSection() {
 
                 <div className="mt-12 text-center">
                     <p className="text-sm text-muted-foreground">
-                        Trusted by small businesses across Southwest Florida for{" "}
+                        Trusted across Southwest Florida for{" "}
                         <strong className="text-foreground">small business website design</strong> that delivers results
                     </p>
                 </div>
