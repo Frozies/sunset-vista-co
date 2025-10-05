@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ShoppingCart, CreditCard, Users, BarChart3, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
+import FaqSection, {FaqData} from "@/components/v2/faq-section";
 
 const ecommerceServices = [
     {
@@ -244,7 +245,123 @@ export default function EcommercePage() {
                     </div>
                 </div>
             </section>
+
+            <FaqSection data={faqData}/>
             <Footer/>
         </main>
     )
 }
+const faqData: FaqData = {
+    heading: "Frequently Asked Questions - E-commerce Solutions",
+    subtitle:
+        "Answers about Shopify and WooCommerce builds, payments, shipping, SEO, analytics, and training for Cape Coral, Fort Myers, and Naples.",
+    cta: {
+        text: "Contact Us Today",
+        href: "/contact",
+    },
+    items: [
+        {
+            q: "Which platform should I choose, Shopify or WooCommerce?",
+            a: [
+                "Choose Shopify if you want an easy to use, hosted, secure platform with built in payments and apps.",
+                "Choose WooCommerce if you already use WordPress or need deep customization and server level control.",
+                "We scope your catalog size, integrations, budget, and growth plans, then recommend the best fit."
+            ],
+        },
+        {
+            q: "What is included in the starting package at 3,500 dollars?",
+            a: [
+                "Platform setup on Shopify or WooCommerce",
+                "Custom theme styling and branding",
+                "Product catalog setup for up to 50 products with variants",
+                "Payment gateway integration and test orders",
+                "Shipping zones and rates configuration",
+                "Basic tax settings and policies",
+                "Launch checklist, staff training, and 30 days of support"
+            ],
+        },
+        {
+            q: "How long does an e-commerce build take?",
+            a: [
+                "2 to 3 weeks for a standard catalog and theme setup",
+                "4 to 6 weeks if you need custom features, complex shipping, or multiple integrations",
+                "We provide a clear timeline after the kickoff and content handoff"
+            ],
+        },
+        {
+            q: "Can you migrate my existing store to Shopify or WooCommerce?",
+            a: "Yes. We migrate products, collections or categories, customers, and orders when possible. We also map redirects to preserve SEO and set up tracking to confirm traffic and sales after launch.",
+        },
+        {
+            q: "How do payments, taxes, and shipping work?",
+            a: [
+                "Payments: We configure Shopify Payments or a gateway like Stripe, PayPal, or Authorize.net",
+                "Taxes: We set up automatic tax rules where available and add manual overrides if required",
+                "Shipping: We configure zones, rates, carrier calculated options if available, and label workflows"
+            ],
+        },
+        {
+            q: "Will my online store be optimized for SEO?",
+            a: [
+                "Yes. We set clean URLs, titles, and descriptions",
+                "We optimize collections and product pages for target keywords",
+                "We add product schema and fix crawl issues, then connect GA4 and Search Console"
+            ],
+        },
+        {
+            q: "Do you set up analytics and conversion tracking?",
+            a: [
+                "GA4 with enhanced e-commerce events",
+                "Google Search Console",
+                "Optional ad pixels for Google and Meta",
+                "A simple Looker Studio dashboard for sales, traffic, and top products"
+            ],
+        },
+        {
+            q: "Can you help improve conversion rate after launch?",
+            a: "Yes. We run A and B tests on product pages and checkout flows, improve images and descriptions, add trust badges and reviews, and streamline the cart to reduce friction.",
+        },
+        {
+            q: "What about inventory and fulfillment workflows?",
+            a: [
+                "We configure inventory tracking and low stock alerts",
+                "We connect to basic fulfillment apps or shipping software",
+                "For more advanced needs we can scope ERP, POS, or WMS integrations"
+            ],
+        },
+        {
+            q: "Do you support subscriptions, wholesale, or B2B pricing?",
+            a: "Yes. We can add subscription apps on Shopify or plugins on WooCommerce, set customer groups and price lists, and secure wholesale ordering with approval rules.",
+        },
+        {
+            q: "Is my store secure and PCI compliant?",
+            a: "Shopify includes PCI compliant hosting and SSL by default. For WooCommerce we configure SSL, harden the server or host, keep plugins updated, and follow gateway PCI requirements. We also add backups and security monitoring.",
+        },
+        {
+            q: "Do you provide training for my team?",
+            a: [
+                "Live training sessions for products, orders, discounts, and content",
+                "Short video tutorials for common tasks",
+                "Best practices guide for images, SEO, and merchandising"
+            ],
+        },
+        {
+            q: "Can you connect my store to marketplaces or social sales?",
+            a: "Yes. We can set up product feeds for Google Merchant Center, connect Facebook and Instagram shopping, and scope Amazon or Etsy feeds where appropriate.",
+        },
+        {
+            q: "What do you need from me to start?",
+            a: [
+                "Brand assets and style preferences",
+                "Product list with titles, prices, descriptions, and images",
+                "Shipping and tax rules, return policy, and legal pages",
+                "Access to your domain registrar and any existing systems"
+            ],
+        },
+        {
+            q: "Do you only work with Southwest Florida businesses?",
+            a: "Our focus is SWFL, including Cape Coral, Fort Myers, and Naples. We also work with clients across Florida and the United States who want a local first, results focused approach.",
+        }
+    ],
+};
+

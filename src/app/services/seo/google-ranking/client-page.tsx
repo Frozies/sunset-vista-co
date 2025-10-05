@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
 import { Search, MapPin, TrendingUp, CheckCircle, Phone, ArrowRight, Zap, Target, BarChart3, Users } from "lucide-react"
+import FaqSection, {FaqData} from "@/components/v2/faq-section";
 
 export default function GetRankedClientPage() {
     return (
@@ -301,6 +302,108 @@ export default function GetRankedClientPage() {
                     </div>
                 </div>
             </section>
+
+            <FaqSection data={faqData}/>
         </div>
     )
 }
+
+const faqData: FaqData = {
+    heading: "Frequently Asked Questions — Get Ranked on Google",
+    subtitle:
+        "Clear answers about local SEO, Google Business Profile, technical fixes, content strategy, and timelines for Cape Coral, Fort Myers, and Naples.",
+    cta: {
+        text: "Talk to a Local SEO Expert",
+        href: "/contact",
+    },
+    items: [
+        {
+            q: "Why is my site not showing up on Google?",
+            a: "Most sites miss core SEO foundations like crawlability, indexing, site speed, on-page optimization, and a complete Google Business Profile. We audit these areas first, fix blockers, and build a plan to improve visibility for local searches and maps."
+        },
+        {
+            q: "What do I get with the free SEO audit?",
+            a: [
+                "Technical crawl and indexability check",
+                "Core Web Vitals and site speed review",
+                "Keyword and content gap analysis",
+                "Google Business Profile and local citations review",
+                "Prioritized action plan with next steps"
+            ]
+        },
+        {
+            q: "How long until I see SEO results?",
+            a: [
+                "Weeks 1 to 4: Full audit, technical fixes, analytics and Search Console setup",
+                "Weeks 5 to 8: Early movement on long tail and local queries as speed and indexing improve",
+                "Months 3 to 4: Noticeable gains for core services and better map pack visibility",
+                "Months 5 to 6: Consistent traffic and lead growth as content and citations mature",
+                "After 6 months: Ongoing compounding growth depending on competition and starting point"
+            ]
+        },
+        {
+            q: "Can you get me into the Google Maps results?",
+            a: "We optimize your Google Business Profile, categories, services, photos, Q and A, and posting cadence. We also improve local signals on your website, build consistent citations, and guide review generation, which together improve map pack visibility."
+        },
+        {
+            q: "What local SEO work do you handle?",
+            a: [
+                "Google Business Profile optimization and updates",
+                "Local citation building and NAP consistency",
+                "Location and service pages targeting local keywords",
+                "Review strategy and response guidance"
+            ]
+        },
+        {
+            q: "What technical SEO fixes are included?",
+            a: [
+                "Site speed and Core Web Vitals improvements",
+                "Mobile readiness and clean navigation",
+                "XML sitemaps, robots.txt, canonical and redirect hygiene",
+                "Structured data for local business, services, and FAQs"
+            ]
+        },
+        {
+            q: "Do you help with content and keywords?",
+            a: "Yes. We perform keyword research, map keywords to pages, write or optimize landing pages and blogs, and align content with search intent so it ranks and converts."
+        },
+        {
+            q: "Do you build backlinks?",
+            a: "We focus on safe, quality driven link building. That includes local citations, partnerships, digital PR, and useful content assets. We do not use spammy or risky link schemes."
+        },
+        {
+            q: "How do you track calls and leads?",
+            a: [
+                "GA4 and Google Search Console integration",
+                "Looker Studio dashboard with keyword and page reports",
+                "Form and call tracking options for clear attribution",
+                "Monthly summary of rankings, traffic, and conversions"
+            ]
+        },
+        {
+            q: "How much does SEO cost?",
+            a: "Plans start at 1,200 dollars per month. No long term contracts. Scope depends on your market, competitors, and growth goals."
+        },
+        {
+            q: "Do I need to sign a contract?",
+            a: "No. We work month to month. You can scale up or pause based on results and seasonality."
+        },
+        {
+            q: "What do you need from me to get started?",
+            a: [
+                "Access to your website or CMS",
+                "GA4 and Google Search Console access",
+                "Google Business Profile manager access",
+                "Your services, priority locations, and any brand guidelines"
+            ]
+        },
+        {
+            q: "Can you guarantee number 1 rankings?",
+            a: "No one can guarantee rankings. We focus on proven best practices and steady compounding improvements in visibility, traffic, and qualified leads."
+        },
+        {
+            q: "Do you only work with Southwest Florida businesses?",
+            a: "Our focus is Cape Coral, Fort Myers, and Naples. We also help businesses across Florida and the United States that want a local first, results focused approach."
+        }
+    ]
+};

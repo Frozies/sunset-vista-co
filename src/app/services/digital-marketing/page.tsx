@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Megaphone, Users, Mail, Target, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
+import FaqSection, {FaqData} from "@/components/v2/faq-section";
 
 const marketingServices = [
     {
@@ -235,7 +236,112 @@ export default function DigitalMarketingPage() {
                     </div>
                 </div>
             </section>
+            <FaqSection data={faqData}/>
             <Footer/>
         </main>
     )
 }
+const faqData: FaqData = {
+    heading: "Frequently Asked Questions — Digital Marketing",
+    subtitle:
+        "Answers about social media, email marketing, Google Ads, Facebook and Instagram ads, tracking, reporting, and budgets for Cape Coral, Fort Myers, and Naples.",
+    cta: {
+        text: "Get Marketing Strategy",
+        href: "/contact",
+    },
+    items: [
+        {
+            q: "What channels do you manage?",
+            a: [
+                "Social: Facebook, Instagram, and basic TikTok support",
+                "Search: Google Ads for search, Performance Max, and remarketing",
+                "Email: Campaigns, automations, and list growth",
+                "Content: Creative briefs, copy, and lightweight assets as needed"
+            ]
+        },
+        {
+            q: "How do you build the marketing strategy?",
+            a: [
+                "Week 1: Discovery, goals, audience, and competitor review",
+                "Week 2: Channel plan, offers, creative angles, and budget split",
+                "Week 3: Tracking plan, baseline metrics, and launch roadmap"
+            ]
+        },
+        {
+            q: "What is included in the $800 per month package?",
+            a: [
+                "Channel management for an agreed mix of social, email, or paid",
+                "Monthly content calendar and campaign planning",
+                "Basic creative and copy for ads and posts",
+                "Performance tracking and monthly reporting with next steps",
+                "Strategy consultation and recommendations"
+            ]
+        },
+        {
+            q: "Is ad spend included?",
+            a: "No. Ad spend is billed directly to your ad accounts. We help set budgets and pacing so you stay efficient and in control."
+        },
+        {
+            q: "How soon will I see results?",
+            a: [
+                "Weeks 2 to 4: First learnings and quick wins on engagement and CTR",
+                "Months 2 to 3: Stable cost per lead or sale as targeting and creatives improve",
+                "Months 4 to 6: Stronger ROAS and CPL as we scale what works and cut what does not"
+            ]
+        },
+        {
+            q: "How do you measure success?",
+            a: [
+                "Clear KPIs by channel: CTR, CPC, CPL, ROAS, list growth, and revenue",
+                "Looker Studio dashboard connected to GA4 and ad platforms",
+                "Monthly summary with actions for the next sprint"
+            ]
+        },
+        {
+            q: "Can you set up tracking and attribution?",
+            a: [
+                "GA4 events and conversions",
+                "Meta pixel and Google Ads conversion tags",
+                "UTM standards and lead source reporting",
+                "Call tracking or form tracking if needed"
+            ]
+        },
+        {
+            q: "Do you write the content and design the creatives?",
+            a: "Yes. We produce ad copy, captions, and lightweight graphics. For advanced video or brand shoots we can scope additional creative support."
+        },
+        {
+            q: "Will you manage my email marketing too?",
+            a: [
+                "Yes. We set up templates, segments, automations, and broadcast campaigns",
+                "We align email with ad offers and seasonal promotions",
+                "We track open rate, CTR, revenue per send, and list health"
+            ]
+        },
+        {
+            q: "Can you run Google Ads and Facebook ads together?",
+            a: "Yes. We coordinate search intent with social demand generation and remarketing. This improves overall ROAS and reduces wasted spend."
+        },
+        {
+            q: "What do you need from me to start?",
+            a: [
+                "Brand assets, offers, and key services",
+                "Access to ad accounts or help creating them",
+                "Website or landing page access for tracking",
+                "Any existing lists, audiences, and past reports"
+            ]
+        },
+        {
+            q: "Do you only work with Southwest Florida businesses?",
+            a: "Our focus is SWFL, including Cape Coral, Fort Myers, and Naples. We also support clients across Florida and the United States."
+        },
+        {
+            q: "Do I have to sign a long term contract?",
+            a: "No. Engagements are month to month. You can adjust scope or pause based on seasonality and results."
+        },
+        {
+            q: "Who owns the ad accounts and data?",
+            a: "You do. We build everything inside your accounts so you keep all audiences, creatives, and performance history."
+        }
+    ]
+};
