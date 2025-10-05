@@ -58,7 +58,7 @@ export default function ContactForm() {
             <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted py-12 px-4">
                 <div className="container mx-auto">
                     <div className="max-w-2xl mx-auto text-center bg-card rounded-2xl shadow-2xl border border-border p-6 sm:p-12">
-                        <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-[#F0C244] mx-auto mb-4 sm:mb-6" />
+                        <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-primary mx-auto mb-4 sm:mb-6" />
                         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground">Thank You!</h1>
                         <p className="text-lg sm:text-xl text-muted-foreground mb-4 sm:mb-6">
                             We&apos;ve received your message and will get back to you within 24 hours.
@@ -85,7 +85,7 @@ export default function ContactForm() {
                 <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
                     <div className="space-y-6 sm:space-y-8 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-border/50 p-6 sm:p-8 md:p-12">
                         <div className="flex flex-col items-center gap-2 text-center">
-                            <Handshake className="w-10 h-10 sm:w-12 sm:h-12 text-[#F0C244] mb-2" />
+                            <Handshake className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-2" />
                             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-2">
                                 Let&apos;s Connect
                             </h1>
@@ -154,7 +154,7 @@ export default function ContactForm() {
                                 {errors.message && <span className="text-xs sm:text-sm text-red-600">Message is required</span>}
                             </div>
                             <button
-                                className="hover:shadow-lg rounded-full bg-[#F0C244] py-3 px-8 sm:py-4 sm:px-10 text-base sm:text-lg font-bold text-white outline-none transition hover:bg-[#EC7210] focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="hover:shadow-lg rounded-full bg-primary py-3 px-8 sm:py-4 sm:px-10 text-base sm:text-lg font-bold text-white outline-none transition hover:bg-[#EC7210] focus:ring-2 focus:ring-[#F0C244] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                 type="submit"
                                 disabled={isSubmitting}
                             >
@@ -168,12 +168,12 @@ export default function ContactForm() {
                             <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Get In Touch</h2>
                             <div className="space-y-4 sm:space-y-6">
                                 <div className="flex items-start gap-3 sm:gap-4">
-                                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-[#F0C244] flex-shrink-0 mt-1" />
+                                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" />
                                     <div>
                                         <h3 className="font-semibold text-sm sm:text-base text-foreground mb-1">Phone</h3>
                                         <a
                                             href="tel:+9415291858"
-                                            className="text-sm sm:text-base text-muted-foreground hover:text-[#F0C244] transition break-all"
+                                            className="text-sm sm:text-base text-muted-foreground hover:text-primary transition break-all"
                                         >
                                             (941) 529-1858
                                         </a>
@@ -181,12 +181,12 @@ export default function ContactForm() {
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 sm:gap-4">
-                                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-[#F0C244] flex-shrink-0 mt-1" />
+                                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" />
                                     <div>
                                         <h3 className="font-semibold text-sm sm:text-base text-foreground mb-1">Email</h3>
                                         <a
                                             href="mailto:info@sunsetvista.co"
-                                            className="text-sm sm:text-base text-muted-foreground hover:text-[#F0C244] transition break-all"
+                                            className="text-sm sm:text-base text-muted-foreground hover:text-primary transition break-all"
                                         >
                                             info@sunsetvista.co
                                         </a>
@@ -194,7 +194,7 @@ export default function ContactForm() {
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 sm:gap-4">
-                                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-[#F0C244] flex-shrink-0 mt-1" />
+                                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" />
                                     <div>
                                         <h3 className="font-semibold text-sm sm:text-base text-foreground mb-1">Location</h3>
                                         <p className="text-sm sm:text-base text-muted-foreground">Fort Myers, FL</p>
@@ -208,23 +208,23 @@ export default function ContactForm() {
                             <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">Why Choose Us?</h2>
                             <ul className="space-y-2.5 sm:space-y-3 text-sm sm:text-base text-muted-foreground">
                                 <li className="flex items-start gap-2">
-                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#F0C244] flex-shrink-0 mt-0.5" />
+                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
                                     <span>Free initial consultation and website audit</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#F0C244] flex-shrink-0 mt-0.5" />
+                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
                                     <span>Local Southwest Florida team with in-person support</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#F0C244] flex-shrink-0 mt-0.5" />
+                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
                                     <span>Custom solutions tailored to your business goals</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#F0C244] flex-shrink-0 mt-0.5" />
+                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
                                     <span>Transparent pricing with no hidden fees</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#F0C244] flex-shrink-0 mt-0.5" />
+                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
                                     <span>Proven track record with Southwest Florida businesses</span>
                                 </li>
                             </ul>
