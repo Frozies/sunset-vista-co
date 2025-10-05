@@ -5,43 +5,28 @@ import Link from "next/link";
 import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import {
-    Accordion,
-    AccordionItem,
-    AccordionTrigger,
-    AccordionContent,
+    Accordion, AccordionItem, AccordionTrigger, AccordionContent,
 } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
-export type FaqItem = {
-    q: string;
-    a: string | string[]; // string for paragraph, string[] for bullet list
-};
-
+export type FaqItem = { q: string; a: string | string[] };
 export type FaqData = {
     heading: string;
     subtitle: string;
-    cta?: {
-        text: string;
-        href: string;
-    };
+    cta?: { text: string; href: string };
     items: FaqItem[];
-    // Optional schema overrides to avoid "Unnamed item" and improve richness
     schemaMeta?: {
-        url?: string; // canonical URL, e.g. "https://sunsetvista.co/digital-marketing"
-        id?: string; // full @id, e.g. "https://sunsetvista.co/digital-marketing#faq"
-        name?: string; // FAQ name shown in validators
-        inLanguage?: string; // e.g. "en"
-        publisher?: {
-            name: string; // Organization name
-            url?: string; // Organization URL
-            logo?: { url: string; width?: number; height?: number };
-        };
+        url?: string;         // e.g. "https://sunsetvista.co/digital-marketing"
+        id?: string;          // e.g. "https://sunsetvista.co/digital-marketing#faq"
+        name?: string;        // e.g. "Digital Marketing FAQ — Sunset Vista Co"
+        inLanguage?: string;  // e.g. "en"
+        description?: string; // short FAQ description (optional)
+        publisher?: { name: string; url?: string; logo?: { url: string; width?: number; height?: number } };
     };
 };
 
-function sanitizeAnswerText(input: string): string {
-    // Remove any HTML tags, collapse whitespace, and trim for clean JSON-LD
-    return input.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+function cleanText(s: string) {
+    return s.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
 }
 
 function buildFaqSchema(data: FaqData) {
@@ -50,63 +35,49 @@ function buildFaqSchema(data: FaqData) {
         name: item.q,
         acceptedAnswer: {
             "@type": "Answer",
-            text: Array.isArray(item.a)
-                ? item.a.map((part) => sanitizeAnswerText(part)).join(" • ")
-                : sanitizeAnswerText(item.a),
+            text: Array.isArray(item.a) ? item.a.map(cleanText).join(" • ") : cleanText(item.a),
         },
     }));
 
-    // Derive sensible defaults on the client if not provided
+    // Derive URL on client if not provided
     const derivedUrl =
         data.schemaMeta?.url ||
-        (typeof window !== "undefined"
-            ? window.location.origin + window.location.pathname
-            : undefined);
+        (typeof window !== "undefined" ? window.location.origin + window.location.pathname : undefined);
 
-    const id =
-        data.schemaMeta?.id ||
-        (derivedUrl ? `${derivedUrl.replace(/#.*$/, "")}#faq` : undefined);
-
-    const name =
-        data.schemaMeta?.name ||
-        (data.heading ? `${data.heading} — Sunset Vista Co` : "FAQ — Sunset Vista Co");
-
+    const id = data.schemaMeta?.id || (derivedUrl ? `${derivedUrl.replace(/#.*$/, "")}#faq` : undefined);
+    const name = data.schemaMeta?.name || `${data.heading} — Sunset Vista Co`;
     const inLanguage = data.schemaMeta?.inLanguage || "en";
-
-    const publisher =
-        data.schemaMeta?.publisher?.name
-            ? {
-                "@type": "Organization",
-                name: data.schemaMeta.publisher.name,
-                ...(data.schemaMeta.publisher.url ? { url: data.schemaMeta.publisher.url } : {}),
-                ...(data.schemaMeta.publisher.logo
-                    ? {
-                        logo: {
-                            "@type": "ImageObject",
-                            url: data.schemaMeta.publisher.logo.url,
-                            ...(data.schemaMeta.publisher.logo.width
-                                ? { width: data.schemaMeta.publisher.logo.width }
-                                : {}),
-                            ...(data.schemaMeta.publisher.logo.height
-                                ? { height: data.schemaMeta.publisher.logo.height }
-                                : {}),
-                        },
-                    }
-                    : {}),
-            }
-            : undefined;
+    const description = data.schemaMeta?.description || data.subtitle;
 
     const schema: Record<string, any> = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity,
-        name, // prevents "Unnamed item" in validators
+        name,                    // prevents "Unnamed item"
+        headline: name,          // helpful alias for some parsers
+        description,             // short description
         inLanguage,
+        mainEntity,
+        ...(derivedUrl ? { url: derivedUrl, mainEntityOfPage: derivedUrl } : {}),
+        ...(id ? { "@id": id } : {}),
     };
 
-    if (derivedUrl) schema.url = derivedUrl;
-    if (id) schema["@id"] = id;
-    if (publisher) schema.publisher = publisher;
+    if (data.schemaMeta?.publisher?.name) {
+        schema.publisher = {
+            "@type": "Organization",
+            name: data.schemaMeta.publisher.name,
+            ...(data.schemaMeta.publisher.url ? { url: data.schemaMeta.publisher.url } : {}),
+            ...(data.schemaMeta.publisher.logo
+                ? {
+                    logo: {
+                        "@type": "ImageObject",
+                        url: data.schemaMeta.publisher.logo.url,
+                        ...(data.schemaMeta.publisher.logo.width ? { width: data.schemaMeta.publisher.logo.width } : {}),
+                        ...(data.schemaMeta.publisher.logo.height ? { height: data.schemaMeta.publisher.logo.height } : {}),
+                    },
+                }
+                : {}),
+        };
+    }
 
     return schema;
 }
@@ -116,14 +87,12 @@ export default function FaqSection({ data }: { data: FaqData }) {
 
     return (
         <section className="py-20 bg-muted/30">
-            {/* JSON-LD for FAQPage */}
             <Script
                 id="faq-jsonld"
                 type="application/ld+json"
                 strategy="afterInteractive"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
-
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12">
@@ -133,11 +102,7 @@ export default function FaqSection({ data }: { data: FaqData }) {
 
                     <Accordion type="single" collapsible className="space-y-4">
                         {data.items.map((item, idx) => (
-                            <AccordionItem
-                                key={idx}
-                                value={`item-${idx + 1}`}
-                                className="bg-card border rounded-lg px-6"
-                            >
+                            <AccordionItem key={idx} value={`item-${idx + 1}`} className="bg-card border rounded-lg px-6">
                                 <AccordionTrigger className="text-left hover:no-underline">
                                     <span className="font-semibold">{item.q}</span>
                                 </AccordionTrigger>
@@ -161,9 +126,7 @@ export default function FaqSection({ data }: { data: FaqData }) {
 
                     {data.cta && (
                         <div className="text-center mt-12">
-                            <p className="text-muted-foreground mb-6">
-                                Still have questions? We&apos;re here to help.
-                            </p>
+                            <p className="text-muted-foreground mb-6">Still have questions? We&apos;re here to help.</p>
                             <Button size="lg" asChild>
                                 <Link href={data.cta.href}>
                                     {data.cta.text}
