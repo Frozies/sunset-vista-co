@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Globe, Smartphone, Zap, Search, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
+import WebDesignFaq from "@/components/v2/web-design-faq";
 
 const designFeatures = [
     {
@@ -213,8 +214,12 @@ export default function WebDesignPage() {
                             </Button>
                         </Card>
                     </div>
+
                 </div>
+
             </section>
+
+            <WebDesignFaq/>
             <Footer />
         </main>
     )
