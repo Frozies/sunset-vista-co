@@ -4,9 +4,9 @@ import { Taviraj } from 'next/font/google'
 import { Rubik } from 'next/font/google'
 import Head from "next/head";
 import Script from "next/script";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ["latin"] });
-
+import { Analytics } from "@vercel/analytics/next"
 const taviraj = Taviraj({
   subsets: ['latin'],
   display: 'swap',
@@ -28,6 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+          <Analytics/>
+          <SpeedInsights/>
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-SKLCFXSXKY" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`
