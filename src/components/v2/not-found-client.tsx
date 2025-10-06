@@ -47,7 +47,6 @@ export default function NotFoundClient() {
                             <Link href="/services" className="text-sm text-primary hover:underline">
                                 Our Services
                             </Link>
-                            <span className="text-muted-foreground">•</span>
                             <Link href="/website-audit" className="text-sm text-primary hover:underline">
                                 Free Website Audit
                             </Link>
