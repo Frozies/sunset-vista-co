@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     },
     icons: {
         icon: "/favicon.ico",
-        shortcut: "/icon1.png",
+        shortcut: "/apple-icon.png",
         apple: "/apple-icon.png",
         other: [{ rel: "manifest", url: "/manifest.json" }]
     },
