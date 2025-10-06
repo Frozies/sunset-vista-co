@@ -6,7 +6,7 @@ import { Home, Mail, ArrowLeft } from "lucide-react"
 
 export default function NotFoundClient() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-orange-500/5">
+        <div className="flex items-center justify-center bg-gradient-to-br from-background via-background to-orange-500/5">
             <div className="container mx-auto px-4 py-16 text-center">
                 <div className="max-w-2xl mx-auto">
                     {/* 404 Number */}

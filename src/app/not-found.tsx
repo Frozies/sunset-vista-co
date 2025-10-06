@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
     return (
-        <div>
+        <div className="min-h-screen">
             <Navigation/>
             <NotFoundClient/>
             <Footer/>
