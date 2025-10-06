@@ -19,8 +19,7 @@ const paths: Array<{
     { path: "/services/digital-marketing", changeFrequency: "weekly", priority: 0.6 },
     { path: "/website-audit", changeFrequency: "weekly", priority: 0.5 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.5 },
-    // Optional but recommended if live:
-    { path: "/get-ranked", changeFrequency: "weekly", priority: 0.5 },
+    { path: "/terms", changeFrequency: "yearly", priority: 0.5 },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
