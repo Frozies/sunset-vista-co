@@ -37,12 +37,12 @@ export const metadata: Metadata = {
         "SWFL"
     ],
     robots: { index: true, follow: true },
-    alternates: { canonical: "https://www.sunsetvista.co/get-ranked" },
+    alternates: { canonical: "https://www.sunsetvista.co/services/seo/google-ranking" },
     openGraph: {
         title: "Get Ranked on Google | Local SEO Services in Southwest Florida",
         description:
             "Help your small business show up on Google. Free local SEO audit for SWFL businesses in Cape Coral, Fort Myers, and Naples.",
-        url: "https://sunsetvista.co/get-ranked",
+        url: "https://sunsetvista.co/services/seo/google-ranking",
         siteName: "Sunset Vista Co",
         images: [
             {
