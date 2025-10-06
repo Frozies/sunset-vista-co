@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     creator: "Davin Young",
     publisher: "Sunset Vista Co LLC",
     robots: { index: true, follow: true },
-    alternates: { canonical: "https://sunsetvista.co/services/digital-marketing" },
+    alternates: { canonical: "https://www.sunsetvista.co/services/digital-marketing" },
     openGraph: {
         title: "Digital Marketing in SWFL | Google Ads, Facebook Ads, Email & Social",
         description:

@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     creator: "Davin Young",
     publisher: "Sunset Vista Co LLC",
     robots: { index: true, follow: true },
-    alternates: { canonical: "https://sunsetvista.co/services/ecommerce" },
+    alternates: { canonical: "https://www.sunsetvista.co/services/ecommerce" },
     openGraph: {
         title: "Ecommerce Development in SWFL | Shopify and WooCommerce Experts",
         description:

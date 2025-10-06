@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         "SWFL"
     ],
     robots: { index: true, follow: true },
-    alternates: { canonical: "https://sunsetvista.co/get-ranked" },
+    alternates: { canonical: "https://www.sunsetvista.co/get-ranked" },
     openGraph: {
         title: "Get Ranked on Google | Local SEO Services in Southwest Florida",
         description:

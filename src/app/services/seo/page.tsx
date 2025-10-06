@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         follow: true
     },
     alternates: {
-        canonical: "https://sunsetvista.co/services/seo"
+        canonical: "https://www.sunsetvista.co/services/seo"
     },
     openGraph: {
         title: "SEO Services in SWFL | Cape Coral, Fort Myers, Naples",

@@ -70,7 +70,7 @@ export const metadata: Metadata = {
         follow: true
     },
     alternates: {
-        canonical: "https://sunsetvista.co/services"
+        canonical: "https://www.sunsetvista.co/services"
     },
     openGraph: {
         title: "Sunset Vista Co | SWFL SEO, Web Design & Ecommerce Experts",

@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         follow: true
     },
     alternates: {
-        canonical: "https://sunsetvista.co/services/web-design"
+        canonical: "https://www.sunsetvista.co/services/web-design"
     },
     openGraph: {
         title: "Web Design and Development in SWFL | Cape Coral, Fort Myers, Naples",

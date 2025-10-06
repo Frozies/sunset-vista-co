@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         "Sunset Vista Co"
     ],
     robots: { index: false, follow: true },
-    alternates: { canonical: "https://sunsetvista.co/500" },
+    alternates: { canonical: "https://www.sunsetvista.co/500" },
     openGraph: {
         title: "Server Error | Sunset Vista Co",
         description:

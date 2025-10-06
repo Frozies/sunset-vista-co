@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         "ecommerce solutions SWFL"
     ],
     robots: { index: false, follow: true },
-    alternates: { canonical: "https://sunsetvista.co/404" },
+    alternates: { canonical: "https://www.sunsetvista.co/404" },
     openGraph: {
         title: "Page Not Found | Sunset Vista Co",
         description:
