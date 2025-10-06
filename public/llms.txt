@@ -22,7 +22,7 @@ Sitemap: https://www.sunsetvista.co/sitemap.xml
 Allow: /
 Allow: /contact
 Allow: /education
-Allow: /glossary
+Allow: /education/glossary
 Allow: /services
 Allow: /services/seo
 Allow: /services/seo/google-ranking
@@ -51,6 +51,9 @@ Crawl-Delay: 3
 ###############################################################################
 User-Agent: *
 Allow: /
+Allow: /contact
+Allow: /education
+Allow: /education/glossary
 Allow: /services
 Allow: /services/seo
 Allow: /services/seo/google-ranking
@@ -67,6 +70,9 @@ Crawl-Delay: 3
 
 User-Agent: GPTBot
 Allow: /
+Allow: /contact
+Allow: /education
+Allow: /education/glossary
 Allow: /services
 Allow: /services/seo
 Allow: /services/seo/google-ranking
@@ -82,6 +88,9 @@ Disallow: /account
 
 User-Agent: Google-Extended
 Allow: /
+Allow: /contact
+Allow: /education
+Allow: /education/glossary
 Allow: /services
 Allow: /services/seo
 Allow: /services/seo/google-ranking
@@ -97,6 +106,9 @@ Disallow: /account
 
 User-Agent: Applebot-Extended
 Allow: /
+Allow: /contact
+Allow: /education
+Allow: /education/glossary
 Allow: /services
 Allow: /services/seo
 Allow: /services/seo/google-ranking
@@ -112,6 +124,9 @@ Disallow: /account
 
 User-Agent: PerplexityBot
 Allow: /
+Allow: /contact
+Allow: /education
+Allow: /education/glossary
 Allow: /services
 Allow: /services/seo
 Allow: /services/seo/google-ranking
@@ -128,6 +143,9 @@ Crawl-Delay: 5
 
 User-Agent: CCBot
 Allow: /
+Allow: /contact
+Allow: /education
+Allow: /education/glossary
 Allow: /services
 Allow: /services/seo
 Allow: /services/seo/google-ranking

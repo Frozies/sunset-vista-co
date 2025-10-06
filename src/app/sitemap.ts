@@ -10,7 +10,7 @@ const paths: Array<{
     { path: "/", changeFrequency: "yearly", priority: 1 },
     { path: "/contact", changeFrequency: "yearly", priority: 0.8 },
     { path: "/education", changeFrequency: "monthly", priority: 0.5 },
-    { path: "/glossary", changeFrequency: "monthly", priority: 0.5 },
+    { path: "/education/glossary", changeFrequency: "monthly", priority: 0.5 },
     { path: "/services", changeFrequency: "weekly", priority: 0.6 },
     { path: "/services/seo", changeFrequency: "weekly", priority: 0.6 },
     { path: "/services/seo/google-ranking", changeFrequency: "weekly", priority: 0.5 },
