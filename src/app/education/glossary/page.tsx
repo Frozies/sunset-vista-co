@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
     metadataBase: new URL("https://sunsetvista.co"),
     title:
-        "Digital Marketing Glossary — Plain-English Definitions for Local Businesses | Sunset Vista",
+        "Digital Marketing Glossary",
     description:
         "Plain-English definitions of essential marketing terms (SEO, GEO, PPC, CTR, schema, and more) to help Southwest Florida businesses make smarter decisions.",
     keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         type: "article",
         url: "https://sunsetvista.co/education/glossary",
         title:
-            "Digital Marketing Glossary — Plain-English Definitions for Local Businesses | Sunset Vista",
+            "Digital Marketing Glossary",
         description:
             "Understand SEO, GEO, PPC, schema, CTR, and more with simple definitions tailored to local businesses in Southwest Florida.",
         siteName: "Sunset Vista",

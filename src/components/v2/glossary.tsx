@@ -104,32 +104,6 @@ const glossaryTerms: GlossaryItem[] = [{
 }))
 
 export default function GlossaryPage() {
-    const definedTermSetLd = {
-        "@context": "https://schema.org",
-        "@type": "DefinedTermSet",
-        name: "Digital Marketing Glossary",
-        description: "Plain-English definitions of common digital marketing terms for local businesses in Southwest Florida.",
-        hasDefinedTerm: glossaryTerms.map((t) => ({
-            "@type": "DefinedTerm",
-            name: t.term,
-            description: t.definition,
-            inDefinedTermSet: "#digital-marketing-glossary",
-            url: `https://sunsetvista.co/education/glossary#${t.slug}`,
-        })),
-        "@id": "https://sunsetvista.co/education/glossary#digital-marketing-glossary",
-    }
-
-    const breadcrumbLd = {
-        "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{
-            "@type": "ListItem", position: 1, name: "Education", item: "https://sunsetvista.co/education",
-        }, {
-            "@type": "ListItem",
-            position: 2,
-            name: "Marketing Glossary",
-            item: "https://sunsetvista.co/education/glossary",
-        },],
-    }
-
     return (<div>
 
             <nav aria-label="Breadcrumb" className="container mx-auto px-4 pt-6">
