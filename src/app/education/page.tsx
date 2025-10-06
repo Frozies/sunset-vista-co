@@ -75,7 +75,7 @@ const educationalPages = [
             "Local SEO for Southwest Florida businesses",
             "Common SEO mistakes to avoid",
         ],
-        href: "/education/what-seo-can-do",
+        href: "/services/seo",
     },
     {
         icon: Globe,
@@ -87,7 +87,7 @@ const educationalPages = [
             "Mobile-friendly websites and why they matter",
             "Converting visitors into customers",
         ],
-        href: "/education/what-web-design-can-do",
+        href: "/services/web-design",
     },
     {
         icon: Megaphone,
@@ -99,7 +99,7 @@ const educationalPages = [
             "Google Ads vs. Facebook Ads",
             "Measuring your marketing success",
         ],
-        href: "/education/what-digital-marketing-can-do",
+        href: "/services/digital-marketing",
     },
 ]
 
