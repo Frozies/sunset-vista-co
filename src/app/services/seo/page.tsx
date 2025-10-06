@@ -5,6 +5,100 @@ import Link from "next/link"
 import { Search, MapPin, Clock, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
 import FaqSection, {FaqData} from "@/components/v2/faq-section";
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://sunsetvista.co"),
+    title: "SEO Services in SWFL | Cape Coral, Fort Myers, Naples",
+    description:
+        "Local SEO, AI SEO and GEO, technical optimization, and content strategy for Southwest Florida. Get higher rankings, more traffic, and measurable growth for businesses in Cape Coral, Fort Myers, and Naples.",
+    keywords: [
+        // Geo + core intent
+        "SWFL SEO",
+        "Cape Coral SEO",
+        "Fort Myers SEO",
+        "Naples FL SEO",
+        "Local SEO Southwest Florida",
+
+        // High intent service keywords for this page
+        "local seo services",
+        "seo website audit",
+        "google my business optimization",
+        "google business profile optimization",
+        "local citation building",
+        "review management",
+        "local keyword targeting",
+
+        // AI and GEO
+        "ai seo",
+        "generative engine optimization",
+        "featured snippet optimization",
+        "voice search optimization",
+        "schema markup",
+
+        // Technical SEO
+        "technical seo",
+        "core web vitals",
+        "mobile first indexing",
+        "site speed optimization",
+        "xml sitemaps",
+        "robots.txt",
+
+        // Content SEO
+        "keyword research and strategy",
+        "content optimization",
+        "blog writing",
+        "landing page optimization",
+
+        // Outcomes
+        "increase organic traffic",
+        "rank higher on google",
+        "lead generation seo"
+    ],
+    applicationName: "Sunset Vista Co",
+    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    creator: "Davin Young",
+    publisher: "Sunset Vista Co LLC",
+    robots: {
+        index: true,
+        follow: true
+    },
+    alternates: {
+        canonical: "https://sunsetvista.co/services/seo"
+    },
+    openGraph: {
+        title: "SEO Services in SWFL | Cape Coral, Fort Myers, Naples",
+        description:
+            "Proven SEO for Southwest Florida. Local SEO, AI SEO and GEO, technical fixes, and content that ranks for Cape Coral, Fort Myers, and Naples.",
+        url: "https://sunsetvista.co/services/seo",
+        siteName: "Sunset Vista Co",
+        images: [
+            {
+                url: "https://sunsetvista.co/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Sunset Vista Co SEO services for SWFL"
+            }
+        ],
+        locale: "en_US",
+        type: "website"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "SEO Services in SWFL | Cape Coral, Fort Myers, Naples",
+        description:
+            "Local SEO, AI SEO and GEO, technical optimization, and content strategy for Cape Coral, Fort Myers, and Naples.",
+        images: ["https://sunsetvista.co/og-image.png"],
+        creator: "@sunsetvistaco"
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/icon1.png",
+        apple: "/apple-icon.png",
+        other: [{ rel: "manifest", url: "/manifest.json" }]
+    },
+    category: "business"
+}
 
 const seoServices = [
     {

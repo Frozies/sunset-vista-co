@@ -5,6 +5,90 @@ import Link from "next/link"
 import { Megaphone, Users, Mail, Target, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
 import FaqSection, {FaqData} from "@/components/v2/faq-section";
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://sunsetvista.co"),
+    title: "Digital Marketing in SWFL | Google Ads, Facebook Ads, Email & Social",
+    description:
+        "Full funnel digital marketing for Southwest Florida. Google Ads (PPC), Facebook and Instagram ads, social media management, and email marketing with tracking and reporting for Cape Coral, Fort Myers, and Naples.",
+    keywords: [
+        // Geo + intent
+        "SWFL digital marketing",
+        "Cape Coral digital marketing",
+        "Fort Myers digital marketing",
+        "Naples digital marketing",
+        "digital marketing agency SWFL",
+
+        // High intent service terms aligned to page and your lists
+        "google ads management",
+        "ppc management",
+        "facebook ads",
+        "instagram ads",
+        "social media management",
+        "email marketing campaigns",
+        "marketing automation",
+        "conversion tracking",
+        "remarketing",
+        "performance tracking",
+        "monthly reporting",
+        "keyword research",
+        "ad creation",
+        "bid management",
+        "audience targeting",
+        "campaign optimization",
+        "roi tracking",
+
+        // Related ecommerce/lead gen support terms surfaced in your sheets
+        "ecommerce marketing services",
+        "build an online store",
+        "shopify seo expert",
+
+        // Outcomes
+        "generate more leads",
+        "increase brand awareness",
+        "grow revenue"
+    ],
+    applicationName: "Sunset Vista Co",
+    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    creator: "Davin Young",
+    publisher: "Sunset Vista Co LLC",
+    robots: { index: true, follow: true },
+    alternates: { canonical: "https://sunsetvista.co/services/digital-marketing" },
+    openGraph: {
+        title: "Digital Marketing in SWFL | Google Ads, Facebook Ads, Email & Social",
+        description:
+            "Social media management, email marketing, and paid ads that drive measurable results for Cape Coral, Fort Myers, and Naples.",
+        url: "https://sunsetvista.co/services/digital-marketing",
+        siteName: "Sunset Vista Co",
+        images: [
+            {
+                url: "https://sunsetvista.co/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Sunset Vista Co digital marketing services for SWFL"
+            }
+        ],
+        locale: "en_US",
+        type: "website"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Digital Marketing in SWFL | Google Ads, Facebook Ads, Email & Social",
+        description:
+            "PPC, social ads, and email marketing with conversion tracking and monthly reporting for SWFL businesses.",
+        images: ["https://sunsetvista.co/og-image.png"],
+        creator: "@sunsetvistaco"
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/icon1.png",
+        apple: "/apple-icon.png",
+        other: [{ rel: "manifest", url: "/manifest.json" }]
+    },
+    category: "business"
+}
+
 
 const marketingServices = [
     {

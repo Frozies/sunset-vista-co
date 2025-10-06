@@ -4,6 +4,107 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Search, Globe, ShoppingCart, Megaphone, ArrowRight, CheckCircle } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://sunsetvista.co"),
+    title: "SWFL SEO, Web Design & Ecommerce Experts",
+    description:
+        "Digital marketing services for Southwest Florida businesses. SEO, web design, and ecommerce builds that help Cape Coral, Fort Myers, and Naples grow with local search, AI GEO, Shopify and WooCommerce, PPC, analytics, and in person support.",
+    keywords: [
+        // Core services + geo
+        "SWFL SEO",
+        "SWFL web design",
+        "SWFL ecommerce",
+        "Cape Coral SEO",
+        "Fort Myers SEO",
+        "Naples FL SEO",
+        "Local SEO Southwest Florida",
+        "Southwest Florida",
+        "Lee County FL",
+        "Collier County FL",
+        "Cape Coral",
+        "Fort Myers",
+        "Naples",
+
+        // High volume service keywords aligned to this page
+        "local seo services",
+        "ecommerce seo services",
+        "ai seo",
+        "wordpress seo services",
+        "seo for small business",
+        "seo website audit",
+        "web developers near me",
+        "web design services near me",
+        "custom website design",
+        "small business website design",
+        "affordable website design",
+        "ecommerce website development",
+        "ecommerce development company",
+        "shopify seo expert",
+        "hire shopify developer",
+        "build an online store",
+        "ecommerce marketing services",
+
+        // Services list sections
+        "mobile first responsive design",
+        "fast loading websites",
+        "technical seo",
+        "keyword research and strategy",
+        "google ads management",
+        "ppc management",
+        "facebook and instagram ads",
+        "email marketing campaigns",
+        "analytics and reporting",
+        "content management systems",
+        "payment gateway integration",
+        "product catalog optimization",
+        "staff training"
+    ],
+    applicationName: "Sunset Vista Co",
+    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    creator: "Davin Young",
+    publisher: "Sunset Vista Co LLC",
+    robots: {
+        index: true,
+        follow: true
+    },
+    alternates: {
+        canonical: "https://sunsetvista.co/services"
+    },
+    openGraph: {
+        title: "Sunset Vista Co | SWFL SEO, Web Design & Ecommerce Experts",
+        description:
+            "SEO, web design, ecommerce, and digital marketing for Cape Coral, Fort Myers, and Naples. Local SEO, AI GEO, Shopify and WooCommerce builds, PPC, analytics, and measurable growth.",
+        url: "https://sunsetvista.co/services",
+        siteName: "Sunset Vista Co",
+        images: [
+            {
+                url: "https://sunsetvista.co/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Sunset Vista Co services in SEO, Web Design, and Ecommerce for SWFL"
+            }
+        ],
+        locale: "en_US",
+        type: "website"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Sunset Vista Co | SWFL SEO, Web Design & Ecommerce Experts",
+        description:
+            "SWFL businesses get SEO, web design, ecommerce, PPC, and analytics support from Sunset Vista Co.",
+        images: ["https://sunsetvista.co/og-image.png"],
+        creator: "@sunsetvistaco"
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/icon1.png",
+        apple: "/apple-icon.png",
+        other: [{ rel: "manifest", url: "/manifest.json" }]
+    },
+    category: "business"
+}
 
 const services = [
     {

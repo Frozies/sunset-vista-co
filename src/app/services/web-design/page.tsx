@@ -5,6 +5,95 @@ import Link from "next/link"
 import { Globe, Smartphone, Zap, Search, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
 import FaqSection, {FaqData} from "@/components/v2/faq-section";
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://sunsetvista.co"),
+    title: "Web Design and Development in SWFL | Cape Coral, Fort Myers, Naples",
+    description:
+        "Mobile first, fast loading, conversion focused websites for Southwest Florida. Custom web design, WordPress and Shopify builds, Core Web Vitals, on page SEO, and analytics setup for businesses in Cape Coral, Fort Myers, and Naples.",
+    keywords: [
+        // Geo + service intent
+        "SWFL web design",
+        "Cape Coral web design",
+        "Fort Myers web design",
+        "Naples web design",
+        "Local web design Southwest Florida",
+        "web developers near me",
+        "web design services near me",
+
+        // High volume service keywords aligned to this page
+        "custom website design",
+        "small business website design",
+        "affordable website design",
+        "website development SWFL",
+        "wordpress web design",
+        "wordpress seo services",
+        "shopify developer Cape Coral",
+        "woocommerce setup Naples",
+        "ecommerce website development",
+        "conversion focused web design",
+
+        // Features from the page
+        "mobile first responsive design",
+        "fast loading websites",
+        "core web vitals",
+        "technical seo",
+        "schema markup",
+        "meta tags optimization",
+        "google analytics setup",
+        "google search console setup",
+        "performance monitoring",
+        "content management systems",
+
+        // Outcomes
+        "lead generating websites",
+        "website conversion optimization"
+    ],
+    applicationName: "Sunset Vista Co",
+    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    creator: "Davin Young",
+    publisher: "Sunset Vista Co LLC",
+    robots: {
+        index: true,
+        follow: true
+    },
+    alternates: {
+        canonical: "https://sunsetvista.co/services/web-design"
+    },
+    openGraph: {
+        title: "Web Design and Development in SWFL | Cape Coral, Fort Myers, Naples",
+        description:
+            "Professional, fast, SEO ready websites for Southwest Florida. Custom WordPress and Shopify builds, Core Web Vitals, local SEO, and analytics to help your business convert more visitors.",
+        url: "https://sunsetvista.co/services/web-design",
+        siteName: "Sunset Vista Co",
+        images: [
+            {
+                url: "https://sunsetvista.co/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Sunset Vista Co web design services for SWFL"
+            }
+        ],
+        locale: "en_US",
+        type: "website"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Web Design and Development in SWFL | Cape Coral, Fort Myers, Naples",
+        description:
+            "Mobile first, fast loading, SEO ready websites for Cape Coral, Fort Myers, and Naples. Get a free website quote.",
+        images: ["https://sunsetvista.co/og-image.png"],
+        creator: "@sunsetvistaco"
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/icon1.png",
+        apple: "/apple-icon.png",
+        other: [{ rel: "manifest", url: "/manifest.json" }]
+    },
+    category: "business"
+}
 
 const designFeatures = [
     {

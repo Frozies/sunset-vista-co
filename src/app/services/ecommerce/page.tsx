@@ -5,6 +5,92 @@ import Link from "next/link"
 import { ShoppingCart, CreditCard, Users, BarChart3, CheckCircle, ArrowRight } from "lucide-react"
 import {Footer} from "@/components/v2/footer";
 import FaqSection, {FaqData} from "@/components/v2/faq-section";
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://sunsetvista.co"),
+    title: "Ecommerce Development in SWFL | Shopify and WooCommerce Experts",
+    description:
+        "Start and scale your online store in Southwest Florida. Shopify and WooCommerce builds, conversion optimization, payment gateways, shipping, GA4, and training for Cape Coral, Fort Myers, and Naples.",
+    keywords: [
+        // Geo + intent
+        "SWFL ecommerce",
+        "Cape Coral ecommerce",
+        "Fort Myers ecommerce",
+        "Naples ecommerce",
+        "online store setup Southwest Florida",
+
+        // High volume ecommerce terms from your list
+        "ecommerce website development",
+        "ecommerce seo services",
+        "best ecommerce platform",
+        "ecommerce development company",
+        "shopify seo expert",
+        "build an online store",
+        "ecommerce marketing services",
+        "hire shopify developer",
+        "shopify website designer",
+        "ecommerce conversion rate optimization",
+        "custom ecommerce website development",
+        "how to make a shopify website",
+        "ecommerce website redesign",
+        "shopify expert near me",
+        "shopify experts near me",
+
+        // Page specific services
+        "shopify store development",
+        "woocommerce solutions",
+        "payment gateway integration",
+        "shipping configuration",
+        "inventory management",
+        "product catalog setup",
+        "conversion optimization",
+        "a/b testing",
+        "ga4 enhanced ecommerce",
+        "google merchant center feed",
+        "facebook and instagram shop",
+        "performance monitoring",
+        "staff training"
+    ],
+    applicationName: "Sunset Vista Co",
+    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    creator: "Davin Young",
+    publisher: "Sunset Vista Co LLC",
+    robots: { index: true, follow: true },
+    alternates: { canonical: "https://sunsetvista.co/services/ecommerce" },
+    openGraph: {
+        title: "Ecommerce Development in SWFL | Shopify and WooCommerce Experts",
+        description:
+            "Complete ecommerce builds and optimization for Cape Coral, Fort Myers, and Naples. Shopify and WooCommerce setup, conversion optimization, GA4, feeds, and training.",
+        url: "https://sunsetvista.co/services/ecommerce",
+        siteName: "Sunset Vista Co",
+        images: [
+            {
+                url: "https://sunsetvista.co/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Sunset Vista Co ecommerce solutions for SWFL"
+            }
+        ],
+        locale: "en_US",
+        type: "website"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Ecommerce Development in SWFL | Shopify and WooCommerce Experts",
+        description:
+            "Shopify and WooCommerce stores built to convert. Payments, shipping, analytics, and training for SWFL businesses.",
+        images: ["https://sunsetvista.co/og-image.png"],
+        creator: "@sunsetvistaco"
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/icon1.png",
+        apple: "/apple-icon.png",
+        other: [{ rel: "manifest", url: "/manifest.json" }]
+    },
+    category: "business"
+}
 
 const ecommerceServices = [
     {
