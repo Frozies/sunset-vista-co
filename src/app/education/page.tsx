@@ -6,7 +6,7 @@ import { BookOpen, Search, Globe, Megaphone, ArrowRight, GraduationCap } from "l
 import {Footer} from "@/components/v2/footer";
 import {Metadata} from "next";
 export const metadata: Metadata = {
-    metadataBase: new URL("https://sunsetvista.co"),
+    metadataBase: new URL("https://www.sunsetvista.co"),
     title:
         "Education — Learn SEO, Web Design & Digital Marketing | Sunset Vista (SWFL)",
     description:
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     alternates: { canonical: "/education" },
     openGraph: {
         type: "website",
-        url: "https://sunsetvista.co/education",
+        url: "https://www.sunsetvista.co/education",
         siteName: "Sunset Vista",
         locale: "en_US",
         title:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
             "Understand SEO, web design, and digital marketing with simple, local-first guides from Sunset Vista.",
         images: [
             {
-                url: "https://sunsetvista.co/og/education.png",
+                url: "https://www.sunsetvista.co/og/education.png",
                 width: 1200,
                 height: 630,
                 alt: "Sunset Vista Education — SEO, Web Design, Digital Marketing",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
             "Education — Learn SEO, Web Design & Digital Marketing | Sunset Vista",
         description:
             "Plain-English guides to help your SWFL business grow online.",
-        images: ["https://sunsetvista.co/og/education.png"],
+        images: ["https://www.sunsetvista.co/og/education.png"],
         creator: "@sunsetvista_co",
     },
     robots: {

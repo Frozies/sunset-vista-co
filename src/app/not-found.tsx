@@ -4,7 +4,7 @@ import {Footer} from "@/components/v2/footer";
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://sunsetvista.co"),
+    metadataBase: new URL("https://www.sunsetvista.co"),
     title: "Page Not Found | Sunset Vista Co",
     description:
         "The page you’re looking for doesn’t exist or has been moved. Return to the homepage or explore our SEO, web design, e-commerce, and marketing services for Southwest Florida businesses.",
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
         title: "Page Not Found | Sunset Vista Co",
         description:
             "This page may have moved or no longer exists. Visit our homepage or explore SEO, web design, and e-commerce services for Southwest Florida.",
-        url: "https://sunsetvista.co/404",
+        url: "https://www.sunsetvista.co/404",
         siteName: "Sunset Vista Co",
         images: [
             {
-                url: "https://sunsetvista.co/og-image.png",
+                url: "https://www.sunsetvista.co/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "404 Page Not Found - Sunset Vista Co"
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         title: "Page Not Found | Sunset Vista Co",
         description:
             "We couldn’t find the page you’re looking for. Explore Sunset Vista Co’s SEO, web design, and e-commerce solutions for SWFL.",
-        images: ["https://sunsetvista.co/og-image.png"],
+        images: ["https://www.sunsetvista.co/og-image.png"],
         creator: "@sunsetvistaco"
     },
     icons: {

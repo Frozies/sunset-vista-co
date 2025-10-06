@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://sunsetvista.co/sitemap.xml',
+        sitemap: 'https://www.sunsetvista.co/sitemap.xml',
     }
 }

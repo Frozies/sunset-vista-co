@@ -7,7 +7,7 @@ import {Footer} from "@/components/v2/footer";
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://sunsetvista.co"),
+    metadataBase: new URL("https://www.sunsetvista.co"),
     title: "SWFL SEO, Web Design & Ecommerce Experts",
     description:
         "Digital marketing services for Southwest Florida businesses. SEO, web design, and ecommerce builds that help Cape Coral, Fort Myers, and Naples grow with local search, AI GEO, Shopify and WooCommerce, PPC, analytics, and in person support.",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
         "staff training"
     ],
     applicationName: "Sunset Vista Co",
-    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    authors: [{ name: "Sunset Vista Co", url: "https://www.sunsetvista.co" }],
     creator: "Davin Young",
     publisher: "Sunset Vista Co LLC",
     robots: {
@@ -76,11 +76,11 @@ export const metadata: Metadata = {
         title: "Sunset Vista Co | SWFL SEO, Web Design & Ecommerce Experts",
         description:
             "SEO, web design, ecommerce, and digital marketing for Cape Coral, Fort Myers, and Naples. Local SEO, AI GEO, Shopify and WooCommerce builds, PPC, analytics, and measurable growth.",
-        url: "https://sunsetvista.co/services",
+        url: "https://www.sunsetvista.co/services",
         siteName: "Sunset Vista Co",
         images: [
             {
-                url: "https://sunsetvista.co/og-image.png",
+                url: "https://www.sunsetvista.co/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "Sunset Vista Co services in SEO, Web Design, and Ecommerce for SWFL"
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
         title: "Sunset Vista Co | SWFL SEO, Web Design & Ecommerce Experts",
         description:
             "SWFL businesses get SEO, web design, ecommerce, PPC, and analytics support from Sunset Vista Co.",
-        images: ["https://sunsetvista.co/og-image.png"],
+        images: ["https://www.sunsetvista.co/og-image.png"],
         creator: "@sunsetvistaco"
     },
     icons: {

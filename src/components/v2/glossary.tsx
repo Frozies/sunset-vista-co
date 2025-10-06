@@ -202,7 +202,7 @@ export default function GlossaryPage() {
                                 >
                                     <meta
                                         itemProp="inDefinedTermSet"
-                                        content="https://sunsetvista.co/education/glossary#digital-marketing-glossary"
+                                        content="https://www.sunsetvista.co/education/glossary#digital-marketing-glossary"
                                     />
                                     <Card className="hover:shadow-lg transition-shadow">
                                         <CardHeader className="space-y-2">
@@ -269,7 +269,7 @@ export function GlossaryJsonLd({
                                }: {
     terms: GlossaryItem[]
 }) {
-    const site = "https://sunsetvista.co"
+    const site = "https://www.sunsetvista.co"
     const pageUrl = `${site}/education/glossary`
 
     const definedTermSetLd = {

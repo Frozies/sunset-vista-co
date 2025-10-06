@@ -8,7 +8,7 @@ import Script from "next/script";
 import {Footer} from "@/components/v2/footer";
 import {LocalHeroSection} from "@/components/v2/local-hero-section";
 export const metadata: Metadata = {
-    metadataBase: new URL("https://sunsetvista.co"),
+    metadataBase: new URL("https://www.sunsetvista.co"),
     title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
     description:
         "Your Southwest Florida partner for SEO, web design, and e-commerce growth. Serving Cape Coral, Fort Myers & Naples with local SEO, AI GEO optimization, Shopify/WooCommerce development, PPC campaigns, analytics setup, and expert in-person support.",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         "Southwest Florida", "Lee County FL", "Collier County FL", "Cape Coral", "Fort Myers", "Naples"
     ],
     applicationName: "Sunset Vista Co",
-    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    authors: [{ name: "Sunset Vista Co", url: "https://www.sunsetvista.co" }],
     creator: "Davin Young",
     publisher: "Sunset Vista Co LLC",
     robots: {
@@ -46,11 +46,11 @@ export const metadata: Metadata = {
         title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
         description:
             "We help small and medium businesses in Cape Coral, Fort Myers, and Naples grow online with local SEO, AI GEO optimization, Shopify/WooCommerce, PPC, analytics, and in-person support.",
-        url: "https://sunsetvista.co",
+        url: "https://www.sunsetvista.co",
         siteName: "Sunset Vista Co",
         images: [
             {
-                url: "https://sunsetvista.co/og-image.png",
+                url: "https://www.sunsetvista.co/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "Sunset Vista Co - SWFL SEO, Web Design & E-Commerce Experts",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
         description:
             "Cape Coral, Fort Myers & Naples businesses - get expert local SEO, web design, e-commerce, PPC & analytics support from Sunset Vista Co.",
-        images: ["https://sunsetvista.co/og-image.png"],
+        images: ["https://www.sunsetvista.co/og-image.png"],
         creator: "@sunsetvistaco",
     },
     icons: {
@@ -99,60 +99,60 @@ export default function Component() {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://sunsetvista.co/#website",
-      "url": "https://sunsetvista.co",
+      "@id": "https://www.sunsetvista.co/#website",
+      "url": "https://www.sunsetvista.co",
       "name": "Sunset Vista Co",
       "alternateName": "Sunset Vista Company LLC",
       "inLanguage": "en-US",
-      "publisher": { "@id": "https://sunsetvista.co/#organization" },
-      "image": "https://sunsetvista.co/og-image.png",
+      "publisher": { "@id": "https://www.sunsetvista.co/#organization" },
+      "image": "https://www.sunsetvista.co/og-image.png",
       "potentialAction": [
         {
           "@type": "ContactAction",
-          "target": "https://sunsetvista.co/contact",
+          "target": "https://www.sunsetvista.co/contact",
           "name": "Free Consultation"
         }
       ]
     },
     {
       "@type": "WebPage",
-      "@id": "https://sunsetvista.co/#webpage",
-      "url": "https://sunsetvista.co",
-      "isPartOf": { "@id": "https://sunsetvista.co/#website" },
+      "@id": "https://www.sunsetvista.co/#webpage",
+      "url": "https://www.sunsetvista.co",
+      "isPartOf": { "@id": "https://www.sunsetvista.co/#website" },
       "name": "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
       "about": [
-        { "@id": "https://sunsetvista.co/#service-seo" },
-        { "@id": "https://sunsetvista.co/#service-web" },
-        { "@id": "https://sunsetvista.co/#service-ecom" },
-        { "@id": "https://sunsetvista.co/#service-marketing" }
+        { "@id": "https://www.sunsetvista.co/#service-seo" },
+        { "@id": "https://www.sunsetvista.co/#service-web" },
+        { "@id": "https://www.sunsetvista.co/#service-ecom" },
+        { "@id": "https://www.sunsetvista.co/#service-marketing" }
       ],
       "description": "Your Southwest Florida partner for SEO, web design, and e-commerce growth. Serving Cape Coral, Fort Myers & Naples with local SEO, GEO SEO, Shopify/WooCommerce, PPC campaigns, analytics setup, and expert in-person support.",
       "inLanguage": "en-US",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://sunsetvista.co/og-image.png",
+        "url": "https://www.sunsetvista.co/og-image.png",
         "width": 1200,
         "height": 630
       },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sunsetvista.co" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://sunsetvista.co/services" }
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sunsetvista.co" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.sunsetvista.co/services" }
         ]
       },
-      "publisher": { "@id": "https://sunsetvista.co/#organization" },
-      "copyrightHolder": { "@id": "https://sunsetvista.co/#organization" },
+      "publisher": { "@id": "https://www.sunsetvista.co/#organization" },
+      "copyrightHolder": { "@id": "https://www.sunsetvista.co/#organization" },
       "dateModified": "2025-09-29"
     },
     {
       "@type": "Organization",
-      "@id": "https://sunsetvista.co/#organization",
+      "@id": "https://www.sunsetvista.co/#organization",
       "name": "Sunset Vista Co LLC",
-      "url": "https://sunsetvista.co",
+      "url": "https://www.sunsetvista.co",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://sunsetvista.co/icon1.png"
+        "url": "https://www.sunsetvista.co/icon1.png"
       },
       "founder": {
         "@type": "Person",
@@ -185,17 +185,17 @@ export default function Component() {
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://sunsetvista.co/#localbusiness",
+      "@id": "https://www.sunsetvista.co/#localbusiness",
       "name": "Sunset Vista Co",
-      "url": "https://sunsetvista.co",
-      "image": "https://sunsetvista.co/og-image.png",
+      "url": "https://www.sunsetvista.co",
+      "image": "https://www.sunsetvista.co/og-image.png",
       "areaServed": [
         "Cape Coral FL", "Fort Myers FL", "Naples FL", "Lee County FL", "Collier County FL", "Southwest Florida"
       ],
       "availableChannel": [
         {
           "@type": "ServiceChannel",
-          "serviceUrl": "https://sunsetvista.co/contact",
+          "serviceUrl": "https://www.sunsetvista.co/contact",
           "name": "Online"
         },
         {
@@ -206,70 +206,70 @@ export default function Component() {
           ]
         }
       ],
-      "parentOrganization": { "@id": "https://sunsetvista.co/#organization" },
+      "parentOrganization": { "@id": "https://www.sunsetvista.co/#organization" },
       "sameAs": [],
       "offers": {
         "@type": "OfferCatalog",
         "name": "Digital Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@id": "https://sunsetvista.co/#service-seo" } },
-          { "@type": "Offer", "itemOffered": { "@id": "https://sunsetvista.co/#service-web" } },
-          { "@type": "Offer", "itemOffered": { "@id": "https://sunsetvista.co/#service-ecom" } },
-          { "@type": "Offer", "itemOffered": { "@id": "https://sunsetvista.co/#service-marketing" } }
+          { "@type": "Offer", "itemOffered": { "@id": "https://www.sunsetvista.co/#service-seo" } },
+          { "@type": "Offer", "itemOffered": { "@id": "https://www.sunsetvista.co/#service-web" } },
+          { "@type": "Offer", "itemOffered": { "@id": "https://www.sunsetvista.co/#service-ecom" } },
+          { "@type": "Offer", "itemOffered": { "@id": "https://www.sunsetvista.co/#service-marketing" } }
         ]
       }
     },
     {
       "@type": "Service",
-      "@id": "https://sunsetvista.co/#service-seo",
+      "@id": "https://www.sunsetvista.co/#service-seo",
       "name": "SEO Services",
       "serviceType": "Local SEO, AI SEO, GEO SEO, PPC Campaigns, Analytics",
-      "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
+      "provider": { "@id": "https://www.sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
-      "url": "https://sunsetvista.co/services/seo",
+      "url": "https://www.sunsetvista.co/services/seo",
       "description": "Dominate local search with expert Local SEO, AI-driven GEO optimization, and targeted PPC campaigns. Full analytics & reporting included.",
-      "termsOfService": "https://sunsetvista.co/terms"
+      "termsOfService": "https://www.sunsetvista.co/terms"
     },
     {
       "@type": "Service",
-      "@id": "https://sunsetvista.co/#service-web",
+      "@id": "https://www.sunsetvista.co/#service-web",
       "name": "Web Design & Development",
       "serviceType": "Mobile-First Design, Speed Optimization, SEO-Ready Sites",
-      "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
+      "provider": { "@id": "https://www.sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
-      "url": "https://sunsetvista.co/services/web-design",
+      "url": "https://www.sunsetvista.co/services/web-design",
       "description": "Fast, modern, SEO-ready websites designed to convert. Mobile-optimized, speed-tuned, and built for business growth."
     },
     {
       "@type": "Service",
-      "@id": "https://sunsetvista.co/#service-ecom",
+      "@id": "https://www.sunsetvista.co/#service-ecom",
       "name": "E-Commerce Solutions",
       "serviceType": "Shopify Development, WooCommerce Setup, Payment Gateways, Staff Training",
-      "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
+      "provider": { "@id": "https://www.sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
-      "url": "https://sunsetvista.co/services/ecommerce",
+      "url": "https://www.sunsetvista.co/services/ecommerce",
       "description": "Full-service Shopify & WooCommerce development. Secure checkout, seamless payment integration, and training for your team."
     },
     {
       "@type": "Service",
-      "@id": "https://sunsetvista.co/#service-marketing",
+      "@id": "https://www.sunsetvista.co/#service-marketing",
       "name": "Digital Marketing",
       "serviceType": "Social Media, Email Campaigns, Google & Facebook Ads",
-      "provider": { "@id": "https://sunsetvista.co/#localbusiness" },
+      "provider": { "@id": "https://www.sunsetvista.co/#localbusiness" },
       "areaServed": ["Cape Coral FL", "Fort Myers FL", "Naples FL", "Southwest Florida"],
-      "url": "https://sunsetvista.co/services/digital-marketing",
+      "url": "https://www.sunsetvista.co/services/digital-marketing",
       "description": "Multi-channel digital campaigns designed to convert. Google Ads, Facebook Ads, email marketing and more - results-driven execution."
     },
     {
       "@type": "ItemList",
-      "@id": "https://sunsetvista.co/#services-list",
+      "@id": "https://www.sunsetvista.co/#services-list",
       "name": "Service Overview",
       "itemListOrder": "http://schema.org/ItemListOrderAscending",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "url": "https://sunsetvista.co/services/seo", "name": "SEO Services" },
-        { "@type": "ListItem", "position": 2, "url": "https://sunsetvista.co/services/web-design", "name": "Web Design & Development" },
-        { "@type": "ListItem", "position": 3, "url": "https://sunsetvista.co/services/ecommerce", "name": "E-Commerce Solutions" },
-        { "@type": "ListItem", "position": 4, "url": "https://sunsetvista.co/services/digital-marketing", "name": "Digital Marketing" }
+        { "@type": "ListItem", "position": 1, "url": "https://www.sunsetvista.co/services/seo", "name": "SEO Services" },
+        { "@type": "ListItem", "position": 2, "url": "https://www.sunsetvista.co/services/web-design", "name": "Web Design & Development" },
+        { "@type": "ListItem", "position": 3, "url": "https://www.sunsetvista.co/services/ecommerce", "name": "E-Commerce Solutions" },
+        { "@type": "ListItem", "position": 4, "url": "https://www.sunsetvista.co/services/digital-marketing", "name": "Digital Marketing" }
       ]
     }
   ]

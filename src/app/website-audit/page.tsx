@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         title: "Free Website Audit | Sunset Vista Co",
         description:
             "Get a free comprehensive website audit using industry-standard tools. Analyze performance, accessibility, and SEO.",
-        url: "https://sunsetvista.co/website-audit",
+        url: "https://www.sunsetvista.co/website-audit",
         siteName: "Sunset Vista Co",
         type: "website",
     },

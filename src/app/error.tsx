@@ -7,7 +7,7 @@ import {Button} from "@/components/ui/button";
 import {Home, Mail, RefreshCw} from "lucide-react";
 import Link from "next/link";
 export const metadata: Metadata = {
-    metadataBase: new URL("https://sunsetvista.co"),
+    metadataBase: new URL("https://www.sunsetvista.co"),
     title: "Server Error | Sunset Vista Co",
     description:
         "Something went wrong on our end. Please try again or return to the homepage. If the problem continues, contact Sunset Vista Co support.",
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
         title: "Server Error | Sunset Vista Co",
         description:
             "We are experiencing a temporary issue. Please try again or head back to the homepage.",
-        url: "https://sunsetvista.co/500",
+        url: "https://www.sunsetvista.co/500",
         siteName: "Sunset Vista Co",
         images: [
             {
-                url: "https://sunsetvista.co/og-image.png",
+                url: "https://www.sunsetvista.co/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "Server Error - Sunset Vista Co"
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         title: "Server Error | Sunset Vista Co",
         description:
             "Something went wrong. Please try again or return to the homepage.",
-        images: ["https://sunsetvista.co/og-image.png"],
+        images: ["https://www.sunsetvista.co/og-image.png"],
         creator: "@sunsetvistaco"
     },
     icons: {

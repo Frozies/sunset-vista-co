@@ -1,6 +1,6 @@
 # Sunset Vista Co - LLM access policy
-# Site: https://sunsetvista.co
-# Contact: https://sunsetvista.co/contact
+# Site: https://www.sunsetvista.co
+# Contact: https://www.sunsetvista.co/contact
 # Last-Updated: 2025-10-06
 
 Policy: Public marketing pages listed in the sitemap are allowed for crawl, index, and non-commercial summarization and Q&A with attribution and a visible source link. Model training is opted out unless separately licensed.
@@ -14,7 +14,7 @@ Cache-Store: allowed-30-days
 ###############################################################################
 # SITEMAP
 ###############################################################################
-Sitemap: https://sunsetvista.co/sitemap.xml
+Sitemap: https://www.sunsetvista.co/sitemap.xml
 
 ###############################################################################
 # ALLOWED PATHS (from sitemap)
@@ -180,4 +180,4 @@ Recrawl:
 ###############################################################################
 License:
   Summary: Non-commercial summarization and Q&A are permitted with attribution and a link. Any model training or commercial reuse requires written permission.
-  Contact: https://sunsetvista.co/contact
+  Contact: https://www.sunsetvista.co/contact

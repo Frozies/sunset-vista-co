@@ -16,8 +16,8 @@ export type FaqData = {
     cta?: { text: string; href: string };
     items: FaqItem[];
     schemaMeta?: {
-        url?: string;         // e.g. "https://sunsetvista.co/digital-marketing"
-        id?: string;          // e.g. "https://sunsetvista.co/digital-marketing#faq"
+        url?: string;         // e.g. "https://www.sunsetvista.co/digital-marketing"
+        id?: string;          // e.g. "https://www.sunsetvista.co/digital-marketing#faq"
         name?: string;        // e.g. "Digital Marketing FAQ — Sunset Vista Co"
         inLanguage?: string;  // e.g. "en"
         description?: string; // short FAQ description (optional)

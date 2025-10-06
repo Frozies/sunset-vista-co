@@ -4,7 +4,7 @@ import GlossaryPage from "@/components/v2/glossary";
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://sunsetvista.co"),
+    metadataBase: new URL("https://www.sunsetvista.co"),
     title:
         "Digital Marketing Glossary",
     description:
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         type: "article",
-        url: "https://sunsetvista.co/education/glossary",
+        url: "https://www.sunsetvista.co/education/glossary",
         title:
             "Digital Marketing Glossary",
         description:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         locale: "en_US",
         images: [
             {
-                url: "https://sunsetvista.co/og/education-glossary.png",
+                url: "https://www.sunsetvista.co/og/education-glossary.png",
                 width: 1200,
                 height: 630,
                 alt: "Digital Marketing Glossary by Sunset Vista",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
             "Digital Marketing Glossary — Plain-English Definitions | Sunset Vista",
         description:
             "Simple explanations of core marketing terms for local businesses.",
-        images: ["https://sunsetvista.co/og/education-glossary.png"],
+        images: ["https://www.sunsetvista.co/og/education-glossary.png"],
         creator: "@sunsetvista_co",
     },
     robots: {

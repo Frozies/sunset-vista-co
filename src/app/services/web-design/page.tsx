@@ -8,7 +8,7 @@ import FaqSection, {FaqData} from "@/components/v2/faq-section";
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://sunsetvista.co"),
+    metadataBase: new URL("https://www.sunsetvista.co"),
     title: "Web Design and Development in SWFL | Cape Coral, Fort Myers, Naples",
     description:
         "Mobile first, fast loading, conversion focused websites for Southwest Florida. Custom web design, WordPress and Shopify builds, Core Web Vitals, on page SEO, and analytics setup for businesses in Cape Coral, Fort Myers, and Naples.",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         "website conversion optimization"
     ],
     applicationName: "Sunset Vista Co",
-    authors: [{ name: "Sunset Vista Co", url: "https://sunsetvista.co" }],
+    authors: [{ name: "Sunset Vista Co", url: "https://www.sunsetvista.co" }],
     creator: "Davin Young",
     publisher: "Sunset Vista Co LLC",
     robots: {
@@ -65,11 +65,11 @@ export const metadata: Metadata = {
         title: "Web Design and Development in SWFL | Cape Coral, Fort Myers, Naples",
         description:
             "Professional, fast, SEO ready websites for Southwest Florida. Custom WordPress and Shopify builds, Core Web Vitals, local SEO, and analytics to help your business convert more visitors.",
-        url: "https://sunsetvista.co/services/web-design",
+        url: "https://www.sunsetvista.co/services/web-design",
         siteName: "Sunset Vista Co",
         images: [
             {
-                url: "https://sunsetvista.co/og-image.png",
+                url: "https://www.sunsetvista.co/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "Sunset Vista Co web design services for SWFL"
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
         title: "Web Design and Development in SWFL | Cape Coral, Fort Myers, Naples",
         description:
             "Mobile first, fast loading, SEO ready websites for Cape Coral, Fort Myers, and Naples. Get a free website quote.",
-        images: ["https://sunsetvista.co/og-image.png"],
+        images: ["https://www.sunsetvista.co/og-image.png"],
         creator: "@sunsetvistaco"
     },
     icons: {
