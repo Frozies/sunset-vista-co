@@ -4,7 +4,7 @@ import { fromEnv } from "@aws-sdk/credential-providers";
 import { randomUUID } from "node:crypto";
 
 export const runtime = "nodejs";
-export const maxDuration = 120;
+export const maxDuration = 60;
 
 type AuditResults = {
     lighthouse: {
