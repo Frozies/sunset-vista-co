@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     APP_NAME: sunset-vista-co
-    ARTIFACT_BUCKET: your-artifact-bucket-name
+    ARTIFACT_BUCKET: sunset-vista-website-codebuild
     ARTIFACT_PREFIX: releases
 
 phases:
