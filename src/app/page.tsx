@@ -9,7 +9,7 @@ import {Footer} from "@/components/v2/footer";
 import {LocalHeroSection} from "@/components/v2/local-hero-section";
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.sunsetvista.co"),
-    title: "Sunset Vista Co | SWFL SEO, Web Design & E-Commerce Experts",
+    title: "Sunset Vista Co | AI SEO, Web Design & Ecommerce Experts in SWFL",
     description:
         "Your Southwest Florida partner for SEO, web design, and e-commerce growth. Serving Cape Coral, Fort Myers & Naples with local SEO, AI GEO optimization, Shopify/WooCommerce development, PPC campaigns, analytics setup, and expert in-person support.",
     keywords: [

@@ -10,15 +10,15 @@ export function HeroSection() {
             <div className="container mx-auto px-4 relative">
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6">
-                        Expert <span className="text-primary">SEO, Web Design & E‑Commerce</span> Services in SW Florida
+                        <span className="text-primary">AI SEO & GEO Optimization</span> for SW Florida Businesses
                     </h1>
 
                     <p className="text-xl md:text-2xl text-muted-foreground text-balance mb-8 max-w-3xl mx-auto">
                         We help small and medium businesses in Cape Coral, Fort Myers, and Naples transform their
                         websites into
-                        <span
-                            className="text-foreground font-medium"> lead-generating, sales-driving machines.</span>{" "}
-                        From local SEO and digital marketing to full e-commerce setup, training, and optimization,
+                        <span className="text-foreground font-medium"> lead-generating, sales-driving machines.</span>{" "}
+                        From <span className="font-medium">AI SEO and GEO optimization</span> to local SEO and digital marketing,
+                        plus full ecommerce setup, training, and optimization,
                         <span className="text-primary font-semibold"> you’ll always have expert, in-person support when you need it.</span>
                     </p>
 
@@ -35,32 +35,6 @@ export function HeroSection() {
                         </Button>
                     </div>
 
-                    {/*/!* Trust indicators *!/*/}
-                    {/*<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">*/}
-                    {/*    <Card className="p-6 text-center">*/}
-                    {/*        <div className="flex items-center justify-center mb-3">*/}
-                    {/*            <Star className="h-6 w-6 text-primary mr-2" />*/}
-                    {/*            <span className="font-semibold">5-Star Rated</span>*/}
-                    {/*        </div>*/}
-                    {/*        <p className="text-sm text-muted-foreground">Trusted by 100+ SWFL businesses</p>*/}
-                    {/*    </Card>*/}
-
-                    {/*    <Card className="p-6 text-center">*/}
-                    {/*        <div className="flex items-center justify-center mb-3">*/}
-                    {/*            <TrendingUp className="h-6 w-6 text-primary mr-2" />*/}
-                    {/*            <span className="font-semibold">Proven Results</span>*/}
-                    {/*        </div>*/}
-                    {/*        <p className="text-sm text-muted-foreground">Average 150% increase in leads</p>*/}
-                    {/*    </Card>*/}
-
-                    {/*    <Card className="p-6 text-center">*/}
-                    {/*        <div className="flex items-center justify-center mb-3">*/}
-                    {/*            <MapPin className="h-6 w-6 text-primary mr-2" />*/}
-                    {/*            <span className="font-semibold">In-Person Support</span>*/}
-                    {/*        </div>*/}
-                    {/*        <p className="text-sm text-muted-foreground">Face-to-face meetings & local expertise</p>*/}
-                    {/*    </Card>*/}
-                    {/*</div>*/}
                 </div>
             </div>
 
