@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
-set -euo pipefail
-cd /var/www/sunset-vista-co/standalone
-mkdir -p .next/static
+#!/bin/bash
+set -euxo pipefail
+# Optional: env templating, migrations, ownership
+chown -R ec2-user:ec2-user /opt/sunset-vista-co
