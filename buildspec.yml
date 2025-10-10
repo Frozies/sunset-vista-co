@@ -3,28 +3,38 @@ version: 0.2
 env:
   variables:
     APP_NAME: sunset-vista-co
-    ARTIFACT_BUCKET: sunset-vista-website-codebuild
+    ARTIFACT_BUCKET: your-artifact-bucket-name
     ARTIFACT_PREFIX: releases
 
 phases:
   install:
     commands:
-      - echo "[install] Install Node 24 with nvm"
+      - echo "[install] Install Node 24 via nvm"
       - export NVM_DIR=/root/.nvm
       - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-      - . "$NVM_DIR/nvm.sh"
-      - nvm install 24
-      - nvm use 24
-      - node -v
-      - npm -v
-      - corepack enable || true
+      - |
+        set -e
+        . "$NVM_DIR/nvm.sh"
+        nvm install 24
+        nvm use 24
+        node -v
+        npm -v
+        corepack enable || true
       - echo "[install] npm ci"
-      - npm ci
+      - |
+        set -e
+        . "$NVM_DIR/nvm.sh"
+        nvm use 24
+        npm ci
+
   build:
     commands:
-      - . "$NVM_DIR/nvm.sh" && nvm use 24
       - echo "[build] Next build - standalone output"
-      - npm run build
+      - |
+        set -e
+        . "$NVM_DIR/nvm.sh"
+        nvm use 24
+        npm run build
       - echo "[build] Prepare deployment bundle"
       - mkdir -p deploy
       - cp -R .next/standalone deploy/
@@ -34,9 +44,9 @@ phases:
       - cp appspec.yml deploy/appspec.yml
       - mkdir -p deploy/scripts && cp -R scripts/* deploy/scripts/
       - chmod +x deploy/scripts/*.sh
+
   post_build:
     commands:
-      - . "$NVM_DIR/nvm.sh" && nvm use 24
       - echo "[post_build] Zip and upload artifact, then trigger CodeDeploy"
       - ARTIFACT_NAME=${APP_NAME}-$(date +%Y%m%d%H%M%S).zip
       - cd deploy && zip -r ../$ARTIFACT_NAME . && cd ..
