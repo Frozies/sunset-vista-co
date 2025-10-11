@@ -150,7 +150,7 @@ export async function POST(req: NextRequest) {
 
         // Fire-and-forget notification (best-effort)
         try {
-            const base = new URL(req.url);
+            const base = new URL('https://www.sunsetvista.co');
             const emailPayload = {
                 name: "Website Audit Notification",
                 email: TO_EMAIL,
