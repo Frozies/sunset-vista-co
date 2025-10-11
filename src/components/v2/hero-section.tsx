@@ -14,11 +14,11 @@ export function HeroSection() {
                     </h1>
 
                     <p className="text-xl md:text-2xl text-muted-foreground text-balance mb-8 max-w-3xl mx-auto">
-                        We help small and medium businesses in Cape Coral, Fort Myers, and Naples transform their
+                        We help small and medium businesses in <strong>Cape Coral, Fort Myers, and Naples </strong>transform their
                         websites into
-                        <span className="text-foreground font-medium"> lead-generating, sales-driving machines.</span>{" "}
-                        From <span className="font-medium">AI SEO and GEO optimization</span> to local SEO and digital marketing,
-                        plus full ecommerce setup, training, and optimization,
+                        lead-generating, sales-driving machines.{" "}
+                        From <strong>AI SEO and GEO optimization</strong> to <strong>local SEO and digital marketing</strong>,
+                        plus full <strong>ecommerce setup</strong>, training, and optimization,
                         <span className="text-primary font-semibold"> you’ll always have expert, in-person support when you need it.</span>
                     </p>
 
