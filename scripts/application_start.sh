@@ -1,31 +1,41 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-RUN_USER="ec2-user"
-APP_NAME="sunset-vista-co"
-BASE_DIR="/opt/sunset-vista-co/current"
-APP_DIR="$BASE_DIR/standalone"
+APP_NAME=sunset-vista-co
+APP_DIR=/var/www/${APP_NAME}/standalone
+ENV_PATH=/etc/sysconfig/${APP_NAME}
+PARAM_PATH=/sunsetvista/prod/runtime
 
-export PATH="/usr/local/bin:/usr/bin:/bin"
-export PM2_HOME="/home/${RUN_USER}/.pm2"
-
-# permissions and directory sanity
-install -d -m 0755 -o "$RUN_USER" -g "$RUN_USER" "$APP_DIR"
-chown -R "$RUN_USER:$RUN_USER" "$BASE_DIR"
-
-# install deps and start with PM2 as ec2-user
-if [ -f "$APP_DIR/package-lock.json" ]; then
-  su -s /bin/bash -c "cd '$APP_DIR' && npm ci --omit=dev" "$RUN_USER"
-else
-  su -s /bin/bash -c "cd '$APP_DIR' && npm i --omit=dev" "$RUN_USER"
+if ! command -v jq >/dev/null 2>&1; then
+  sudo dnf -y install jq >/dev/null
 fi
 
-# start or reload
-if su -s /bin/bash -c "pm2 describe '$APP_NAME' >/dev/null 2>&1" "$RUN_USER"; then
-  su -s /bin/bash -c "pm2 restart '$APP_NAME' --update-env" "$RUN_USER"
+TMP_ENV=$(mktemp)
+aws ssm get-parameters-by-path \
+  --with-decryption \
+  --path "${PARAM_PATH}" \
+  --recursive \
+  --query 'Parameters[].{Name:Name,Value:Value}' \
+  --output json \
+| jq -r '.[] | "\(.Name | split("/") | last)=\(.Value)"' > "${TMP_ENV}"
+
+{
+  echo "NODE_ENV=production"
+  echo "PORT=3000"
+} >> "${TMP_ENV}"
+
+sudo install -m 600 -o ec2-user -g ec2-user "${TMP_ENV}" "${ENV_PATH}"
+rm -f "${TMP_ENV}"
+
+set -a
+. "${ENV_PATH}"
+set +a
+
+if pm2 pid "${APP_NAME}" >/dev/null 2>&1; then
+  pm2 reload "${APP_NAME}" || pm2 restart "${APP_NAME}"
 else
-  su -s /bin/bash -c "pm2 start '$APP_DIR/server.js' --name '$APP_NAME' --cwd '$APP_DIR'" "$RUN_USER"
+  pm2 start "${APP_DIR}/server.js" --name "${APP_NAME}" --time
 fi
 
-su -s /bin/bash -c "pm2 save" "$RUN_USER"
-systemctl enable --now "pm2-${RUN_USER}" || true
+pm2 save
+sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u ec2-user --hp /home/ec2-user >/dev/null 2>&1 || true
