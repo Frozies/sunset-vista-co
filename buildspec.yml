@@ -1,0 +1,65 @@
+version: 0.2
+
+env:
+  variables:
+    APP_NAME: sunset-vista-co
+    ARTIFACT_BUCKET: sunset-vista-website-codebuild
+    ARTIFACT_PREFIX: releases
+
+phases:
+  install:
+    commands:
+      - echo "[install] OS info"; cat /etc/os-release || true
+      - echo "[install] Install Node 24 via nvm on AL2023 image"
+      - export NVM_DIR=/root/.nvm
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      - |
+        set -e
+        . "$NVM_DIR/nvm.sh"
+        nvm install 24
+        nvm use 24
+        node -v
+        npm -v
+        corepack enable || true
+      - echo "[install] Install deps — use npm ci if lockfile exists"
+      - |
+        set -e
+        . "$NVM_DIR/nvm.sh"; nvm use 24
+        if [ -f package-lock.json ]; then
+          echo "Found package-lock.json → npm ci"
+          npm ci
+        else
+          echo "No package-lock.json → npm install"
+          npm install --no-audit --fund=false
+        fi
+
+  build:
+    commands:
+      - echo "[build] Next build — standalone output"
+      - |
+        set -e
+        . "$NVM_DIR/nvm.sh"; nvm use 24
+        npm run build
+      - echo "[build] Prepare deployment bundle"
+      - mkdir -p deploy
+      - cp -R .next/standalone deploy/
+      - cp -R .next/static deploy/standalone/.next/static
+      - if [ -d public ]; then cp -R public deploy/standalone/public; fi
+      - cp package.json deploy/standalone/package.json
+      - cp appspec.yml deploy/appspec.yml
+      - mkdir -p deploy/scripts && cp -R scripts/* deploy/scripts/
+      - chmod +x deploy/scripts/*.sh
+
+  post_build:
+    commands:
+      - echo "[post_build] Zip, upload, and trigger CodeDeploy"
+      - ARTIFACT_NAME=${APP_NAME}-$(date +%Y%m%d%H%M%S).zip
+      - cd deploy && zip -r ../$ARTIFACT_NAME . && cd ..
+      - aws s3 cp $ARTIFACT_NAME s3://$ARTIFACT_BUCKET/$ARTIFACT_PREFIX/$ARTIFACT_NAME
+      - aws deploy register-application-revision --application-name $APP_NAME --s3-location bucket=$ARTIFACT_BUCKET,bundleType=zip,key=$ARTIFACT_PREFIX/$ARTIFACT_NAME
+      - aws deploy create-deployment --application-name $APP_NAME --deployment-group-name ${APP_NAME}-prod --s3-location bucket=$ARTIFACT_BUCKET,bundleType=zip,key=$ARTIFACT_PREFIX/$ARTIFACT_NAME
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
