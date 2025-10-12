@@ -174,31 +174,31 @@ function ScoreCircle({score, label}: { score: number; label: string }) {
     const strokeDashoffset = circumference - (displayScore / 100) * circumference
 
     return (<div
-            className={`flex flex-col items-center transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-        >
-            <div className="relative w-28 h-28 mb-3">
-                <svg className="transform -rotate-90 w-28 h-28">
-                    <circle cx="56" cy="56" r="45" stroke="currentColor" strokeWidth="8" fill="none"
-                            className="text-gray-200"/>
-                    <circle
-                        cx="56"
-                        cy="56"
-                        r="45"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        fill="none"
-                        className={`${getStrokeColor(score)} transition-all duration-1000 ease-out`}
-                        strokeDasharray={circumference}
-                        strokeDashoffset={strokeDashoffset}
-                        strokeLinecap="round"
-                    />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <span className={`text-3xl font-bold ${getColor(score)}`}>{displayScore}</span>
-                </div>
+        className={`flex flex-col items-center transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+    >
+        <div className="relative w-28 h-28 mb-3">
+            <svg className="transform -rotate-90 w-28 h-28">
+                <circle cx="56" cy="56" r="45" stroke="currentColor" strokeWidth="8" fill="none"
+                        className="text-gray-200"/>
+                <circle
+                    cx="56"
+                    cy="56"
+                    r="45"
+                    stroke="currentColor"
+                    strokeWidth="8"
+                    fill="none"
+                    className={`${getStrokeColor(score)} transition-all duration-1000 ease-out`}
+                    strokeDasharray={circumference}
+                    strokeDashoffset={strokeDashoffset}
+                    strokeLinecap="round"
+                />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+                <span className={`text-3xl font-bold ${getColor(score)}`}>{displayScore}</span>
             </div>
-            <span className="text-sm font-medium text-muted-foreground text-center">{label}</span>
-        </div>)
+        </div>
+        <span className="text-sm font-medium text-muted-foreground text-center">{label}</span>
+    </div>)
 }
 
 function RecommendationCard({rec, index}: { rec: string; index: number }) {
@@ -236,58 +236,58 @@ function RecommendationCard({rec, index}: { rec: string; index: number }) {
     }
 
     return (<Card
-            className={`p-6 hover:shadow-lg transition-all duration-300 cursor-pointer ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
-            onClick={() => setIsExpanded(!isExpanded)}
-        >
-            <div className="flex items-start gap-4">
-                <div
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center font-bold flex-shrink-0 shadow-md">
-                    {index + 1}
-                </div>
-                <div className="flex-1">
-                    <div className="flex items-start justify-between gap-4 mb-2">
-                        <p className="text-lg font-medium">{rec}</p>
-                        <div className="flex items-center gap-2">
+        className={`p-6 hover:shadow-lg transition-all duration-300 cursor-pointer ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
+        onClick={() => setIsExpanded(!isExpanded)}
+    >
+        <div className="flex items-start gap-4">
+            <div
+                className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center font-bold flex-shrink-0 shadow-md">
+                {index + 1}
+            </div>
+            <div className="flex-1">
+                <div className="flex items-start justify-between gap-4 mb-2">
+                    <p className="text-lg font-medium">{rec}</p>
+                    <div className="flex items-center gap-2">
               <span
                   className={`text-xs px-2 py-1 rounded-full ${impactColors[impact]} ${impactTextColors[impact]} font-semibold`}>
                 {impactLabels[impact]}
               </span>
-                            {isExpanded ? (<ChevronUp className="w-5 h-5 text-muted-foreground"/>) : (
-                                <ChevronDown className="w-5 h-5 text-muted-foreground"/>)}
-                        </div>
+                        {isExpanded ? (<ChevronUp className="w-5 h-5 text-muted-foreground"/>) : (
+                            <ChevronDown className="w-5 h-5 text-muted-foreground"/>)}
                     </div>
-
-                    {isExpanded && (<div
-                            className="mt-4 pt-4 border-t space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
-                            <div>
-                                <h4 className="font-semibold text-sm mb-1">Why This Matters:</h4>
-                                <p className="text-sm text-muted-foreground">
-                                    {ruleCopy ? ruleCopy.why : impact === "high" ? "This issue is significantly impacting your website's performance and user experience. Fixing this should be a top priority as it's likely costing you customers right now." : impact === "medium" ? "This issue is affecting your website's effectiveness. Addressing it will improve user experience and help you capture more leads." : "While not critical, fixing this will help optimize your website and provide a better experience for your visitors."}
-                                </p>
-                            </div>
-                            <div>
-                                <h4 className="font-semibold text-sm mb-1">Potential Revenue Impact:</h4>
-                                <p className="text-sm text-muted-foreground">
-                                    {ruleCopy ? ruleCopy.revenue : impact === "high" ? "Businesses that fix high-impact issues typically see 30–50% improvement in conversion rates within the first month." : impact === "medium" ? "Addressing medium-impact issues can lead to 15–25% improvement in user engagement and lead quality." : "Small optimizations add up—minor improvements can result in 5–10% better performance over time."}
-                                </p>
-                            </div>
-                            <div className="pt-2">
-                                <Button
-                                    size="sm"
-                                    className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                                    onClick={(e) => {
-                                        e.stopPropagation()
-                                        window.location.href = "/contact"
-                                    }}
-                                >
-                                    Get This Fixed Now
-                                    <ArrowRight className="ml-2 h-3 w-3"/>
-                                </Button>
-                            </div>
-                        </div>)}
                 </div>
+
+                {isExpanded && (<div
+                    className="mt-4 pt-4 border-t space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <div>
+                        <h4 className="font-semibold text-sm mb-1">Why This Matters:</h4>
+                        <p className="text-sm text-muted-foreground">
+                            {ruleCopy ? ruleCopy.why : impact === "high" ? "This issue is significantly impacting your website's performance and user experience. Fixing this should be a top priority as it's likely costing you customers right now." : impact === "medium" ? "This issue is affecting your website's effectiveness. Addressing it will improve user experience and help you capture more leads." : "While not critical, fixing this will help optimize your website and provide a better experience for your visitors."}
+                        </p>
+                    </div>
+                    <div>
+                        <h4 className="font-semibold text-sm mb-1">Potential Revenue Impact:</h4>
+                        <p className="text-sm text-muted-foreground">
+                            {ruleCopy ? ruleCopy.revenue : impact === "high" ? "Businesses that fix high-impact issues typically see 30–50% improvement in conversion rates within the first month." : impact === "medium" ? "Addressing medium-impact issues can lead to 15–25% improvement in user engagement and lead quality." : "Small optimizations add up—minor improvements can result in 5–10% better performance over time."}
+                        </p>
+                    </div>
+                    <div className="pt-2">
+                        <Button
+                            size="sm"
+                            className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                window.location.href = "/contact"
+                            }}
+                        >
+                            Get This Fixed Now
+                            <ArrowRight className="ml-2 h-3 w-3"/>
+                        </Button>
+                    </div>
+                </div>)}
             </div>
-        </Card>)
+        </div>
+    </Card>)
 }
 
 export default function WebsiteAuditResultsClient() {
@@ -311,25 +311,25 @@ export default function WebsiteAuditResultsClient() {
 
     if (!results) {
         return (<div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-                <div className="container mx-auto px-4 md:px-8 py-16">
-                    <Card className="max-w-2xl mx-auto p-8 text-center">
-                        <AlertCircle className="w-16 h-16 text-amber-600 mx-auto mb-4"/>
-                        <h1 className="text-3xl font-bold mb-4">No Results Found</h1>
-                        <p className="text-muted-foreground mb-6">Please run a website audit first to see your
-                            results.</p>
-                        <Button
-                            asChild
-                            size="lg"
-                            className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                        >
-                            <Link href="/website-audit">
-                                Start Your Free Audit
-                                <ArrowRight className="ml-2 h-4 w-4"/>
-                            </Link>
-                        </Button>
-                    </Card>
-                </div>
-            </div>)
+            <div className="container mx-auto px-4 md:px-8 py-16">
+                <Card className="max-w-2xl mx-auto p-8 text-center">
+                    <AlertCircle className="w-16 h-16 text-amber-600 mx-auto mb-4"/>
+                    <h1 className="text-3xl font-bold mb-4">No Results Found</h1>
+                    <p className="text-muted-foreground mb-6">Please run a website audit first to see your
+                        results.</p>
+                    <Button
+                        asChild
+                        size="lg"
+                        className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
+                    >
+                        <Link href="/website-audit">
+                            Start Your Free Audit
+                            <ArrowRight className="ml-2 h-4 w-4"/>
+                        </Link>
+                    </Button>
+                </Card>
+            </div>
+        </div>)
     }
 
     const s = results.lighthouse
@@ -337,253 +337,255 @@ export default function WebsiteAuditResultsClient() {
     const hasIssues = overallScore < 90
 
     return (<div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-            {/* Hero Section with Results */}
-            <section className="py-12 md:py-16 border-b bg-white/50 backdrop-blur-sm">
-                <div className="container mx-auto px-4 md:px-8">
-                    <div className="max-w-4xl mx-auto text-center mb-8">
-                        <div
-                            className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-in fade-in slide-in-from-top duration-500">
-                            <Zap className="w-4 h-4"/>
-                            Audit Complete
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance animate-in fade-in slide-in-from-bottom duration-700">
-                            Your Website Analysis for{" "}
-                            <span
-                                className="text-transparent text-3xl md:text-4xl bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600">
-                                {url || "Your Site"}
-                            </span>
-                        </h1>
-                        <p className="text-xl text-muted-foreground mb-6 animate-in fade-in slide-in-from-bottom duration-700 delay-150">
-                            {hasIssues ? "We've identified significant opportunities to improve your online presence and drive more customers to your business." : "Your website is performing well, but there's always room for optimization to stay ahead of competitors."}
-                        </p>
+        {/* Hero Section with Results */}
+        <section className="py-12 md:py-16 border-b bg-white/50 backdrop-blur-sm">
+            <div className="container mx-auto px-4 md:px-8">
+                <div className="max-w-4xl mx-auto text-center mb-8 px-4 overflow-hidden">
+                    <div
+                        className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-in fade-in slide-in-from-top duration-500">
+                        <Zap className="w-4 h-4"/>
+                        Audit Complete
                     </div>
 
-                    {/* Score Cards */}
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto">
-                        <ScoreCircle score={s.performance} label="Performance"/>
-                        <ScoreCircle score={s.accessibility} label="Accessibility"/>
-                        <ScoreCircle score={s.bestPractices} label="Best Practices"/>
-                        <ScoreCircle score={s.seo} label="SEO"/>
-                        <div className="col-span-2 md:col-span-1 flex justify-center">
-                            <ScoreCircle score={overallScore} label="Overall Score"/>
-                        </div>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance animate-in fade-in slide-in-from-bottom duration-700">
+                        Your Website Analysis for{" "}
+                        <span
+                            className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 inline-block max-w-full [overflow-wrap:anywhere] md:[overflow-wrap:normal] break-all md:break-words">
+      {url || "Your Site"}
+    </span>
+                    </h1>
+
+                    <p className="text-xl text-muted-foreground mb-6 animate-in fade-in slide-in-from-bottom duration-700 delay-150">
+                        {hasIssues ? "We've identified significant opportunities to improve your online presence and drive more customers to your business." : "Your website is performing well, but there's always room for optimization to stay ahead of competitors."}
+                    </p>
+                </div>
+
+
+                {/* Score Cards */}
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto">
+                    <ScoreCircle score={s.performance} label="Performance"/>
+                    <ScoreCircle score={s.accessibility} label="Accessibility"/>
+                    <ScoreCircle score={s.bestPractices} label="Best Practices"/>
+                    <ScoreCircle score={s.seo} label="SEO"/>
+                    <div className="col-span-2 md:col-span-1 flex justify-center">
+                        <ScoreCircle score={overallScore} label="Overall Score"/>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            {/* Urgency Section */}
-            {hasIssues && (<section className="py-12 bg-gradient-to-r from-red-50 to-orange-50 border-b">
-                    <div className="container mx-auto px-4 md:px-8">
-                        <div className="max-w-4xl mx-auto">
-                            <div
-                                className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500 animate-in fade-in slide-in-from-left duration-700">
-                                <AlertCircle className="w-8 h-8 text-red-600 flex-shrink-0 mt-1 animate-pulse"/>
-                                <div>
-                                    <h2 className="text-2xl font-bold mb-3 text-red-900">
-                                        Your Website Has Critical Issues That Are Costing You Money
-                                    </h2>
-                                    <p className="text-lg text-gray-700 mb-4">
-                                        Every day your website underperforms, you&apos;re losing potential customers to
-                                        competitors. Studies show
-                                        that <strong>53% of mobile users abandon sites that take longer than 3 seconds
-                                        to load</strong>, and{" "}
-                                        <strong>75% of users judge a company&apos;s credibility based on their website
-                                            design</strong>.
-                                    </p>
-                                    <p className="text-lg text-gray-700">
-                                        The good news? These issues are fixable, and we specialize in turning
-                                        underperforming websites into
-                                        powerful lead-generation machines for Southwest Florida businesses.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>)}
-
-            {/* Recommendations Section */}
-            <section className="py-16">
-                <div className="container mx-auto px-4 md:px-8">
-                    <div className="max-w-4xl mx-auto">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Your Audit Revealed</h2>
-                            <p className="text-xl text-muted-foreground">
-                                Here are the specific issues holding your website back from reaching its full potential
+        {/* Urgency Section */}
+        {hasIssues && (<section className="py-12 bg-gradient-to-r from-red-50 to-orange-50 border-b">
+            <div className="container mx-auto px-4 md:px-8">
+                <div className="max-w-4xl mx-auto">
+                    <div
+                        className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500 animate-in fade-in slide-in-from-left duration-700">
+                        <AlertCircle className="w-8 h-8 text-red-600 flex-shrink-0 mt-1 animate-pulse"/>
+                        <div>
+                            <h2 className="text-2xl font-bold mb-3 text-red-900">
+                                Your Website Has Critical Issues That Are Costing You Money
+                            </h2>
+                            <p className="text-lg text-gray-700 mb-4">
+                                Every day your website underperforms, you&apos;re losing potential customers to
+                                competitors. Studies show
+                                that <strong>53% of mobile users abandon sites that take longer than 3 seconds
+                                to load</strong>, and{" "}
+                                <strong>75% of users judge a company&apos;s credibility based on their website
+                                    design</strong>.
                             </p>
-                            <p className="text-sm text-muted-foreground mt-2 italic">Click any item to see detailed
-                                impact analysis</p>
+                            <p className="text-lg text-gray-700">
+                                The good news? These issues are fixable, and we specialize in turning
+                                underperforming websites into
+                                powerful lead-generation machines for Southwest Florida businesses.
+                            </p>
                         </div>
-
-                        <div className="space-y-4 mb-12">
-                            {results.recommendations.map((rec, i) => (
-                                <RecommendationCard key={i} rec={rec} index={i}/>))}
-                        </div>
-
-                        {/* Value Proposition */}
-                        <Card
-                            className="bg-gradient-to-br from-orange-600 to-amber-600 text-white p-8 md:p-12 animate-in fade-in slide-in-from-bottom duration-700">
-                            <div className="text-center mb-8">
-                                <Award className="w-16 h-16 mx-auto mb-4"/>
-                                <h3 className="text-3xl font-bold mb-4">Don&apos;t Let These Issues Cost You Another
-                                    Customer</h3>
-                                <p className="text-xl text-orange-50 mb-6">
-                                    Sunset Vista Co has helped dozens of Southwest Florida businesses transform their
-                                    websites into
-                                    high-performing assets that generate consistent leads and revenue.
-                                </p>
-                            </div>
-
-                            <div className="grid md:grid-cols-3 gap-6 mb-8">
-                                <div
-                                    className={`text-center transition-all duration-700 ${showStats ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                                    <div className="text-4xl font-bold mb-2">127%</div>
-                                    <div className="text-orange-50">Average Traffic Increase</div>
-                                </div>
-                                <div
-                                    className={`text-center transition-all duration-700 delay-150 ${showStats ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-                                >
-                                    <div className="text-4xl font-bold mb-2">3.2x</div>
-                                    <div className="text-orange-50">More Qualified Leads</div>
-                                </div>
-                                <div
-                                    className={`text-center transition-all duration-700 delay-300 ${showStats ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-                                >
-                                    <div className="text-4xl font-bold mb-2">$47K</div>
-                                    <div className="text-orange-50">Avg. Revenue Increase</div>
-                                </div>
-                            </div>
-
-                            <div className="text-center">
-                                <p className="text-lg text-orange-50 mb-6">
-                                    <strong>Unlike remote agencies</strong>, we provide in-person support right here in
-                                    Southwest Florida.
-                                    Meet face-to-face, get hands-on help, and work with a team that truly understands
-                                    your local market.
-                                </p>
-                            </div>
-                        </Card>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>)}
 
-            {/* What Happens Next */}
-            <section className="py-16 bg-white/50 backdrop-blur-sm">
-                <div className="container mx-auto px-4 md:px-8">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What Happens When You Work With
-                            Us</h2>
-
-                        <div className="grid md:grid-cols-3 gap-8 mb-12">
-                            <Card className="p-6 text-center">
-                                <div
-                                    className="w-12 h-12 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xl mx-auto mb-4">
-                                    1
-                                </div>
-                                <h3 className="text-xl font-bold mb-3">Free Consultation</h3>
-                                <p className="text-muted-foreground">
-                                    We&apos;ll meet in person or virtually to discuss your audit results and create a
-                                    custom action plan
-                                </p>
-                            </Card>
-
-                            <Card className="p-6 text-center">
-                                <div
-                                    className="w-12 h-12 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xl mx-auto mb-4">
-                                    2
-                                </div>
-                                <h3 className="text-xl font-bold mb-3">Strategic Implementation</h3>
-                                <p className="text-muted-foreground">
-                                    Our team fixes critical issues and optimizes your site for maximum performance and
-                                    conversions
-                                </p>
-                            </Card>
-
-                            <Card className="p-6 text-center">
-                                <div
-                                    className="w-12 h-12 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xl mx-auto mb-4">
-                                    3
-                                </div>
-                                <h3 className="text-xl font-bold mb-3">Ongoing Growth</h3>
-                                <p className="text-muted-foreground">
-                                    Watch your traffic, leads, and revenue grow with continuous optimization and support
-                                </p>
-                            </Card>
-                        </div>
-
-                        {/* Social Proof */}
-                        <Card className="p-8 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
-                            <div className="flex items-start gap-4">
-                                <CheckCircle2 className="w-8 h-8 text-green-600 flex-shrink-0"/>
-                                <div>
-                                    <p className="text-lg italic mb-4">
-                                        &#34;After Sunset Vista Co optimized our website, we saw a 215% increase in
-                                        online inquiries within just
-                                        3 months. Their in-person support made all the difference - they truly
-                                        understand our Naples market
-                                        and helped us dominate our local competition.&#34;
-                                    </p>
-                                    <p className="font-semibold">— Michael R., Naples Home Services</p>
-                                </div>
-                            </div>
-                        </Card>
-                    </div>
-                </div>
-            </section>
-
-            {/* Final CTA */}
-            <section className="py-16 bg-gradient-to-br from-orange-600 to-amber-600 text-white">
-                <div className="container mx-auto px-4 md:px-8">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <Target className="w-16 h-16 mx-auto mb-6"/>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Fix These Issues and Start
-                            Growing?</h2>
-                        <p className="text-xl text-orange-50 mb-8">
-                            Schedule your free consultation today and discover how we can transform your website into a
-                            powerful
-                            business asset. No obligation, no pressure - just honest advice from local experts who care
-                            about your
-                            success.
+        {/* Recommendations Section */}
+        <section className="py-16">
+            <div className="container mx-auto px-4 md:px-8">
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">What Your Audit Revealed</h2>
+                        <p className="text-xl text-muted-foreground">
+                            Here are the specific issues holding your website back from reaching its full potential
                         </p>
+                        <p className="text-sm text-muted-foreground mt-2 italic">Click any item to see detailed
+                            impact analysis</p>
+                    </div>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                            <Button asChild size="lg"
-                                    className="bg-white text-orange-700 hover:bg-orange-50 text-lg px-8 py-6 h-auto">
-                                <Link href="/contact">
-                                    <Calendar className="mr-2 h-5 w-5"/>
-                                    Schedule Free Consultation
-                                </Link>
-                            </Button>
-                            <Button
-                                asChild
-                                size="lg"
-                                variant="outline"
-                                className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto"
+                    <div className="space-y-4 mb-12">
+                        {results.recommendations.map((rec, i) => (<RecommendationCard key={i} rec={rec} index={i}/>))}
+                    </div>
+
+                    {/* Value Proposition */}
+                    <Card
+                        className="bg-gradient-to-br from-orange-600 to-amber-600 text-white p-8 md:p-12 animate-in fade-in slide-in-from-bottom duration-700">
+                        <div className="text-center mb-8">
+                            <Award className="w-16 h-16 mx-auto mb-4"/>
+                            <h3 className="text-3xl font-bold mb-4">Don&apos;t Let These Issues Cost You Another
+                                Customer</h3>
+                            <p className="text-xl text-orange-50 mb-6">
+                                Sunset Vista Co has helped dozens of Southwest Florida businesses transform their
+                                websites into
+                                high-performing assets that generate consistent leads and revenue.
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-6 mb-8">
+                            <div
+                                className={`text-center transition-all duration-700 ${showStats ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+                                <div className="text-4xl font-bold mb-2">127%</div>
+                                <div className="text-orange-50">Average Traffic Increase</div>
+                            </div>
+                            <div
+                                className={`text-center transition-all duration-700 delay-150 ${showStats ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                             >
-                                <a href="tel:+19415291858">
-                                    <Phone className="mr-2 h-5 w-5"/>
-                                    Call (941) 529-1858
-                                </a>
-                            </Button>
+                                <div className="text-4xl font-bold mb-2">3.2x</div>
+                                <div className="text-orange-50">More Qualified Leads</div>
+                            </div>
+                            <div
+                                className={`text-center transition-all duration-700 delay-300 ${showStats ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                            >
+                                <div className="text-4xl font-bold mb-2">$47K</div>
+                                <div className="text-orange-50">Avg. Revenue Increase</div>
+                            </div>
                         </div>
 
-                        <p className="text-orange-100 text-sm">
-                            Serving Fort Myers, Naples, Cape Coral, Bonita Springs, and all of Southwest Florida
-                        </p>
-                    </div>
+                        <div className="text-center">
+                            <p className="text-lg text-orange-50 mb-6">
+                                <strong>Unlike remote agencies</strong>, we provide in-person support right here in
+                                Southwest Florida.
+                                Meet face-to-face, get hands-on help, and work with a team that truly understands
+                                your local market.
+                            </p>
+                        </div>
+                    </Card>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            {/* Trust Footer */}
-            <section className="py-8 bg-white/50 backdrop-blur-sm border-t">
-                <div className="container mx-auto px-4 md:px-8">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <p className="text-sm text-muted-foreground">
-                            <strong>100% Risk-Free:</strong> We offer a satisfaction guarantee on all our services. If
-                            you&#39;re not
-                            completely satisfied with our work, we&#39;ll make it right or refund your investment.
-                        </p>
+        {/* What Happens Next */}
+        <section className="py-16 bg-white/50 backdrop-blur-sm">
+            <div className="container mx-auto px-4 md:px-8">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What Happens When You Work With
+                        Us</h2>
+
+                    <div className="grid md:grid-cols-3 gap-8 mb-12">
+                        <Card className="p-6 text-center">
+                            <div
+                                className="w-12 h-12 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xl mx-auto mb-4">
+                                1
+                            </div>
+                            <h3 className="text-xl font-bold mb-3">Free Consultation</h3>
+                            <p className="text-muted-foreground">
+                                We&apos;ll meet in person or virtually to discuss your audit results and create a
+                                custom action plan
+                            </p>
+                        </Card>
+
+                        <Card className="p-6 text-center">
+                            <div
+                                className="w-12 h-12 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xl mx-auto mb-4">
+                                2
+                            </div>
+                            <h3 className="text-xl font-bold mb-3">Strategic Implementation</h3>
+                            <p className="text-muted-foreground">
+                                Our team fixes critical issues and optimizes your site for maximum performance and
+                                conversions
+                            </p>
+                        </Card>
+
+                        <Card className="p-6 text-center">
+                            <div
+                                className="w-12 h-12 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xl mx-auto mb-4">
+                                3
+                            </div>
+                            <h3 className="text-xl font-bold mb-3">Ongoing Growth</h3>
+                            <p className="text-muted-foreground">
+                                Watch your traffic, leads, and revenue grow with continuous optimization and support
+                            </p>
+                        </Card>
                     </div>
+
+                    {/* Social Proof */}
+                    <Card className="p-8 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
+                        <div className="flex items-start gap-4">
+                            <CheckCircle2 className="w-8 h-8 text-green-600 flex-shrink-0"/>
+                            <div>
+                                <p className="text-lg italic mb-4">
+                                    &#34;After Sunset Vista Co optimized our website, we saw a 215% increase in
+                                    online inquiries within just
+                                    3 months. Their in-person support made all the difference - they truly
+                                    understand our Naples market
+                                    and helped us dominate our local competition.&#34;
+                                </p>
+                                <p className="font-semibold">— Michael R., Naples Home Services</p>
+                            </div>
+                        </div>
+                    </Card>
                 </div>
-            </section>
-        </div>)
+            </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="py-16 bg-gradient-to-br from-orange-600 to-amber-600 text-white">
+            <div className="container mx-auto px-4 md:px-8">
+                <div className="max-w-3xl mx-auto text-center">
+                    <Target className="w-16 h-16 mx-auto mb-6"/>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Fix These Issues and Start
+                        Growing?</h2>
+                    <p className="text-xl text-orange-50 mb-8">
+                        Schedule your free consultation today and discover how we can transform your website into a
+                        powerful
+                        business asset. No obligation, no pressure - just honest advice from local experts who care
+                        about your
+                        success.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                        <Button asChild size="lg"
+                                className="bg-white text-orange-700 hover:bg-orange-50 text-lg px-8 py-6 h-auto">
+                            <Link href="/contact">
+                                <Calendar className="mr-2 h-5 w-5"/>
+                                Schedule Free Consultation
+                            </Link>
+                        </Button>
+                        <Button
+                            asChild
+                            size="lg"
+                            variant="outline"
+                            className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto"
+                        >
+                            <a href="tel:+19415291858">
+                                <Phone className="mr-2 h-5 w-5"/>
+                                Call (941) 529-1858
+                            </a>
+                        </Button>
+                    </div>
+
+                    <p className="text-orange-100 text-sm">
+                        Serving Fort Myers, Naples, Cape Coral, Bonita Springs, and all of Southwest Florida
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        {/* Trust Footer */}
+        <section className="py-8 bg-white/50 backdrop-blur-sm border-t">
+            <div className="container mx-auto px-4 md:px-8">
+                <div className="max-w-4xl mx-auto text-center">
+                    <p className="text-sm text-muted-foreground">
+                        <strong>100% Risk-Free:</strong> We offer a satisfaction guarantee on all our services. If
+                        you&#39;re not
+                        completely satisfied with our work, we&#39;ll make it right or refund your investment.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>)
 }
