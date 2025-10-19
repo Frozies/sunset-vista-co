@@ -16,6 +16,7 @@ const navigationConfig = [
             { label: "SEO", href: "/services/seo" },
             { label: "Get Ranked on Google", href: "/services/seo/google-ranking" },
             { label: "E-commerce", href: "/services/ecommerce" },
+            { label: "Shopify", href: "/services/ecommerce/shopify" },
             { label: "Digital Marketing", href: "/services/digital-marketing" },
         ],
     },

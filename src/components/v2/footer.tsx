@@ -12,6 +12,7 @@ const footerConfig = {
             { label: "Get Ranked on Google", href: "/services/seo/google-ranking" },
             { label: "Web Design", href: "/services/web-design" },
             { label: "E-Commerce", href: "/services/ecommerce" },
+            { label: "Shopify", href: "/services/ecommerce/shopify" },
             { label: "Digital Marketing", href: "/services/digital-marketing" },
             { label: "Free Website Audit", href: "/website-audit" },
         ],

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 
 const BASE_URL = "https://www.sunsetvista.co"
 
-const paths: Array<{
+export const sitemap_paths: Array<{
     path: string
     changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]
     priority: number
@@ -16,6 +16,7 @@ const paths: Array<{
     { path: "/services/seo/google-ranking", changeFrequency: "weekly", priority: 0.5 },
     { path: "/services/web-design", changeFrequency: "weekly", priority: 0.6 },
     { path: "/services/ecommerce", changeFrequency: "weekly", priority: 0.6 },
+    { path: "/services/ecommerce/shopify", changeFrequency: "weekly", priority: 0.6 },
     { path: "/services/digital-marketing", changeFrequency: "weekly", priority: 0.6 },
     { path: "/website-audit", changeFrequency: "weekly", priority: 0.5 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.5 },
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // De-dup safeguards in case a path gets listed twice
     const seen = new Set<string>()
 
-    return paths
+    return sitemap_paths
         .filter(({ path }) => {
             if (seen.has(path)) return false
             seen.add(path)

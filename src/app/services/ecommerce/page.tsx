@@ -125,12 +125,14 @@ const platforms = [
         description: "Perfect for businesses that want an easy-to-use, all-in-one solution",
         pros: ["Easy to use", "Built-in payments", "App ecosystem", "Reliable hosting"],
         bestFor: "Small to medium businesses, first-time sellers",
+        link: "/services/ecommerce/shopify"
     },
     {
         name: "WooCommerce",
         description: "Ideal for businesses that want full control and customization",
         pros: ["Full customization", "WordPress integration", "No transaction fees", "Extensive plugins"],
         bestFor: "Businesses with existing WordPress sites, custom requirements",
+        link: "/contact"
     },
 ]
 
@@ -234,7 +236,7 @@ export default function EcommercePage() {
                                         <p className="text-sm text-muted-foreground">{platform.bestFor}</p>
                                     </div>
                                     <Button asChild className="w-full">
-                                        <Link href="/contact">Learn More About {platform.name}</Link>
+                                        <Link href={platform.link}>Learn More About {platform.name}</Link>
                                     </Button>
                                 </CardContent>
                             </Card>
