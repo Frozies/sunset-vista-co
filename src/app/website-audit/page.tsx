@@ -19,6 +19,9 @@ export const metadata: Metadata = {
         "Cape Coral SEO",
         "Fort Myers website audit",
     ],
+    alternates: {
+        canonical: "https://www.sunsetvista.co/website-audit",
+    },
     openGraph: {
         title: "Free Website Audit | Sunset Vista Co",
         description:
