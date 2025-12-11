@@ -8,46 +8,52 @@ const __dirname = dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Bundle everything your server code touches
-  output: 'standalone',
-  outputFileTracingRoot: __dirname,
-  experimental: {
-  },
+    // Bundle everything your server code touches
+    output: 'standalone',
+    outputFileTracingRoot: __dirname,
 
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      // Externalize Lighthouse and chrome-aws-lambda
-      config.externals = config.externals || [];
-      config.externals.push({
-        lighthouse: 'commonjs lighthouse',
-        'chrome-aws-lambda': 'commonjs chrome-aws-lambda',
-      });
+    // Turbopack config (for dev mode)
+    turbopack: {
+        root: __dirname,
+        rules: {
+            // Add any loader rules here if needed
+        },
+    },
 
-      // Silence import.meta warnings in Lighthouse
-      config.ignoreWarnings = [
-        /Critical dependency: the request of a dependency is an expression/,
-        /Critical dependency: Accessing import\.meta directly is unsupported/,
-      ];
-    }
-    return config;
-  },
+    webpack: (config, { isServer }) => {
+        if (isServer) {
+            // Externalize Lighthouse and chrome-aws-lambda
+            config.externals = config.externals || [];
+            config.externals.push({
+                lighthouse: 'commonjs lighthouse',
+                'chrome-aws-lambda': 'commonjs chrome-aws-lambda',
+            });
 
-  // Ensure these packages don’t get bundled client‑side
-  serverExternalPackages: ['lighthouse', 'chrome-aws-lambda'],
+            // Silence import.meta warnings in Lighthouse
+            config.ignoreWarnings = [
+                /Critical dependency: the request of a dependency is an expression/,
+                /Critical dependency: Accessing import\.meta directly is unsupported/,
+            ];
+        }
+        return config;
+    },
 
-  async headers() {
-    return [
-      {
-        source: '/api/audit',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-    ];
-  },
+    // Ensure these packages don't get bundled client‑side
+    serverExternalPackages: ['lighthouse', 'chrome-aws-lambda'],
+
+    async headers() {
+        return [
+            {
+                source: '/api/audit',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 'no-cache, no-store, must-revalidate',
+                    },
+                ],
+            },
+        ];
+    },
 };
 
 export default nextConfig;
