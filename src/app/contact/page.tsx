@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Contact Sunset Vista Co | Book a Free Consultation",
         description:
-            "Reach out to schedule your free consultation or SEO audit. Local, in-person support for Cape Coral, Fort Myers, and Naples.",
+            "Reach out to schedule your free consultation or SEO audit. Local,  in-person support for Cape Coral, Fort Myers, and Naples.",
         url: "https://www.sunsetvista.co/contact",
         siteName: "Sunset Vista Co",
         type: "website"
