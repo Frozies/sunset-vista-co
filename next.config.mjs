@@ -14,10 +14,7 @@ const nextConfig = {
 
     // Turbopack config
     turbopack: {
-        root: process.cwd(),
-        rules: {
-            // Add any loader rules here if needed
-        },
+        root: resolve(process.cwd()),
     },
 
     webpack: (config, { isServer }) => {
