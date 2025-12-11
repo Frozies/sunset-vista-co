@@ -12,11 +12,6 @@ const nextConfig = {
     output: 'standalone',
     outputFileTracingRoot: __dirname,
 
-    // Turbopack config
-    turbopack: {
-        root: resolve(process.cwd()),
-    },
-
     webpack: (config, { isServer }) => {
         if (isServer) {
             // Externalize Lighthouse and chrome-aws-lambda
