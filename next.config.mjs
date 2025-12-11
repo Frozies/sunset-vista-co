@@ -1,6 +1,6 @@
 // next.config.mjs
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, resolve } from 'path';
 
 /** Derive __dirname in ESM */
 const __filename = fileURLToPath(import.meta.url);
@@ -12,9 +12,9 @@ const nextConfig = {
     output: 'standalone',
     outputFileTracingRoot: __dirname,
 
-    // Turbopack config (for dev mode)
+    // Turbopack config
     turbopack: {
-        root: __dirname,
+        root: process.cwd(),
         rules: {
             // Add any loader rules here if needed
         },
