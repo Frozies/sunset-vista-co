@@ -588,11 +588,6 @@ function getSeoLintTesterInstance(opts: any) {
     try {
         mod = require("@nickreese/seo-lint");
     } catch {}
-    if (!mod) {
-        try {
-            mod = require("@nickreese/seo-lint/Tester");
-        } catch {}
-    }
     if (!mod) throw new Error("seo-lint module not found");
 
     const C = mod?.Tester || mod?.default?.Tester || mod?.default || mod;
